@@ -43,7 +43,6 @@
     <Compile Include="BranchModel.cs" />
     <Compile Include="CenterReportModel.cs" />
     <Compile Include="CenterVM.cs" />
-    <Compile Include="Class1.cs" />
     <Compile Include="ClientVM.cs" />
     <Compile Include="CorporateInfo.cs" />
     <Compile Include="CorporateModel.cs" />

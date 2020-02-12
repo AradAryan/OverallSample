@@ -329,7 +329,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BLL\BLL.csproj">
-      <Project>{229d57be-4664-4b88-a544-b02a789b182e}</Project>
+      <Project>{229D57BE-4664-4B88-A544-B02A789B182E}</Project>
       <Name>BLL</Name>
     </ProjectReference>
     <ProjectReference Include="..\BusinessModel\BusinessModel.csproj">
@@ -337,11 +337,11 @@
       <Name>BusinessModel</Name>
     </ProjectReference>
     <ProjectReference Include="..\CommonLib\CommonLib.csproj">
-      <Project>{036abfdd-e6e1-4e78-9fe9-666c5fafe661}</Project>
+      <Project>{036ABFDD-E6E1-4E78-9FE9-666C5FAFE661}</Project>
       <Name>CommonLib</Name>
     </ProjectReference>
     <ProjectReference Include="..\DAL\DAL.csproj">
-      <Project>{9ba5e20a-3ece-438c-9615-9a85297e1abb}</Project>
+      <Project>{9BA5E20A-3ECE-438C-9615-9A85297E1ABB}</Project>
       <Name>DAL</Name>
     </ProjectReference>
   </ItemGroup>

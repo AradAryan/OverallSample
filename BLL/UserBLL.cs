@@ -32,7 +32,7 @@ namespace BLL
             {
                 try
                 {
-                    User user = unitofwork.UserRepository.GetUserByUserName(UserName);
+                    DAL.User user = unitofwork.UserRepository.GetUserByUserName(UserName);
                     if (user == null)
                         return false;
                     MD5CryptoServiceProvider x = new MD5CryptoServiceProvider();
@@ -55,17 +55,17 @@ namespace BLL
             }
         }
 
-        private static void Update(User user, string NewPassword)
+        private static void Update(DAL.User user, string NewPassword)
         {
             using (UnitOfWork unitOfWork = new UnitOfWork())
             {
-                User m_User = unitOfWork.UserRepository.GetById(user.Id);
+                DAL.User m_User = unitOfWork.UserRepository.GetById(user.Id);
                 m_User.Password = NewPassword;
                 unitOfWork.Save();
             }
         }
 
-        public static User GetUser(string UserName)
+        public static DAL.User GetUser(string UserName)
         {
             using (UnitOfWork unitofwork = new UnitOfWork())
             {
@@ -73,7 +73,7 @@ namespace BLL
             }
         }
 
-        public static void Add(User user)
+        public static void Add(DAL.User user)
         {
             using (UnitOfWork unitOfWork = new UnitOfWork())
             {
@@ -81,7 +81,7 @@ namespace BLL
                 unitOfWork.Save();
             }
         }
-        public static List<User> GetData()
+        public static List<DAL.User> GetData()
         {
             using (UnitOfWork unitOfWork = new UnitOfWork())
             {
@@ -97,7 +97,7 @@ namespace BLL
             }
         }
 
-        public static IEnumerable<User> GetAllUser()
+        public static IEnumerable<DAL.User> GetAllUser()
         {
             using (UnitOfWork unitOfWork = new UnitOfWork())
             {
@@ -106,7 +106,7 @@ namespace BLL
         }
 
 
-        public static User GetById(int Id)
+        public static DAL.User GetById(int Id)
         {
             using (UnitOfWork unitOfWork = new UnitOfWork())
             {
@@ -135,11 +135,11 @@ namespace BLL
             }
         }
 
-        public static void Update(User user)
+        public static void Update(DAL.User user)
         {
             using (UnitOfWork unitOfWork = new UnitOfWork())
             {
-                User m_User = unitOfWork.UserRepository.GetById(user.Id);
+                DAL.User m_User = unitOfWork.UserRepository.GetById(user.Id);
                 m_User.LastName = user.LastName;
                 //m_User.Priority = user.Priority;
                 //m_User.UserName = user.UserName;
@@ -150,7 +150,7 @@ namespace BLL
             }
         }
 
-        public static void UpdateUserForm(User user)
+        public static void UpdateUserForm(DAL.User user)
         {
             //using (UnitOfWork unitOfWork = new UnitOfWork())
             //{
@@ -316,7 +316,7 @@ namespace BLL
             }
         }
 
-        public static User GetUserWithItsCorporate(int UserId)
+        public static DAL.User GetUserWithItsCorporate(int UserId)
         {
             using (UnitOfWork unitofwork = new UnitOfWork())
             {
