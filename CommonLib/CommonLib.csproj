@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{036ABFDD-E6E1-4E78-9FE9-666C5FAFE661}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CommonLib</RootNamespace>
+    <AssemblyName>CommonLib</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="uml">
+      <HintPath>..\DLL\uml.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class1.cs" />
+    <Compile Include="Common.cs" />
+    <Compile Include="DateTimes\CalendarDateAdd.cs" />
+    <Compile Include="DateTimes\CalendarDateDiff.cs" />
+    <Compile Include="DateTimes\CalendarNameType.cs" />
+    <Compile Include="DateTimes\CalendarPeriodCollector.cs" />
+    <Compile Include="DateTimes\CalendarPeriodCollectorContext.cs" />
+    <Compile Include="DateTimes\CalendarPeriodCollectorFilter.cs" />
+    <Compile Include="DateTimes\CalendarTimeRange.cs" />
+    <Compile Include="DateTimes\CalendarVisitor.cs" />
+    <Compile Include="DateTimes\CalendarVisitorFilter.cs" />
+    <Compile Include="DateTimes\ClockProxy.cs" />
+    <Compile Include="DateTimes\Date.cs" />
+    <Compile Include="DateTimes\DateAdd.cs" />
+    <Compile Include="DateTimes\DateDiff.cs" />
+    <Compile Include="DateTimes\DateTimeSet.cs" />
+    <Compile Include="DateTimes\Day.cs" />
+    <Compile Include="DateTimes\DayHourRange.cs" />
+    <Compile Include="DateTimes\DayRange.cs" />
+    <Compile Include="DateTimes\Days.cs" />
+    <Compile Include="DateTimes\DaySeeker.cs" />
+    <Compile Include="DateTimes\DaySeekerContext.cs" />
+    <Compile Include="DateTimes\DayTimeRange.cs" />
+    <Compile Include="DateTimes\Duration.cs" />
+    <Compile Include="DateTimes\DurationFormatType.cs" />
+    <Compile Include="DateTimes\Halfyear.cs" />
+    <Compile Include="DateTimes\Halfyears.cs" />
+    <Compile Include="DateTimes\HalfyearTimeRange.cs" />
+    <Compile Include="DateTimes\HashTool.cs" />
+    <Compile Include="DateTimes\Hour.cs" />
+    <Compile Include="DateTimes\HourRange.cs" />
+    <Compile Include="DateTimes\Hours.cs" />
+    <Compile Include="DateTimes\HourTimeRange.cs" />
+    <Compile Include="DateTimes\ICalendarPeriodCollectorFilter.cs" />
+    <Compile Include="DateTimes\ICalendarTimeRange.cs" />
+    <Compile Include="DateTimes\ICalendarVisitorContext.cs" />
+    <Compile Include="DateTimes\ICalendarVisitorFilter.cs" />
+    <Compile Include="DateTimes\IClock.cs" />
+    <Compile Include="DateTimes\IDateTimeSet.cs" />
+    <Compile Include="DateTimes\IntervalEdge.cs" />
+    <Compile Include="DateTimes\ITimeBlock.cs" />
+    <Compile Include="DateTimes\ITimeCalendar.cs" />
+    <Compile Include="DateTimes\ITimeFormatter.cs" />
+    <Compile Include="DateTimes\ITimeInterval.cs" />
+    <Compile Include="DateTimes\ITimeLine.cs" />
+    <Compile Include="DateTimes\ITimeLineMoment.cs" />
+    <Compile Include="DateTimes\ITimeLineMomentCollection.cs" />
+    <Compile Include="DateTimes\ITimePeriod.cs" />
+    <Compile Include="DateTimes\ITimePeriodChain.cs" />
+    <Compile Include="DateTimes\ITimePeriodCollection.cs" />
+    <Compile Include="DateTimes\ITimePeriodContainer.cs" />
+    <Compile Include="DateTimes\ITimePeriodMapper.cs" />
+    <Compile Include="DateTimes\ITimeRange.cs" />
+    <Compile Include="DateTimes\Minute.cs" />
+    <Compile Include="DateTimes\Minutes.cs" />
+    <Compile Include="DateTimes\MinuteTimeRange.cs" />
+    <Compile Include="DateTimes\Month.cs" />
+    <Compile Include="DateTimes\MonthRange.cs" />
+    <Compile Include="DateTimes\Months.cs" />
+    <Compile Include="DateTimes\MonthTimeRange.cs" />
+    <Compile Include="DateTimes\Now.cs" />
+    <Compile Include="DateTimes\PeriodRelation.cs" />
+    <Compile Include="DateTimes\PersianDate.cs" />
+    <Compile Include="DateTimes\Quarter.cs" />
+    <Compile Include="DateTimes\Quarters.cs" />
+    <Compile Include="DateTimes\QuarterTimeRange.cs" />
+    <Compile Include="DateTimes\SeekBoundaryMode.cs" />
+    <Compile Include="DateTimes\SeekDirection.cs" />
+    <Compile Include="DateTimes\StaticClock.cs" />
+    <Compile Include="DateTimes\Strings.cs" />
+    <Compile Include="DateTimes\SystemClock.cs" />
+    <Compile Include="DateTimes\Time.cs" />
+    <Compile Include="DateTimes\TimeBlock.cs" />
+    <Compile Include="DateTimes\TimeCalendar.cs" />
+    <Compile Include="DateTimes\TimeCalendarConfig.cs" />
+    <Compile Include="DateTimes\TimeCompare.cs" />
+    <Compile Include="DateTimes\TimeFormatter.cs" />
+    <Compile Include="DateTimes\TimeGapCalculator.cs" />
+    <Compile Include="DateTimes\TimeInterval.cs" />
+    <Compile Include="DateTimes\TimeLine.cs" />
+    <Compile Include="DateTimes\TimeLineMoment.cs" />
+    <Compile Include="DateTimes\TimeLineMomentCollection.cs" />
+    <Compile Include="DateTimes\TimePeriodCalc.cs" />
+    <Compile Include="DateTimes\TimePeriodChain.cs" />
+    <Compile Include="DateTimes\TimePeriodCollection.cs" />
+    <Compile Include="DateTimes\TimePeriodCombiner.cs" />
+    <Compile Include="DateTimes\TimePeriodIntersector.cs" />
+    <Compile Include="DateTimes\TimePeriodSubtractor.cs" />
+    <Compile Include="DateTimes\TimeRange.cs" />
+    <Compile Include="DateTimes\TimeSpec.cs" />
+    <Compile Include="DateTimes\TimeTool.cs" />
+    <Compile Include="DateTimes\TimeTrim.cs" />
+    <Compile Include="DateTimes\Week.cs" />
+    <Compile Include="DateTimes\Weeks.cs" />
+    <Compile Include="DateTimes\WeekTimeRange.cs" />
+    <Compile Include="DateTimes\Year.cs" />
+    <Compile Include="DateTimes\YearCalendarTimeRange.cs" />
+    <Compile Include="DateTimes\YearHalfyear.cs" />
+    <Compile Include="DateTimes\YearMonth.cs" />
+    <Compile Include="DateTimes\YearQuarter.cs" />
+    <Compile Include="DateTimes\Years.cs" />
+    <Compile Include="DateTimes\YearTimeRange.cs" />
+    <Compile Include="DateTimes\YearType.cs" />
+    <Compile Include="DateTimes\YearWeekType.cs" />
+    <Compile Include="Enumeration.cs" />
+    <Compile Include="EXT.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DateTimes\Settings.StyleCop" />
+    <None Include="DateTimes\TimeCalendarInterfaces.cd" />
+    <None Include="DateTimes\TimePeriodCalendarClasses.cd" />
+    <None Include="DateTimes\TimePeriodContainerInterfaces.cd" />
+    <None Include="DateTimes\TimePeriodInterfaces.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DateTimes\Strings.de.resx">
+      <DependentUpon>Strings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DateTimes\Strings.resx">
+      <DependentUpon>Strings.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DateTimes\TimePeriod.Desktop.csproj" />
+    <Content Include="DateTimes\TimePeriod.Silverlight.csproj" />
+    <Content Include="DateTimes\TimePeriod.WindowsPhone.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessModel\BusinessModel.csproj">
+      <Project>{fa90bee3-8217-4122-9619-6c57ab366636}</Project>
+      <Name>BusinessModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

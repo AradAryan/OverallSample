@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<texts>
+  <text key="RegisterMinimum" value="ثبت مینیمم"></text>
+  <text key="RegisterMaximum" value="ثبت ماکزیمم"></text>
+
+  <text key="ViewRegisterMaximumFlu" value="ورود به صفحه ثبت ماکزیمم - شبه آنفولانزا"></text>
+  <text key="ViewRegisterMaximumEshal" value="ورود به صفحه ثبت ماکزیمم - اسهال حاد"></text>
+  <text key="ViewRegisterMaximumTanafosi" value="ورود به صفحه ثبت ماکزیمم - شدید تنفسی"></text>
+  <text key="ViewMinimum" value="ورود به صفحه ثبت مینیمم"></text>
+  <text key="RegisterDailyVisits" value="ثبت مراجعه روزانه توسط کاربر {0}"></text>
+  <text key="RegisterSample" value="ثبت نمونه"></text>
+  <text key="RegisterLabResult" value="ثبت نتیجه آزمایشگاه"></text>
+  <text key="ExportMinimum" value="گرفتن خروجی لیست خطی - مینیمم"></text>
+  <text key="ExportMaximum" value="گرفتن خروجی لیست خطی - ماکزیمم"></text>
+  <text key="ChangePassword" value="تغییر کلمه عبور"></text>
+  <text key="HelpFileDownload" value="دانلود فایل راهنما"></text>
+  <text key="DownloadAndroidApp" value="دانلود برنامه اندروید"></text>
+  <text key="DownloadRawForm" value="دانلود فرم خام"></text>
+  <text key="ViewFAQ" value="مراجعه به صفحه سوالات متداول"></text>
+  <text key="ViewLogs" value="مراجعه به صفحه مشاهده عملیات کاربران"></text>
+  <text key="ViewLab" value="مراجعه به صفحه آزمایشگاه"></text>
+  <text key="DeleteMinimumSyndrom" value="حذف سندرم مینیمم. شناسه: {0}"></text>
+  <text key="RetrieveMinimumSyndrom" value="بازیابی سندرم مینیمم. شناسه: {0}"></text>
+  <text key="DeleteMaximumSyndrom" value="حذف سندرم ماکزیمم. شناسه: {0}"></text>
+  <text key="RetrieveMaximumSyndrom" value="بازیابی سندرم ماکزیمم. شناسه: {0}"></text>
+  <text key="ChangeMaximumType" value="تبدیل نوع سندرم ماکزیمم. شناسه: {0}"></text>
+  <text key="DeleteSample" value="حذف نمونه آزمایشگاه. شناسه: {0}"></text>
+  <text key="RetrieveSample" value="بازیابی نمونه آزمایشگاه. شناسه: {0}"></text>
+  <text key="DeleteVisit" value="حذف تعداد بیماران ویزیت شده / بستری"></text>
+  <text key="ViewCorporate" value="ورود به صفحه لیست خطی مراکز"></text>
+  <text key="EditCorporate" value="ویرایش لیست خطی مراکز"></text>
+  <text key="RegisterCorporate" value="ثبت مراکز"></text>
+  <text key="RegisterLabCorp" value="ثبت آزمایشگاه جدید"></text>
+  <text key="DeleteLabCorp" value="حذف آزمایشگاه"></text>
+  <text key="RegisterAssignment" value="ثبت آزمایش های قابل انجام توسط آزمایشگاه"></text>
+  <text key="DeleteAssignment" value="حذف آزمایش های قابل انجام توسط آزمایشگاه"></text>
+  <text key="ViewReportMin" value="لیست خطی (مینیمم)"></text>
+  <text key="ViewReportPro" value="لیست اطلاعات پیشرفته سندروم (ماکزیمم)"></text>
+  <text key="ViewTheroshold" value="مراجعه به لیست خطی تنظیمات آستانه هشدار"></text>
+  <text key="RegisterTheroshold" value="تنظیم آستانه هشدار جدید"></text>
+  <text key="ManipulateThreshold" value="اصلاح آستانه هشدار "></text>
+  <text key="RegisterUser" value="ثبت کاربران"></text>
+  <text key="ManipulateUser" value="اصلاح کاربران"></text>
+
+
+</texts>

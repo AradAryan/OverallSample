@@ -1,0 +1,65 @@
+﻿@{
+    ViewBag.Title = "لیست آزمایشگاه ها بر اساس رتبه بندی";
+    Layout = "~/Views/Shared/_ResponsiveLayout.cshtml";
+    ViewData["page-path"] = "آزمایشگاه|لیست آزمایشگاه ها بر اساس رتبه بندی ";
+}
+<script>
+    var viewModel;
+    $(function () {
+        viewModel = initVm({
+            searchUrl: '@Url.Action("GetLabGrading")',
+            editUrl: '@Url.Action("Edit")',
+            assignmentsUrl: '@Url.Action("Assignments")',
+            usersUrl: '@Url.Action("CorpUsers", "UserManager")'
+        });
+        addCorpLevels(viewModel);
+        kendo.bind($("#container"), viewModel);
+        initView(viewModel);
+    });
+</script>
+<div class="wide">
+    <form id="Form" data-role="validator" novalidate="novalidate" action="@Url.Action("Export")" method="post">
+        <section class="well">
+            <h2 class="ra-well-title">جستجو بر اساس رتبه بندی آزمایشگاه ها</h2>
+            <div class="clearfix"></div>
+            <div>
+                <div class="form-horizontal form-widgets col-sm-6">
+                    @Html.Partial("CorpLevel")
+                </div>
+                <div class="form-horizontal form-widgets col-sm-6">
+                    <div class="form-group">
+                        <label class="control-label col-sm-4">تاریخ شروع</label>
+                        <div class="col-sm-8 col-md-6">
+                            <input id="startDate" name="startDate" data-bind="value:startDate" class="k-textbox date x1" maxlength="10" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-4">تاریخ پایان</label>
+                        <div class="col-sm-8 col-md-6">
+                            <input id="endDate" name="endDate" data-bind="value:endDate" class="k-textbox date x1" maxlength="10" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="buttons-wrap">
+                <button type="button" id="nextStep" class="k-button k-state-default k-primary" data-role="button" data-bind='click: onSearch'>جستجو</button>
+                <button type="button" class="k-button k-state-default k-primary" data-role="button" data-bind='click: onExport'>خروجی اکسل</button>
+            </div>
+            <div class="clearfix"></div>
+            <br />&nbsp;<br />
+            <div class="clearfix"></div>
+            <div>
+                <h4>نتایج جستجو: لیست آزمایشگاه ها بر اساس رتبه بندی</h4>
+                <div id="grid"></div>
+            </div>
+
+
+        </section>
+    </form>
+</div>
+
+<script src="~/js/initView/LabGrading-v.1.js"></script>
+<script src="~/js/viewModel/LabGrading-v.1.js"></script>
+
+@Html.Partial("notification")

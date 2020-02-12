@@ -1,0 +1,62 @@
+﻿@model IEnumerable<BusinessModel.FaqStatisticsVM>
+    @{
+        ViewBag.Title = "بازدید سوالات متداول";
+    }
+
+
+    @section js{
+        <script src="~/js/viewModel/GetFaqStatistics-v.1.js"></script>
+        <script src="~/js/initView/GetFaqStatistics-v.1.js"></script>
+
+        <script>
+            var viewModel;
+            $(function () {
+                viewModel = initVM();
+                kendo.bind($('#container'), viewModel);
+                initView(viewModel);
+            });
+        </script>
+
+
+    }
+
+    <h3>آمار بازدید سوالات متداول</h3>
+    <br />
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>
+                        نام سامانه
+                    </th>
+                    <th>
+                        شمار بازدید
+                    </th>
+                </tr>
+            </thead>
+
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <a href="http://localhost/UI/Faq/FaqViews/@item.Id">@item.SystemName</a>
+
+                    </td>
+                    <td>
+                        @item.Count
+
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+
+    <div>
+        <a class="k-button" href="http://localhost/UI/faq/GetExcel" id="excel">
+            دانلود فایل اکسل
+        </a>
+
+    </div>
+    <br />
+    <br />

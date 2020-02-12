@@ -1,0 +1,433 @@
+﻿<!DOCTYPE html>
+@using CommonLib;
+@using Sso.UMProxy;
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta name="today" content="@Common.NormalizePersianDate(Common.GetPersianDate(DateTime.Now))" />
+    <title>@ViewBag.Title | سامانه مراقبت سندرمیک</title>
+    <link href="@Url.Content(System.Web.Configuration.WebConfigurationManager.AppSettings["ResponsiveResourceUrl"] + "styles/kendo.common.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content(System.Web.Configuration.WebConfigurationManager.AppSettings["ResponsiveResourceUrl"] + "styles/examples-offline.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content(System.Web.Configuration.WebConfigurationManager.AppSettings["ResponsiveResourceUrl"] + "styles/kendo.default.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content(System.Web.Configuration.WebConfigurationManager.AppSettings["ResponsiveResourceUrl"] + "styles/kendo.rtl.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content(System.Web.Configuration.WebConfigurationManager.AppSettings["ResponsiveResourceUrl"] + "styles/bootstrap.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content(System.Web.Configuration.WebConfigurationManager.AppSettings["ResponsiveResourceUrl"] + "styles/styles-v.2.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content(System.Web.Configuration.WebConfigurationManager.AppSettings["ResponsiveResourceUrl"] + "styles/pwt-datepicker.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content(System.Web.Configuration.WebConfigurationManager.AppSettings["resourceUrl"] + "Plugin/Kendo/Theme/kendo.rtl.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/css/Style-v.8.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/css/menu-v.2.css")" rel="stylesheet" type="text/css" />
+
+    <script src="@Url.Content(System.Web.Configuration.WebConfigurationManager.AppSettings["ResponsiveResourceUrl"] + "js/jquery.min.js") " type="text/javascript"></script>
+    <script src="@Url.Content(System.Web.Configuration.WebConfigurationManager.AppSettings["ResponsiveResourceUrl"] + "js/pwt-date.js")" type="text/javascript"></script>
+    <script src="@Url.Content(System.Web.Configuration.WebConfigurationManager.AppSettings["ResponsiveResourceUrl"] + "js/pwt-datepicker.min.js")" type="text/javascript"></script>
+    @*<script src="@Url.Content(System.Web.Configuration.WebConfigurationManager.AppSettings["ResponsiveResourceUrl"] + "js/pwt-options.js")" type="text/javascript"></script>*@
+    <script src="@Url.Content(System.Web.Configuration.WebConfigurationManager.AppSettings["ResponsiveResourceUrl"] + "js/Faranam-v.2.js") " type="text/javascript"></script>
+    <script src="@Url.Content(System.Web.Configuration.WebConfigurationManager.AppSettings["ResponsiveResourceUrl"] + "js/kendo.web.min.js") " type="text/javascript"></script>
+    <script src="~/js/Utils-v.2.js " type="text/javascript"></script>
+
+    @RenderSection("js", false)
+</head>
+
+
+<body class="k-rtl">
+    <span class="validation-msg"></span>
+    <script>
+    var MURL = "..";
+    $(function () {
+        initMenu();
+    });
+    function initMenu() {
+        //$("#vertical").css("height", GetViewPointHeight());
+        $("#menu").kendoMenu({
+            dataSource: [
+                @if (Common.CurrentUserHasPermission(Permission.RegSyndrom) || Common.CurrentUserHasPermission(Permission.RegVisitCount) || Common.CurrentUserHasPermission(Permission.ListVisitCount))
+                {
+                <text>
+                {
+                    text: "سندروم",
+                    items:
+                    [
+                    @if (Common.CurrentUserHasPermission(Permission.RegSyndrom) && !CommonLib.Common.CurrentUserIsInGroup(CommonLib.UserRole.ReadOnly))
+                    {
+                        @:{ text: "ثبت سندرم (مینیمم)", imageUrl: "", url: '@Url.Action("Index", "RegisterSyndromic", new { area = "CP" })' },
+                    }
+                    @if (Common.CurrentUserHasPermission(Permission.RegVisitCount) && !CommonLib.Common.CurrentUserIsInGroup(CommonLib.UserRole.ReadOnly))
+                    {
+                        @:{ text: "ثبت تعداد بیماران ویزیت شده / بستری", imageUrl: "", url: '@Url.Action("Index", "Visit", new { area = "CP" })', cssClass: "" },
+                    }
+                    @if (Common.CurrentUserHasPermission(Permission.ListVisitCount))
+                    {
+                        @:{ text: "لیست خطی تعداد بیماران ویزیت شده / بستری", imageUrl: "", url: '@Url.Action("Report", "Visit", new { area = "CP" })', cssClass: "" }
+                    }
+                    ],
+                    cssClass: ""
+                },
+                </text>
+                }
+                @if (Common.CurrentUserHasPermission(Permission.RegMaximum) && !CommonLib.Common.CurrentUserIsInGroup(CommonLib.UserRole.ReadOnly))
+                {
+                <text>
+                {
+                    text: "فرم های ثبت بررسی انفرادی",
+                    items:
+                    [
+                        { text: "فرم بررسی انفرادی سندروم (شبه آنفولانزا)", imageUrl: "", url: '@Url.Action("Index", "ProRegisterSyndromic", new { area = "CP", id = "" })' },
+                        { text: "فرم بررسی انفرادی سندروم (اسهال حاد)", imageUrl: "", url: '@Url.Action("Index", "ProRegisterDiarrhea", new { area = "CP", id = "" })' },
+                        { text: "فرم بررسی انفرادی سندروم (شدید تنفسی)", imageUrl: "", url: '@Url.Action("Index", "ProRegisterRespiratory", new { area = "CP", id = "" })' }
+                    ],
+                    cssClass: ""
+                },
+                </text>
+                }
+                @if (Common.CurrentUserHasPermission(Permission.ListMinimum) || Common.CurrentUserHasPermission(Permission.ListMaximum) || 
+                    Common.CurrentUserHasPermission(Permission.ListLog) || Common.CurrentUserHasPermission(Permission.ReportMaxRespiratory) || 
+                    Common.CurrentUserHasPermission(Permission.ReportSentinel) || Common.CurrentUserHasPermission(Permission.ReportILIFlow) || 
+                    Common.CurrentUserHasPermission(Permission.ReportMap) || Common.CurrentUserHasPermission(Permission.ReportEpidemicMin) || 
+                    Common.CurrentUserHasPermission(Permission.ReportEpidemicMax))
+                {
+                <text>
+                {
+                    text: "گزارشات",
+                    items:
+                        [
+                            @if (Common.CurrentUserHasPermission(Permission.ListMinimum))
+                            {
+                            @: { text: "لیست خطی (مینیمم)", imageUrl: "", url: '@Url.Action("index", "Report", new { area = "CP" })' },
+                            }
+                            @if (Common.CurrentUserHasPermission(Permission.ListMaximum))
+                            {
+                            @: { text: "لیست اطلاعات پیشرفته سندروم (ماکزیمم)", name: "ssdd", imageUrl: "", url: '@Url.Action("ReportPro", "Report", new { area = "CP" })' },
+                            }
+                            @if (Common.CurrentUserHasPermission(Permission.ListLog))
+                            {
+                            @:{ text: "عملکرد کاربران", imageUrl: "", url: '@Url.Action("index", "Log", new { area = "CP" })' },
+                            }
+                            @if (Common.CurrentUserHasPermission(Permission.ReportMaxRespiratory))
+                            {
+                            @:{ text: "گزارش موارد بیماری شدید تنفسی", name: "", imageUrl: "", url: '@Url.Action("MaxRespiratory", "Statistics", new { area = "CP" })' },
+                            }
+                            @if (Common.CurrentUserHasPermission(Permission.ReportSentinel))
+                            {
+                            @:{ text: "گزارش موارد سندروم از پایگاه ها", name: "", imageUrl: "", url: '@Url.Action("ILISentinel", "Statistics", new { area = "CP" })' },
+                            }
+                            @*@if (Common.CurrentUserHasPermission(Permission.ReportILIFlow))
+                            {
+                            @:{ text: "گزارش روند سندروم", name: "", imageUrl: "", url: '@Url.Action("ILIFlow", "Statistics", new { area = "CP" })' },
+                            }*@
+                            @if (Common.CurrentUserHasPermission(Permission.ReportMap))
+                            {
+                            @:{ text: "نقشه", name: "", imageUrl: "", url: '@Url.Action("Map", "Statistics", new { area = "CP" })' },
+                            }
+                            @if (Common.CurrentUserHasPermission(Permission.ReportEpidemicMin))
+                            {
+                            @:{ text: "گزارش جامع اپیدمیک مینیمم", name: "", imageUrl: "", url: '@Url.Action("EpidemicMin", "Statistics", new { area = "CP" })' },
+                            }
+                            @if (Common.CurrentUserHasPermission(Permission.ReportEpidemicMax))
+                            {
+                            @:{ text: "گزارش جامع اپیدمیک ماکزیمم", name: "", imageUrl: "", url: '@Url.Action("EpidemicMax", "Statistics", new { area = "CP" })' },
+                            }
+                            @if (Common.CurrentUserHasPermission(Permission.LabGrading))
+                            {
+                            @:{ text: "گزارش رتبه بندی آزمایشگاه ها", name: "", imageUrl: "", url: '@Url.Action("Grading", "LabCorp", new { area = "CP" })' },
+                            }
+                        ],
+                    cssClass: ""
+                },
+                </text>
+                }
+                @if (Common.CurrentUserHasPermission(Permission.RegSample) || Common.CurrentUserHasPermission(Permission.RegLabResult) ||
+                    Common.CurrentUserHasPermission(Permission.ReportLab) || Common.CurrentUserHasPermission(Permission.ListLabs) ||
+                    Common.CurrentUserHasPermission(Permission.RegLab) || Common.CurrentUserIsInGroup(UserRole.Admin))
+                {
+                <text>
+                {
+                    text: "آزمایشگاه",
+                    items: [
+                    @if (Common.CurrentUserHasPermission(Permission.RegSample))
+                    {
+                        @:{ text: "مشاهده پرونده بیمار (ثبت نمونه)", imageUrl: "", url: '@Url.Action("index", "Lab", new { area = "CP" })' },
+                    }
+                    @if (Common.CurrentUserHasPermission(Permission.RegLabResult))
+                    {
+                        @:{ text: "ثبت نتیجه آزمایش", imageUrl: "", url: '@Url.Action("GeneralLabInfo", "Lab", new { area = "CP" })' },
+                    }
+                    @if (Common.CurrentUserHasPermission(Permission.ReportLab))
+                    {
+                        @:{ text: "گزارش آزمایشگاه", imageUrl: "", url: '@Url.Action("LabReport", "Lab", new { area = "CP" })' },
+                    }
+                    @if (Common.CurrentUserHasPermission(Permission.ListLabs))
+                    {
+                        @:{ text: "لیست آزمایشگاه ها", imageUrl: "", url: '@Url.Action("index", "LabCorp", new { area = "CP" })' },
+                    }
+                    @if (Common.CurrentUserHasPermission(Permission.RegLab))
+                    {
+                        @:{ text: "ثبت آزمایشگاه جدید", imageUrl: "", url: '@Url.Action("add", "LabCorp", new { area = "CP" })' },
+                    }
+                    @if (Common.CurrentUserIsInGroup(UserRole.Admin))
+                    {
+                        @:{ text: "دسترسی سمتها به نتیجه مثبت بیماریها", imageUrl: "", url: '@Url.Action("Index", "DiseasesAccess", new { area = "CP" })' },
+                    }
+                    ],
+                    cssClass: ""
+                },
+                </text>
+                }
+                @if (Common.CurrentUserHasPermission(Permission.ThresholdMap) || Common.CurrentUserHasPermission(Permission.ThresholdWarnings) || Common.CurrentUserHasPermission(Permission.ThresholdSettings) || Common.CurrentUserHasPermission(Permission.ThresholdAdd))
+                {
+                <text>
+                    {
+                        text: "آستانه هشدار",
+                        items: [
+                        @if (Common.CurrentUserHasPermission(Permission.ThresholdMap))
+                        {
+                            @:{ text: "نقشه آستانه هشدار", name: "", imageUrl: "", url: '@Url.Action(Common.CurrentUserIsInGroup(UserRole.University) || Common.CurrentUserIsInGroup(UserRole.Network)  ? "Province" : "Map", "WarningThroshold", new { area = "CP" })' },
+                        }
+                        @if (Common.CurrentUserHasPermission(Permission.ThresholdWarnings))
+                        {
+                            @:{ text: "هشدارهای صادر شده", name: "", imageUrl: "", url: '@Url.Action("index", "WarningThroshold", new { area = "CP" })' },
+                        }
+                        @if (Common.CurrentUserHasPermission(Permission.ThresholdSettings))
+                        {
+                            @:{ text: "لیست خطی تنظیمات آستانه هشدار", name: "", imageUrl: "", url: '@Url.Action("index", "Theroshold", new { area = "CP" })' },
+                        }
+                        @if (Common.CurrentUserHasPermission(Permission.ThresholdAdd))
+                        {
+                            @:{ text: "تنظیم آستانه هشدار جدید", imageUrl: "", url: '@Url.Action("Add", "Theroshold", new { area = "CP" })', cssClass: "" }
+                        }
+                        ],
+                        cssClass: ""
+                    },
+                </text>
+                }
+                    {
+                        text: "دانلودهای مورد نیاز",
+                        items: [
+                                 //{
+                                 //    text: "دانلود برنامه اندروید", imageUrl: "", url: '/Syndromic/Content/Software/Syndromic.apk', cssClass: ""
+                                 //},
+                                {
+                                    text: "دانلود برنامه اندروید - نسخه جدید", imageUrl: "", url: '@Url.Action("AndoidApp", "Download", new { area = "CP" })', cssClass: ""
+                                },
+                                {
+                                    text: "دانلود مرورگر گوگل کروم", imageUrl: "", url: '/Syndromic/Content/Software/Setup.exe', cssClass: ""
+                                },
+                                // {
+                                //     text: "دانلود فونت بارکد", imageUrl: "", url: '/Syndromic/Content/barkod.ttf', cssClass: ""
+                                // },
+                                {
+                                    text: "دانلود فرم خام - شبه آنفولانزا", imageUrl: "", url: '@Url.Action("FluRawForm", "Download", new { area = "CP" })', cssClass: ""
+                                },
+                                {
+                                    text: "دانلود فرم خام - اسهال حاد", imageUrl: "", url: '@Url.Action("DiarheaRawForm", "Download", new { area = "CP" })', cssClass: ""
+                                },
+                                {
+                                    text: "دانلود فرم خام - شدید تنفسی", imageUrl: "", url: '@Url.Action("TanafosiRawForm", "Download", new { area = "CP" })', cssClass: ""
+                                },
+                                {
+                                    text: "دانلود نرم افزار اتصال پشتیبان", imageUrl: "", url: '/Syndromic/Content/Software/AA_v3.exe', cssClass: ""
+                                }
+                        ]
+                    },
+                    @if (Common.CurrentUserHasPermission(Permission.RegUniversity) || Common.CurrentUserHasPermission(Permission.RegNetwork) || 
+                        Common.CurrentUserHasPermission(Permission.RegCenter) || Common.CurrentUserHasPermission(Permission.RegSubCenter) || 
+                        Common.CurrentUserHasPermission(Permission.ListCorporates) || Common.CurrentUserHasPermission(Permission.MngUsers) ||
+                        Common.CurrentUserIsInGroup(UserRole.Admin))
+                    {
+                        <text>
+                        {
+                            text: "مدیریت مراکز/کاربران",
+                            items: [
+                            @if (Common.CurrentUserHasPermission(Permission.RegUniversity)) {
+                                @:{ text: "تعریف دانشگاه جدید", imageUrl: "", url: '@Url.Action("University", "Corporate", new { area = "CP" })' },
+                            }
+                            @if (Common.CurrentUserHasPermission(Permission.RegNetwork)) {
+                                @:{ text: "تعریف شبکه بهداشت جدید", imageUrl: "", url: '@Url.Action("Network", "Corporate", new { area = "CP" })' },
+                            }
+                            @if (Common.CurrentUserHasPermission(Permission.RegCenter)) {
+                                @:{ text: "تعریف بیمارستان/مرکز بهداشتی درمانی/مرکز تجمعی جدید", imageUrl: "", url: '@Url.Action("Center", "Corporate", new { area = "CP" })' },
+                            }
+                            @if (Common.CurrentUserHasPermission(Permission.RegSubCenter)) {
+                                @:{ text: "تعریف خانه / پایگاه بهداشت جدید", imageUrl: "", url: '@Url.Action("SubCenter", "Corporate", new { area = "CP" })' },
+                            }
+                            @if (Common.CurrentUserHasPermission(Permission.ListCorporates)) {
+                                @:{ text: "لیست خطی مراکز", imageUrl: "", url: '@Url.Action("index", "Corporate", new { area = "CP", id = "" })' },
+                            }
+                            @if (Common.CurrentUserHasPermission(Permission.MngUsers)) {
+                                @:{ text: "مدیریت کاربران", imageUrl: "", url: '@Url.Action("Users", "Corporate", new { area = "CP", id = "" })' },
+                            }
+                            @if (Common.CurrentUserIsInGroup(UserRole.Admin)) {
+                                @:{ text: "مدیریت سمت ها / دسترسی ها", imageUrl: "", url: '@Url.Action("Index", "UserPositions", new { area = "CP", id = "" })' }
+                            }
+                            ],
+                            cssClass: ""
+                        },
+                        </text>
+                    }
+                @*@if ((Common.CurrentUserHasPermission(Permission.ManageCorporates) || Common.CurrentUserHasPermission(Permission.ManageUsers)) && !CommonLib.Common.CurrentUserIsInGroup(CommonLib.UserRole.ReadOnly))
+                {
+                    @:{
+                        @:text: "مدیریت مراکز/کاربران",
+                        @:items: [
+                            if (Common.CurrentUserHasPermission(Permission.ManageCorporates))
+                            {
+                                @:{ text: "تعریف دانشگاه جدید", imageUrl: "", url: '@Url.Action("University", "Corporate", new { area = "CP" })' },
+                                @:{ text: "تعریف شبکه بهداشت جدید", imageUrl: "", url: '@Url.Action("Network", "Corporate", new { area = "CP" })' },
+                                @:{ text: "تعریف بیمارستان/مرکز بهداشتی درمانی/مرکز تجمعی جدید", imageUrl: "", url: '@Url.Action("Center", "Corporate", new { area = "CP" })' },
+                                @:{ text: "تعریف خانه / پایگاه بهداشت جدید", imageUrl: "", url: '@Url.Action("SubCenter", "Corporate", new { area = "CP" })' },
+                            }
+                            @:{ text: "لیست خطی مراکز", imageUrl: "", url: '@Url.Action("index", "Corporate", new { area = "CP", id = "" })' },
+                            if (Common.CurrentUserHasPermission(Permission.ManageUsers))
+                            {
+                                @:{ text: "مدیریت کاربران", imageUrl: "", url: '@Url.Action("Users", "Corporate", new { area = "CP", id = "" })' },
+                            }
+                            if (Common.CurrentUserHasPermission(Permission.ManagePermissions))
+                            {
+                                @:{ text: "مدیریت دسترسی ها", imageUrl: "", url: '@Url.Action("Permissions", "Corporate", new { area = "CP", id = "" })' }
+                            }
+                        @:],
+                        @:cssClass: ""
+                    @:},
+                }*@
+                {
+                    text: "راهنما",
+                    items:
+                        [
+                            @*@:{ text: "راهنمای ارسال اس ام اس", name: "ssdd", imageUrl: "", url: '/Syndromic/Content/pdf/UserManualMob.pdf' },
+                            @:{ text: "راهنمای نصب برنامه ی اندروید", name: "ssdd", imageUrl: "", url: '/Syndromic/Content/pdf/guid.pdf' }*@
+                            { text: "راهنمای ارسال اس ام اس", imageUrl: "", url: '@Url.Action("MobileGuide", "Download", new { area = "CP" })' },
+                            { text: "راهنمای نصب برنامه ی اندروید", imageUrl: "", url: '@Url.Action("AndoidAppGuide", "Download", new { area = "CP" })' },
+                            { text: "راهنمای تشخیص سندروم ها و اقدامات اولیه - ویژه بهورزان", imageUrl: "", url: '/Syndromic/Content/pdf/syndroms-guideline.pdf', cssClass: "" },
+                            { text: "راهنمای تشخیص سندروم ها و اقدامات اولیه - ویژه کارشناسان", imageUrl: "", url: '/Syndromic/Content/pdf/syndroms-guideline-experts.pdf', cssClass: "" },
+                            { text: "راهنمای تشخیص سندروم ها و اقدامات اولیه - ویژه پزشکان", imageUrl: "", url: '/Syndromic/Content/pdf/syndroms-guideline-doctor.pdf', cssClass: "" }
+                        ],
+                    cssClass: ""
+                },
+                {
+                    text: "تغییر کلمه عبور", imageUrl: "", url: '@Url.Action("ChangePassword", "UserManager", new { area = "CP" })', cssClass: ""
+                },
+                {
+                    text: "خروج", imageUrl: "", url: '@Url.Action("ExitProgram", "Base", new { area = "CP" })'
+                }
+            ],
+            direction: 'bottom left',
+            orientation: "horizontal"
+        });
+    }
+    function openChild(url) {
+        window.open(MURL + url, '_self');
+    }
+</script>
+    @{
+        //var Current = User as SsoUser;
+        //var us = BLL.UserBLL.GetById(Current.Id);
+        //string FullName = us.FirstName + " " + us.LastName;
+
+        string FullName = Common.CurrentUserShowLabel;
+
+    }
+    <div class="k-rtl  ">
+        <div class="container-fluid custom-header">
+        <div class="container">
+                <div class="row">
+                    <div class="col-md-6 float-right">
+                        <img src="@Url.Content(System.Web.Configuration.WebConfigurationManager.AppSettings["ResponsiveResourceUrl"] + "images/header-right.jpg")" />
+                    </div>
+                    <div class="col-md-6 txt-left float-right">
+
+                        <p class="arm-txt">وزارت بهداشت، درمان و آموزش پزشکی &nbsp;|&nbsp; مرکز مدیریت بیماریهای واگیر </p>
+                        <p class="label-name">
+                            <span> @{var currentUser = (this.User as SsoUser);}@currentUser.Corporates.LastAttribute.Value <img src="@Url.Content(System.Web.Configuration.WebConfigurationManager.AppSettings["ResponsiveResourceUrl"] + "images/user-icon.png")" /></span>
+                            <span class="line">|</span><span> @currentUser.ShowName <img src="@Url.Content(System.Web.Configuration.WebConfigurationManager.AppSettings["ResponsiveResourceUrl"] + "images/building-icon.png")" /></span>
+                            <span class="line">|</span><span class="date-span ">@Common.GetPersianDate(DateTime.Now)<img src="@Url.Content(System.Web.Configuration.WebConfigurationManager.AppSettings["ResponsiveResourceUrl"] + "images/date-icon.png")" /> </span>
+                        </p>
+                    </div>
+                 </div>
+                    <div class="row" style="padding-top:8px;">
+                       
+
+                            @if (ViewData["dont-show-menu"] == null || !(bool)ViewData["dont-show-menu"])
+                            {
+                                <div class="k-rtl col-md-12 ">
+                                    <div class="container bg-menu">
+                                        <ul id="menu" data-role="menu" class="k-widget k-reset k-header k-menu k-menu-horizontal" tabindex="0" role="menubar" aria-activedescendant="menu_mn_active"></ul>
+                                    </div>
+                                </div>
+                            }
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid  custom-under-header">
+            <div class="container">
+                <div class="nav-title">
+                    <ul class="namelist">
+                        <li><a href="@Url.Action("Index", "Home")"><img src="@Url.Content(System.Web.Configuration.WebConfigurationManager.AppSettings["ResponsiveResourceUrl"] + "images/home-icon.png")" /></a></li>
+                        <li><img src="@Url.Content(System.Web.Configuration.WebConfigurationManager.AppSettings["ResponsiveResourceUrl"] + "images/arrow-icon.png")" /></li>
+                        @{
+                            var path = (ViewData["page-path"] ?? ViewBag.Title ?? "").ToString();
+                            var pathItems = path.Split('|');
+                            for (int i = 0; i < pathItems.Length; i++)
+                            {
+                                if (i == pathItems.Length - 1)
+                                {
+                                    <li><span class="final-title">@pathItems[i]</span></li>
+                                }
+                                else
+                                {
+                                    <li><span>@pathItems[i]</span></li>
+                                    <li><img src="@Url.Content(System.Web.Configuration.WebConfigurationManager.AppSettings["ResponsiveResourceUrl"] + "images/arrow-icon.png")" /></li>
+                                }
+                            }
+                        }
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+     
+
+        <div class="container k-rtl" id="container">
+            @RenderBody()
+        </div>
+        <div class="footer">
+            <div class="container">
+                <div class="row up-footer k-rtl">
+                    <div class="col-md-6">
+                        @*<div class="footer-title"><a href="@System.Web.Configuration.WebConfigurationManager.AppSettings["basicDataUrl"]cp/FAQ/">پرسش های متداول</a></div>
+                        <ul class="k-rtl padding-right-0">
+                            <li><a href="@System.Web.Configuration.WebConfigurationManager.AppSettings["basicDataUrl"]cp/FAQ/Details/1">چگونه سندروم را ثبت کنیم؟</a></li>
+                            <li><a href="@System.Web.Configuration.WebConfigurationManager.AppSettings["basicDataUrl"]cp/FAQ/Details/2">چگونه گزارشات را مشاهده کنیم؟</a></li>
+                            <li><a href="@System.Web.Configuration.WebConfigurationManager.AppSettings["basicDataUrl"]cp/FAQ/Details/3">چگونه کلمه ی عبور را تغییر دهیم؟</a></li>
+                            <li><a href="@System.Web.Configuration.WebConfigurationManager.AppSettings["basicDataUrl"]cp/FAQ/Details/4">تفاوت ثبت سندروم خطی با پیشرفته چیست؟</a></li>
+                        </ul>*@
+                    </div>
+                    <div class="col-md-6 k-rtl">
+                        <div class="footer-title">پشتیبانی سامانه</div>
+                        <p>
+                            در صورت بروز هر گونه مشکل از طریق پل های ارتباطی زیر مشکلات خود را بیان نمایید:
+                            <br>
+                            ایمیل:    Syndromic@faranam.net
+                            <br />
+                            شماره تماس: 09104440610
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @RenderSection("footer", false)
+    </body>
+<!--@{
+    foreach (var cl in Common.CurrentUser.CorporateList)
+    {
+        @cl.Id
+        @cl.Name
+    }   
+}
+}-->
+</html>
+@*@{
+    var permissionNames = currentUser.UserName + ":" + string.Join("|", Common.CurrentUser.Permissions.Select(x => x.Name).ToArray());
+    Faranam.Utils.Log.x.Info(permissionNames.Length <= 1000 ? permissionNames : permissionNames.Substring(0, 1000));
+}*@

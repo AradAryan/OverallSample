@@ -1,0 +1,35 @@
+﻿<span id="notification" style="display:none;"></span>
+<script id="successTemplate" type="text/x-kendo-template">
+    <div class="upload-success">
+        <img src="@Url.Content(System.Web.Configuration.WebConfigurationManager.AppSettings["resourceUrl"] + "Plugin/Image/success-icon.png")" />
+        <h3>#= message #</h3>
+    </div>
+</script>
+<script id="errorTemplate" type="text/x-kendo-template">
+    <div class="wrong-pass">
+        <img src="@Url.Content(System.Web.Configuration.WebConfigurationManager.AppSettings["resourceUrl"] + "Plugin/Image/error-icon.png")" />
+        <h3>#= title #</h3>
+        <p>#= message #</p>
+    </div>
+</script>
+<script>
+    var notification;
+    $(function () {
+        notification = $("#notification").kendoNotification({
+            position: {
+                pinned: true,
+                top: 30,
+                right: 20
+            },
+            autoHideAfter: 0,
+            stacking: "down",
+            templates: [{
+                type: "upload-success",
+                template: $("#successTemplate").html()
+            }, {
+                type: "error",
+                template: $("#errorTemplate").html()
+            }]
+        }).data("kendoNotification");
+    });
+</script>

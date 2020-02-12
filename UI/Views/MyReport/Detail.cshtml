@@ -1,0 +1,58 @@
+﻿@model BusinessModel.MyReportVM
+
+@{
+    Layout = "~/Views/Shared/_LayoutWithouHeader.cshtml";
+}
+
+@section js{
+    <script src="~/js/initView/myReport-detail-v.1.js"></script>
+    <script src="~/js/viewModel/myReport-detail-v.1.js"></script>
+}
+
+<script>
+    var _basicUrl = '@System.Web.Configuration.WebConfigurationManager.AppSettings["basicDataUrl"]';
+    //var mapurl = _basicUrl + 'Map';
+    var viewModel;
+    $(function () {
+        debugger;
+        viewModel = initVm({
+            customerDetailUrl: _basicUrl,
+            hasDeleteAccess: '@ViewData["hasDeleteAccess"]' == 'True',
+            phoneImgUrl: '@Url.Content("~/content/image/mobile_phone.png")'
+        });
+        kendo.bind($("#container"), viewModel);
+        initView(viewModel);
+
+        viewModel.CenterId = '@Model.CenterId';
+        viewModel.endDate = '@Model.EndDate';
+        viewModel.NetworkId = '@Model.NetworkId';
+        viewModel.AreaLocationID = '@Model.ProvinceId';
+        viewModel.startDate = '@Model.StartDate';
+        viewModel.syndromId = '@Model.SyndromicId';
+        viewModel.UniversityID = '@Model.UniversityId';
+
+        viewModel.SearchDS.page(0);
+    });
+
+    MURL = "../..";
+
+</script>
+
+<div class="demo-section k-header wide">
+    <div>
+        <div id="grid"></div>
+    </div>
+</div>
+
+@Html.Partial("notification")
+<style>
+    .k-grid-content {
+        min-height: 60px;
+    }
+
+    .demo-section {
+        margin: 10px auto;
+        padding: 10px;
+        border: 1px solid rgba(20,53,80,0.05);
+    }
+</style>

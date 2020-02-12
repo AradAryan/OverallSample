@@ -1,0 +1,219 @@
+﻿@{
+    ViewBag.Title = "گزارش سندروم ماکزیمم";
+    Layout = "~/Views/Shared/_ResponsiveLayout.cshtml";
+    ViewData["page-path"] = "گزارشات|گزارش سندروم ماکزیمم";
+}
+
+    
+<script>
+    var _basicUrl = '@System.Web.Configuration.WebConfigurationManager.AppSettings["basicDataUrl"]cp';
+    var mapurl = _basicUrl + 'Map';
+    var viewModel;
+    $(function () {
+        viewModel = initVm({
+            customerDetailUrl: _basicUrl,
+            hasDeleteAccess: '@ViewData["hasDeleteAccess"]' == 'True',
+            GetPrimaryLabResultUrl: '@Url.Action("GetPrimaryLabResult", "Lab", new {addEmptyItem = true})'
+        });
+        $('#province,#university').length && showLoading();
+        kendo.bind($("#container"), viewModel);
+        initView(viewModel);
+    });
+
+    MURL = "../..";
+</script>
+<div class="demo-section k-header wide">
+    <form id="Form" data-role="validator" novalidate="novalidate" action="@Url.Action("ExportPro")" method="post">
+        <section class="well">
+            @*<h2 class="ra-well-title">جستجو بر اساس</h2>
+            <div class="clearfix"></div>*@
+            <div>
+                <div class="form-horizontal form-widgets col-sm-6">
+                    @if ((bool)ViewData["showHierarchy"])
+                    { 
+                    <div class="form-group">
+                           <label class="control-label col-sm-4">استان</label>
+                        <div class="col-sm-8 col-md-6">
+                             <select id="province" name="province" data-role="dropdownlist" data-bind="source: ArealocationDS, value: AreaLocationID, events:{change: onarelocationChange}"
+                            data-value-field="AreLocationID" data-text-field="areaName" class="x1">
+                            </select>
+                        </div>
+                  
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-4">دانشگاه</label>
+                        <div class="col-sm-8 col-md-6">
+
+                              <select id="university" name="university" data-role="dropdownlist" data-bind="source: UniversityDS, value: universityID, events:{change: onuniversityChange}"
+                            data-value-field="Id" data-text-field="Name" class="x1">
+                        </select>
+                        </div>
+                    
+                    </div>
+                    <div class="form-group">
+                         <label class="control-label col-sm-4">شبکه بهداشت</label>
+                        <div class="col-sm-8 col-md-6">
+                            <select id="Network" name="NetworkId" data-role="dropdownlist" data-bind="source: NetworkDS, value: NetworkId, events:{change: onNetworkChange}"
+                                    data-value-field="Id" data-text-field="Name" class="x1"></select>
+                        </div>
+                   
+                    </div>
+                    <div class="form-group">
+                          <label class="control-label col-sm-4">مرکز بهداشتی درمانی/ بیمارستان</label>
+                        <div class="col-sm-8 col-md-6">
+                            <select id="Center" name="CenterId" data-role="dropdownlist" data-bind="source: CenterDS, value: CenterId, events:{change: onCenterChange}"
+                                    data-value-field="Id" data-text-field="Name" class="x1"></select>
+                        </div>
+                  
+                    </div>
+                    }
+                    <div class="form-group">
+                          <label class="control-label col-sm-4">نوع سندروم</label>
+                        <div class="col-sm-8 col-md-6">
+                              <select id="SyndromicId" name="syndromId" data-role="dropdownlist" data-bind="value: syndromId, events:{change: SyndromChange}"
+                             class="x1">
+                                  <option value="1">سندروم شبه آنفولانزا</option>
+                                  <option value="2">سندروم اسهال حاد</option>
+                                  <option value="3">سندروم شدید تنفسی</option>
+                        </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                          <label class="control-label col-sm-4">وضعیت بیمار</label>
+                        <div class="col-sm-8 col-md-6">
+                             <select id="admissionType" name="admissionType" data-role="dropdownlist" data-bind="value: admissionTypeId, events:{change: admissionTypeChange}" class="x1">
+                                <option value="1">سرپایی</option>
+                                <option value="2">بستری</option>
+                             </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-4">نتیجه آزمایش</label>
+                        <div class="col-sm-8 col-md-6">
+                            <select id="labPrimaryResultId" name="labPrimaryResultId" data-role="dropdownlist" data-bind="source: LabPrimaryResultDS, value: primaryResultId"
+                                    data-value-field="Id" data-text-field="Text" class="x1"></select>
+                        </div>
+                    </div>
+                    @if (!(bool)ViewData["showHierarchy"])
+                    {
+                    <div class="form-group">
+                        <label class="control-label col-sm-10" for="chk-2">
+                            <input type="checkbox" id="chk-2" data-bind="checked: showIncompleteItems" value="true" name="showIncompleteItems" style="vertical-align: top;" />
+                             نمایش ماکزیمم های ناقص
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-10" for="chk-1">
+                            <input type="checkbox" id="chk-1" data-bind="checked: deleted" value="true" name="deleted" style="vertical-align: top;" />
+                            نمایش ماکزیمم های حذف شده
+                        </label>
+                    </div>
+                    if ((bool)ViewData["canFilterIndirect"])
+                    {
+                    <div class="form-group">
+                        <label class="control-label col-sm-10" for="chk-3">
+                            <input type="checkbox" id="chk-3" data-bind="checked: indirect" value="true" name="indirect" style="vertical-align: top;" />
+                            نمایش موارد غیرمستقیم
+                        </label>
+                    </div>
+                    }
+                    }
+                </div>
+                <div class="form-horizontal form-widgets col-sm-6">
+                    <div class="form-group">
+                          <label class="control-label col-sm-4">از تاریخ</label>
+                        <div class="col-sm-8 col-md-6">
+                              <input id="txtstartDate" name="startDate" data-bind="value:startDate" class="k-textbox x1 date" />
+                        </div>
+                  
+                    </div>
+                    <div class="form-group">
+                         <label class="control-label col-sm-4">تا تاریخ</label>
+                        <div class="col-sm-8 col-md-6">
+                              <input id="txtendDate" name="endDate" data-bind="value:endDate" class="k-textbox x1 date" />
+                        </div>
+                   
+                    </div>
+                    <div class="form-group">
+                         <label class="control-label col-sm-4">کد ملی بیمار</label>
+                        <div class="col-sm-8 col-md-6">
+                              <input id="nationalCode" name="National_Code" data-bind="value:nationalCode" class="k-textbox x1" />
+                        </div>
+                   
+                    </div>
+                    <div class="form-group">
+                         <label class="control-label col-sm-4">نام بیمار</label>
+                        <div class="col-sm-8 col-md-6">
+                              <input id="name" name="name" data-bind="value:name" class="k-textbox x1" />
+                        </div>
+                   
+                    </div>
+                    <div class="form-group">
+                         <label class="control-label col-sm-4">نام خانوادگی بیمار</label>
+                        <div class="col-sm-8 col-md-6">
+                              <input id="family" name="family" data-bind="value:family" class="k-textbox x1" />
+                        </div>
+                   
+                    </div>
+                    <div class="form-group">
+                         <label class="control-label col-sm-4">کد برگه</label>
+                        <div class="col-sm-8 col-md-6">
+                              <input id="paper" name="paper" data-bind="value:paper" class="k-textbox x1" />
+                        </div>
+                    </div>
+                    @if ((bool)ViewData["showHierarchy"])
+                    {
+                        <div class="form-group">
+                            <label class="control-label col-sm-10" for="chk-2">
+                                <input type="checkbox" id="chk-2" data-bind="checked: showIncompleteItems" value="true" name="showIncompleteItems" style="vertical-align: top;" />
+                                 نمایش ماکزیمم های ناقص
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-10" for="chk-1">
+                                <input type="checkbox" id="chk-1" data-bind="checked: deleted" value="true" name="deleted" style="vertical-align: top;" />
+                                نمایش ماکزیمم های حذف شده
+                            </label>
+                        </div>
+                        if ((bool)ViewData["canFilterIndirect"])
+                        {
+                        <div class="form-group">
+                            <label class="control-label col-sm-10" for="chk-3">
+                                <input type="checkbox" id="chk-3" data-bind="checked: indirect" value="true" name="indirect" style="vertical-align: top;" />
+                                نمایش موارد غیرمستقیم
+                            </label>
+                        </div>
+                        }
+                    }
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="buttons-wrap">
+                <button type="button" id="nextStep" class="k-button k-state-default k-primary" data-role="button" data-bind='click: onSearch'>جستجو</button>
+                <button type="button" class="k-button k-state-default k-primary" data-role="button" data-bind='click: onExportPro'>خروجی اکسل</button>
+            </div>
+        </section>
+    </form>
+    <div>
+        <h4>نتایج جستجو: گزارش سندروم های ثبت شده
+            @if (CurrentSsoUser.IsInGroup("Network") || CurrentSsoUser.IsInGroup("University"))
+            {
+                <span class="indirect-patient">«رنگ قرمز: بیمار مربوط به یکی از شهرهای تحت پوشش است ولی در مرکزی غیر از مراکز تحت پوشش ثبت شده است»</span>
+            }
+        </h4>
+        <div id="grid"></div>
+    </div>
+</div>
+@Html.Partial("notification")
+<script src="~/js/initView/ProReportSearch-v.3.js"></script>
+<script src="~/js/viewModel/ProReportSearch-v.3.js"></script>
+<style>
+    .k-grid-content {
+        min-height: 60px;
+    }
+    .demo-section {
+        margin: 10px auto;
+        padding: 10px;
+        border: 1px solid rgba(20,53,80,0.05);
+    }
+</style>

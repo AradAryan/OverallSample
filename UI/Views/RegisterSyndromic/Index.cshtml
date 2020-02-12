@@ -1,0 +1,195 @@
+﻿@{
+    ViewBag.Title = "ثبت مشاهده سندرم";
+    Layout = "~/Views/Shared/_ResponsiveLayout.cshtml";
+    ViewData["page-path"] = "سندروم|ثبت مینیمم سندروم";
+}
+
+<script src="~/js/initView/RegisterSyndromic-v.5.js"></script>
+<script src="~/js/viewModel/RegisterSyndromic-v.5.js"></script>
+<script>
+    var _basicUrl = '@System.Web.Configuration.WebConfigurationManager.AppSettings["basicDataUrl"]';
+    var viewModel;
+    $(function () {
+        viewModel = initVm({
+            customerDetailUrl: _basicUrl,
+            AdmissionId: parseInt('@ViewData["AdmissionId"]'),
+            RegisterDate: '@ViewData["Today"]',
+            defaultProvinceId: '@ViewData["defaultProvinceId"]',
+            defaultCityId: '@ViewData["defaultCityId"]',
+            isEdit: '@ViewData["IsEdit"]' == 'True',
+            hasNationalCode: '@ViewData["hasNationalCode"]' == 'True'
+        });
+        initView(viewModel);
+        kendo.bind($("#container"), viewModel);
+        showLoading();
+        viewModel.ReadUpdate(); 
+    });
+
+</script>
+
+<form id="UserForm" data-role="validator" novalidate="novalidate" class="form-wizard">
+    <section class="well">
+        <h2 class="ra-well-title">فرم ثبت خطی سندرم</h2>
+        <div class="form-horizontal form-widgets col-sm-6">
+            <div class="form-group">
+                <label class="control-label col-sm-4" for="HasNationalCode">آیا کد ملی دارد؟</label>
+                <div class="col-sm-8 col-md-6">
+                    <input type="checkbox" id="HasNationalCode" class="k-k-checkbox" data-bind="checked: HasNationalCode, events: { click: showNameBox }" />
+                </div>
+            </div>
+        </div>
+        <div class="form-horizontal form-widgets col-sm-6">
+            <div class="form-group" id="NationalCodeTextBox">
+                <label class="control-label col-sm-4">کد ملی</label>
+                <div class="col-sm-8 col-md-6">
+                    <input id="NationalCode" data-bind="value: NationalCode" class="k-textbox be-number" validationmessage="پر کردن فیلد کد ملی الزامیست" required="required" maxlength="10" />
+                </div>
+            </div>
+            <div id="showbtn" class="form-group" dir="rtl">
+                <button type="button" class="k-button k-state-default margin-left-16" data-bind='events: { click: SabtAhval }'>استعلام کد ملی</button>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div id="show" data-bind="visible: NameBoxIsVisible">
+            <div class="buttons-wrap">
+
+            </div>
+            <div class="form-horizontal form-widgets col-sm-6">
+                <div class="form-group">
+                    <label class="control-label col-sm-4">نام</label>
+                    <div class="col-sm-8 col-md-6">
+                        <input type="text" data-bind="value: FirstName" name="FirstName" id="FirstName" required="required" class="k-textbox handle-requiered" validationmessage="پر کردن فیلد نام الزامیست" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-4">نام خانوادگی</label>
+                    <div class="col-sm-8 col-md-6">
+                        <input id="LastName" data-bind="value: LastName" name="LastName" required="required" class="k-textbox handle-requiered" validationmessage="پر کردن فیلد نام خانوادگی الزامیست" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-4">نام پدر</label>
+                    <div class="col-sm-8 col-md-6">
+                        <input id="FatherName" data-bind="value: FatherName" name="FatherName" required="required" class="k-textbox handle-requiered" validationmessage="پر کردن فیلد نام پدر الزامیست" />
+                    </div>
+                </div>
+            </div>
+            <div class="form-horizontal form-widgets col-sm-6">
+                <div class="form-group">
+                    <label class="control-label col-sm-4">تاریخ تولد</label>
+                    <div class="col-sm-8 col-md-6">
+                        <input id="BirthDate" data-bind="value: BirthDate" required="required" class="k-textbox handle-requiered date" name="BirthDate" validationmessage="پر کردن فیلد تاریخ تولد الزامیست" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-4">جنسیت</label>
+                    <div class="col-sm-8 col-md-6">
+                        <select id="Gender" name="Gender" data-bind="value: Gender, events: { change: onGenderChange }" required="required" class="x1 handle-requiered" validationmessage="انتخاب جنسیت الزامیست">
+                            <option value="1" selected="selected">مرد</option>
+                            <option value="2">زن</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-4">ملیت</label>
+                    <div class="col-sm-8 col-md-6">
+                        <select id="Nationality" name="Nationality" data-bind="value: Nationality, events: { change: onNationalityChange }" required="required" class="x1 handle-requiered" validationmessage="انتخاب ملیت الزامیست">
+                            <option value="11" selected="selected">ایرانی</option>
+                            <option value="12">غیر ایرانی</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="form-horizontal form-widgets col-sm-6">
+                <div class="form-group">
+                    <label class="control-label col-sm-4">استان محل سکونت</label>
+                    <div class="col-sm-8 col-md-6">
+                        <select id="Province" name="Province" data-bind="source: ProvinceDS, value: Province, events: { change: onProvinceChange }" required="required" class="x1 handle-requiered" validationmessage="انتخاب استان الزامیست" data-text-field="Title" data-value-field="Id"></select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-horizontal form-widgets col-sm-6">
+                <div class="form-group">
+                    <label class="control-label col-sm-4">شهر محل سکونت</label>
+                    <div class="col-sm-8 col-md-6">
+                        <select id="City" name="City" data-bind="source: CityDS, value: City, events: { change: onCityChange }" required="required" class="x1 handle-requiered" validationmessage="انتخاب شهر الزامیست" data-text-field="Title" data-value-field="Id"></select>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="form-group">
+                <label class="control-label col-sm-2">آدرس محل سکونت</label>
+                <div class="col-sm-8 col-md-9 textarea">
+                    @*<input id="Address" class="k-textbox" />*@
+                    <textarea id="Address" data-bind="value: Address" name="Address" class="k-textbox handle-requiered" rows="5" validationmessage="پر کردن فیلد آدرس محل سکونت الزامیست"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+        <div class="buttons-wrap margin-top-10">
+
+        </div>
+        <div>
+            <div class="form-horizontal form-widgets col-sm-6">
+                <div class="form-group">
+                    <label class="control-label col-sm-4">تلفن(همراه)</label>
+                    <div class="col-sm-8 col-md-6">
+                        <input maxlength="12" id="PhoneNumber" data-bind="value: PhoneNumber" name="PhoneNumber" class="k-textbox be-number" data-minimum-field="PhoneNumber" data-minimum-msg='شماره همراه وارد شده صحیح نمیباشد' />
+                    </div>
+                </div>
+            </div>
+            <div class="form-horizontal form-widgets col-sm-6">
+                <div class="form-group">
+                    <label class="control-label col-sm-4">تلفن(ثابت)</label>
+                    <div class="col-sm-8 col-md-6">
+                        <input maxlength="12" id="StableNumber" data-bind="value: StableNumber" name="StableNumber" class="k-textbox be-number" data-minimum-field="StableNumber" data-minimum-msg='شماره ثابت وارد شده صحیح نمیباشد' />
+                    </div>
+                </div>
+            </div>
+        </div>        
+        <div>
+            <div class="form-horizontal form-widgets col-sm-6">
+                <div class="form-group">
+                    <label class="control-label col-sm-4">سندرم</label>
+                    <div class="col-sm-8 col-md-6">
+                        <select id="Syndrom" data-role="dropdownlist" data-bind="source: SyndromDSGet, value: SyndromeId, events: { change: onSyndromChange }"
+                                data-value-field="SyndromicId" data-text-field="SyndromicName"></select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-4">تاریخ ثبت</label>
+                    <div class="col-sm-8 col-md-6">
+                        <input id="RegisterDate" data-bind="value: RegisterDate" class="k-textbox handle-requiered date" name="RegisterDate" validationmessage="پر کردن فیلد تاریخ ثبت الزامیست" />
+                    </div>
+                </div>
+            </div>
+            <div class="form-horizontal form-widgets col-sm-6">
+
+                <div class="form-group">
+                    <label class="control-label col-sm-4">وضعیت بیمار هنگام مراجعه</label>
+                    <div class="col-sm-8 col-md-6">
+                        <select id="Status" name="Status" data-bind="value: Status, events: { change: onStatusChange }" class="x1" required="required" validationmessage="لطفا وضعیت بیمار را مشخص کنید">
+                            <option value="1" selected="selected">سرپایی</option>
+                            <option value="2">بستری</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div> 
+        <div class="clearfix"></div>
+        @if (!CommonLib.Common.CurrentUserIsInGroup(CommonLib.UserRole.ReadOnly)) {
+        <div class="buttons-wrap">
+            <button type="button" id="nextStep" class="k-button k-state-default k-primary" data-role="button" data-bind='click: save'>ارسال خطی سندروم</button>
+
+        </div> 
+        }
+</section>
+</form>
+<style>
+    input:focus {
+        background-color: #DBFFA1;
+    }
+</style>
+@Html.Partial("notification")

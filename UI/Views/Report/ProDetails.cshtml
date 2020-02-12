@@ -1,0 +1,632 @@
+﻿@model BLL.ProSyndromRegisterBLL.ProDetailsModel
+@{
+    ViewBag.Title = "مشاهده جزییات سندروم ثبت شده";
+    Layout = "~/Views/Shared/_ResponsiveLayout.cshtml";
+}
+
+<form id="UserForm" data-role="validator" novalidate="novalidate">
+    <section class="well">
+        <h2 class="ra-well-title">اطلاعات ثبت شده بیمار</h2>
+
+
+
+
+
+        <div class="form-horizontal form-widgets col-sm-6">
+            <div class="form-group">
+                 <label class="control-label col-sm-4">نام</label>
+                <div class="col-sm-8 col-md-6">
+                    <input type="text"  value="@Model.DI.FirstName" name="FirstName" id="FirstName" class="k-textbox handle-requiered"  validationMessage="پر کردن فیلد نام الزامیست"/>
+                </div>
+               
+            </div>
+
+
+            <div class="form-group">
+                  <label class="control-label col-sm-4">نام پدر</label>
+                <div class="col-sm-8 col-md-6">
+                    <input id="FatherName"  value="@Model.DI.FirstNameFather" name="FatherName" class="k-textbox handle-requiered"  validationMessage="پر کردن فیلد نام پدر الزامیست"/>
+                </div>
+              
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-4">جنسیت</label>
+                <div class="col-sm-8 col-md-6">
+                    @if (Model.DI.GenderID == 12)
+                    {
+                        <input id="BirthDate" value="مرد" class="k-textbox handle-requiered" name="BirthDate" validationmessage="پر کردن فیلد تاریخ تولد الزامیست" />
+                    }
+                    else
+                    { 
+                        <input id="BirthDate" value="زن" class="k-textbox handle-requiered" name="BirthDate" validationmessage="پر کردن فیلد تاریخ تولد الزامیست" />
+                    }
+
+                </div>
+                
+            </div>
+
+            <div class="form-group">
+                  <label class="control-label col-sm-4">تلفن(همراه)</label>
+                <div class="col-sm-8 col-md-6">
+                    <input id="PhoneNumber" value="@Model.DI.CellPhone" name="PhoneNumber" class="k-textbox"  required="required" validationMessage="پر کردن فیلد تلفن(همراه) الزامیست"/>
+                </div>
+              
+            </div>
+
+            <div class="form-group">
+                 <label class="control-label col-sm-4">تاریخ ارسال نمونه</label>
+                <div class="col-sm-8 col-md-6">
+                    <input name="Postdate" id="Postdate" value="@Model.DI.SamplingDate" class="k-textbox"  required="required" validationMessage="پر کردن فیلد تاریخ ارسال نمونه الزامیست"/>
+                </div>
+               
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-4">تاریخ بستری / مراجعه به پزشک</label>
+                <div class="col-sm-8 col-md-6">
+                    <input name="AdmissionDate" id="AdmissionDate" value="@Model.DI.AdmissionDate" class="k-textbox"  validationMessage="پر کردن فیلد تاریخ مراجعه به پزشک الزامیست" required="required"/>
+                </div>
+                
+            </div>
+            <div class="form-group">
+                 <label class="control-label col-sm-4">تاریخ ترخیص</label>
+                <div class="col-sm-8 col-md-6">
+                    <input name="Discharge" id="Discharge" value="@Model.DI.Discharge" class="k-textbox"  validationMessage="پر کردن فیلد تاریخ ترخیص الزامیست" required="required"/>
+                </div>
+               
+            </div>
+
+            <div class="form-group">
+                 <label class="control-label col-sm-4">تاریخ نمونه گیری</label>
+                <div class="col-sm-8 col-md-6">
+                    <input name="SamplingDate" id="SamplingDate" value="@Model.DI.SamplingDate" class="k-textbox"  validationMessage="پر کردن فیلد تاریخ نمونه گیری الزامیست" required="required"/>
+                </div>
+               
+            </div>
+        </div>
+        <div class="form-horizontal form-widgets col-sm-6">
+             <label class="control-label col-sm-4">کد ملی</label>
+            <div class="form-group" id="NationalCodeTextBox">
+                <div class="col-sm-8 col-md-6">
+                    <input id="NationalCode" value="@Model.DI.NationalCode" class="k-textbox"  disabled/>
+                </div>
+               
+            </div>
+            <div class="form-group">
+                 <label class="control-label col-sm-4">نام خانوادگی</label>
+                <div class="col-sm-8 col-md-6">
+                    <input id="LastName"  value="@Model.DI.LastName" name="LastName" class="k-textbox handle-requiered"  validationMessage="پر کردن فیلد نام خانوادگی الزامیست"/>
+                </div>
+               
+            </div>
+
+            <div class="form-group">
+                    <label class="control-label col-sm-4">تاریخ تولد</label>
+                <div class="col-sm-8 col-md-6">
+                    <input id="BirthDate" value="@Model.DI.BirthDate" class="k-textbox handle-requiered"  name="BirthDate" validationMessage="پر کردن فیلد تاریخ تولد الزامیست"/>
+                </div>
+            
+            </div>
+
+            <div class="form-group">
+                       <label class="control-label col-sm-4">ملیت</label>
+                <div class="col-sm-8 col-md-6">
+                    @if (Model.DI.GenderID == 372)
+                    {
+                        <input id="BirthDate" value="ایرانی" class="k-textbox handle-requiered" name="BirthDate" validationmessage="پر کردن فیلد تاریخ تولد الزامیست" />
+                    }
+                    else
+                    { 
+                        <input id="BirthDate" value="غیر ایرانی" class="k-textbox handle-requiered" name="BirthDate" validationmessage="پر کردن فیلد تاریخ تولد الزامیست" />
+                    }
+
+                </div>
+         
+            </div>
+
+            <div class="form-group">
+                   <label class="control-label col-sm-4">تلفن(ثابت)</label>
+                <div class="col-sm-8 col-md-6">
+                    <input id="StableNumber" value="@Model.DI.TelPhone" name="StableNumber" class="k-textbox"  required="required" validationMessage="پر کردن فیلد تلفن(ثابت) الزامیست"/>
+                </div>
+             
+            </div>
+            <div class="form-group">
+                    <label class="control-label col-sm-4">تاریخ تکمیل فرم</label>
+                <div class="col-sm-8 col-md-6">
+                    <input name="FinishDate" id="FinishDate" value="@Model.DI.FinishDate" class="k-textbox"  required="required" validationMessage="پر کردن فیلد تاریخ تکمیل فرم الزامیست"/>
+                </div>
+            
+            </div>
+
+            <div class="form-group">
+                     <label class="control-label col-sm-4">وضعیت ترخیص</label>
+                <div class="col-sm-8 col-md-6">
+                    <input name="Postdate" id="Postdate" value="@Model.DI.Title" class="k-textbox"  required="required" validationMessage="پر کردن فیلد تاریخ ارسال نمونه الزامیست"/>
+                </div>
+           
+            </div>
+
+
+            <div class="form-group">
+                 <label class="control-label col-sm-4">وضعیت بیمار هنگام نمونه گیری</label>
+                <div class="col-sm-8 col-md-6">
+                    <input id="PhoneNumber" value="@Model.DI.AdmissionTypeName" name="PhoneNumber" class="k-textbox"  required="required" validationMessage="پر کردن فیلد تلفن(همراه) الزامیست"/>
+
+                </div>
+               
+            </div>
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+        @if (Model.D.Any(u => u.vId == "1"))
+        { 
+            <div class="clearfix"></div>
+            <br />
+            <br />
+            <h4 class="col-sm-11">نوع نمونه</h4>
+            <div class="clearfix"></div>
+            <div class="buttons-wrap col-sm-11">
+            </div>
+            <br />
+            <div class="form-horizontal form-widgets col-sm-6">
+            </div>
+            <div class="form-horizontal form-widgets col-sm-6">
+                @foreach (var item in Model.D)
+                {
+                    if (item.vId == "1")
+                    {
+                    <div class="form-group">
+                        <label class="control-label col-sm-4">@item.Value</label>
+                        <div class="col-sm-8 col-md-6">
+                            <input type="checkbox" class="k-k-checkbox" checked disabled />
+                        </div>
+                        
+                    </div>
+                    }
+                }
+            </div>
+        }
+        @if (Model.D.Any(u => u.vId == "1"))
+        { 
+            <div class="clearfix"></div>
+            <br />
+            <br />
+            <h4 class="col-sm-11">سابقه تماس با پرندگان</h4>
+            <div class="clearfix"></div>
+            <div class="buttons-wrap col-sm-11">
+            </div>
+            <br />
+            <div class="form-horizontal form-widgets col-sm-6">
+            </div>
+            <div class="form-horizontal form-widgets col-sm-6">
+                <div class="form-group">
+                        <label class="control-label col-sm-4">@Model.D.ToArray()[0].birds</label>
+                    <div class="col-sm-8 col-md-6">
+                        <input type="checkbox" class="k-k-checkbox" checked disabled />
+                    </div>
+                
+                </div>
+            </div>
+        }
+        @if (Model.D.Any(u => u.vId == "1"))
+        { 
+            <div class="clearfix"></div>
+            <br />
+            <br />
+            <h4 class="col-sm-11">سابقه مسافرت طی 7 روز قبل</h4>
+            <div class="clearfix"></div>
+            <div class="buttons-wrap col-sm-11">
+            </div>
+            <br />
+            <div class="form-horizontal form-widgets col-sm-6">
+            </div>
+            <div class="form-horizontal form-widgets col-sm-6">
+                @foreach (var item in Model.D)
+                {
+                    if (item.AreaNameOrNull != null && item.vId == "1")
+                    {
+                    <div class="form-group">
+                          <label class="control-label col-sm-4">سفر داخلی به @item.AreaNameOrNull</label>
+                        <div class="col-sm-8 col-md-6">
+                            <input type="checkbox" class="k-k-checkbox" checked disabled />
+                        </div>
+                      
+                    </div>
+                        break;
+                    }
+                }
+                @foreach (var item in Model.D)
+                {
+                    if (item.CountryOrTime != null && item.vId == "1")
+                    {
+                    <div class="form-group">
+                         <label class="control-label col-sm-4">سفر خارجی به @item.CountryOrTime</label>
+                        <div class="col-sm-8 col-md-6">
+                            <input type="checkbox" class="k-k-checkbox" checked disabled />
+                        </div>
+                       
+                    </div>
+                        break;
+                    }
+                }
+            </div>
+        }
+        @if (Model.D.Any(u => u.vId == "0"))
+        { 
+            <div class="clearfix"></div>
+            <br />
+            <br />
+            <h4 class="col-sm-11">علائم بیمار در بدو ورود</h4>
+            <div class="clearfix"></div>
+            <div class="buttons-wrap col-sm-11">
+            </div>
+            <br />
+            <div class="form-horizontal form-widgets col-sm-6">
+            </div>
+            <div class="form-horizontal form-widgets col-sm-6">
+                @foreach (var item in Model.D)
+                {
+                    if (item.vId == "0")
+                    {
+                    <div class="form-group">
+                          <label class="control-label col-sm-4">@item.Value</label>
+                        <div class="col-sm-8 col-md-6">
+                            <input type="checkbox" class="k-k-checkbox" checked disabled /><br />
+                            شروع از تاریخ:<input id="PhoneNumber" value="@item.CountryOrTime" name="PhoneNumber" class="k-textbox" disabled/>
+                        </div>
+                      
+                    </div>
+                    }
+                }
+            </div>
+        }
+        @if (Model.D.Any(u => u.vId == "2"))
+        { 
+            <div class="clearfix"></div>
+            <br />
+            <br />
+            <h4 class="col-sm-11">تشخیص افتراقی</h4>
+            <div class="clearfix"></div>
+            <div class="buttons-wrap col-sm-11">
+            </div>
+            <br />
+            <div class="form-horizontal form-widgets col-sm-6">
+            </div>
+            <div class="form-horizontal form-widgets col-sm-6">
+                @foreach (var item in Model.D)
+                {
+                    if (item.vId == "2")
+                    {
+                    <div class="form-group">
+                           <label class="control-label col-sm-4">@item.Value</label>
+                        <div class="col-sm-8 col-md-6">
+                            <input type="checkbox" class="k-k-checkbox" checked disabled /><br />
+
+                        </div>
+                     
+                    </div>
+                    }
+                }
+            </div>
+        }
+        @if (Model.D.Any(u => u.vId == "3"))
+        { 
+            <div class="clearfix"></div>
+            <br />
+            <br />
+            <h4 class="col-sm-11">سابقه بیماری قبلی</h4>
+            <div class="clearfix"></div>
+            <div class="buttons-wrap col-sm-11">
+            </div>
+            <br />
+            <div class="form-horizontal form-widgets col-sm-6">
+            </div>
+            <div class="form-horizontal form-widgets col-sm-6">
+                @foreach (var item in Model.D)
+                {
+                    if (item.vId == "3")
+                    {
+                    <div class="form-group">
+                        <label class="control-label col-sm-4">@item.Value</label>
+                        <div class="col-sm-8 col-md-6">
+                            <input type="checkbox" class="k-k-checkbox" checked disabled /><br />
+
+                        </div>
+                        
+                    </div>
+                    }
+                }
+            </div>
+        }
+        @if (Model.D.Any(u => u.vId == "4"))
+        { 
+            <div class="clearfix"></div>
+            <br />
+            <br />
+            <h4 class="col-sm-11">سابقه مصرف دارو</h4>
+            <div class="clearfix"></div>
+            <div class="buttons-wrap col-sm-11">
+            </div>
+            <br />
+            <div class="form-horizontal form-widgets col-sm-6">
+            </div>
+            <div class="form-horizontal form-widgets col-sm-6">
+                @foreach (var item in Model.D)
+                {
+                    if (item.vId == "4")
+                    {
+                    <div class="form-group">
+                           <label class="control-label col-sm-4">@item.Value</label>
+                        <div class="col-sm-8 col-md-6">
+                            <input type="checkbox" class="k-k-checkbox" checked disabled /><br />
+
+                        </div>
+                     
+                    </div>
+                    }
+                }
+            </div>
+        }
+        @if (Model.D.Any(u => u.vId == "5"))
+        { 
+            <div class="clearfix"></div>
+            <br />
+            <br />
+            <h4 class="col-sm-11">سابقه درمان های بیمارستانی)مصرف داروهاي آنتي بيوتيک(</h4>
+            <div class="clearfix"></div>
+            <div class="buttons-wrap col-sm-11">
+            </div>
+            <br />
+            <div class="form-horizontal form-widgets col-sm-6">
+            </div>
+            <div class="form-horizontal form-widgets col-sm-6">
+                @foreach (var item in Model.D)
+                {
+                    if (item.vId == "5")
+                    {
+                    <div class="form-group">
+                             <label class="control-label col-sm-4">@item.Value</label>
+                        <div class="col-sm-8 col-md-6">
+                            <input type="checkbox" class="k-k-checkbox" checked disabled /><br />
+                            تاریخ آغاز:
+                            <input type="text" class="k-textbox" disabled  value="@item.CountryOrTime"/><br />
+                            تاریخ پایان:
+                            <input type="text" class="k-textbox" disabled  value="@item.AreaNameOrNull"/><br />
+                            نوع عارضه:
+                            <input type="text" class="k-textbox" disabled  value="@item.BHOrNull"/><br />
+                        </div>
+                   
+                    </div>
+                    }
+                }
+            </div>
+        }
+        @if (Model.D.Any(u => u.vId == "10"))
+        { 
+            <div class="clearfix"></div>
+            <br />
+            <br />
+            <h4 class="col-sm-11">سابقه درمان های بیمارستانی)مصرف داروي ضد ويروس(</h4>
+            <div class="clearfix"></div>
+            <div class="buttons-wrap col-sm-11">
+            </div>
+            <br />
+            <div class="form-horizontal form-widgets col-sm-6">
+            </div>
+            <div class="form-horizontal form-widgets col-sm-6">
+                @foreach (var item in Model.D)
+                {
+                    if (item.vId == "10")
+                    {
+                    <div class="form-group">
+                          <label class="control-label col-sm-4">@item.Value</label>
+                        <div class="col-sm-8 col-md-6">
+                            <input type="checkbox" class="k-k-checkbox" checked disabled /><br />
+                            تاریخ آغاز:
+                            <input type="text" class="k-textbox" disabled  value="@item.CountryOrTime"/><br />
+                            تاریخ پایان:
+                            <input type="text" class="k-textbox" disabled  value="@item.AreaNameOrNull"/><br />
+                            نوع عارضه:
+                            <input type="text" class="k-textbox" disabled  value="@item.BHOrNull"/><br />
+                        </div>
+                      
+                    </div>
+                    }
+                }
+            </div>
+        }
+        @if (Model.D.Any(u => u.vId == "6"))
+        { 
+            <div class="clearfix"></div>
+            <br />
+            <br />
+            <h4 class="col-sm-11">درمانهای حمایتی برای دهیدراتاسیون خفیف تا شدید(مصرف ORS ومایع وردیدی)</h4>
+            <div class="clearfix"></div>
+            <div class="buttons-wrap col-sm-11">
+            </div>
+            <br />
+            <div class="form-horizontal form-widgets col-sm-6">
+            </div>
+            <div class="form-horizontal form-widgets col-sm-6">
+                @foreach (var item in Model.D)
+                {
+                    if (item.vId == "6")
+                    {
+                    <div class="form-group">
+                         <label class="control-label col-sm-4">@item.Value</label>
+                        <div class="col-sm-8 col-md-6">
+                            <input type="checkbox" class="k-k-checkbox" checked disabled /><br />
+                            میزان مصرف:
+                            <input type="text" class="k-textbox" disabled  value="@item.CountryOrTime"/><br />
+                        </div>
+                       
+                    </div>
+                    }
+                }
+            </div>
+        }
+
+        @if (Model.D.Any(u => u.vId == "7"))
+        { 
+            <div class="clearfix"></div>
+            <br />
+            <br />
+            <h4 class="col-sm-11">عوارض</h4>
+            <div class="clearfix"></div>
+            <div class="buttons-wrap col-sm-11">
+            </div>
+            <br />
+            <div class="form-horizontal form-widgets col-sm-6">
+            </div>
+            <div class="form-horizontal form-widgets col-sm-6">
+                @foreach (var item in Model.D)
+                {
+                    if (item.vId == "7")
+                    {
+                    <div class="form-group">
+                         <label class="control-label col-sm-4">@item.Value</label>
+                        <div class="col-sm-8 col-md-6">
+                            <input type="checkbox" class="k-k-checkbox" checked disabled /><br />
+                        </div>
+                       
+                    </div>
+                    }
+                }
+            </div>
+        }
+
+        @if (Model.D.Any(u => u.vId == "8"))
+        { 
+            <div class="clearfix"></div>
+            <br />
+            <br />
+            <h4 class="col-sm-11">اطلاعات فوت</h4>
+            <div class="clearfix"></div>
+            <div class="buttons-wrap col-sm-11">
+            </div>
+            <br />
+            <div class="form-horizontal form-widgets col-sm-6">
+            </div>
+            <div class="form-horizontal form-widgets col-sm-6">
+                @foreach (var item in Model.D)
+                {
+                    if (item.vId == "8")
+                    {
+                    <div class="form-group">
+                         <label class="control-label col-sm-4">محل فوت</label>
+                        <div class="col-sm-8 col-md-6">
+                            <input type="text" class="k-textbox" disabled  value="@item.Value"/><br />
+                        </div>
+                       
+                    </div>
+                        if (item.CountryOrTime != null)
+                        {
+                    <div class="form-group">
+                          <label class="control-label col-sm-4">تاریخ فوت</label>
+                        <div class="col-sm-8 col-md-6">
+                            <input type="text" class="k-textbox" disabled  value="@item.CountryOrTime"/><br />
+                        </div>
+                      
+                    </div>
+                        }
+
+                        if (item.AreaNameOrNull != null)
+                        {
+                    <div class="form-group">
+                           <label class="control-label col-sm-4">بخش فوت</label>
+                        <div class="col-sm-8 col-md-6">
+                            <input type="text" class="k-textbox" disabled  value="@item.AreaNameOrNull"/><br />
+                        </div>
+                     
+                    </div>
+                        }
+                    }
+                }
+            </div>
+        }
+        @if (Model.D.Any(u => u.vId == "9"))
+        { 
+            <div class="clearfix"></div>
+            <br />
+            <br />
+            <h4 class="col-sm-11">حمایت تنفسی</h4>
+            <div class="clearfix"></div>
+            <div class="buttons-wrap col-sm-11">
+            </div>
+            <br />
+            <div class="form-horizontal form-widgets col-sm-6">
+            </div>
+            <div class="form-horizontal form-widgets col-sm-6">
+                @foreach (var item in Model.D)
+                {
+                    if (item.vId == "9")
+                    {
+                        if (item.Value != null)
+                        {
+                    <div class="form-group">
+                         <label class="control-label col-sm-4">از تاریخ</label>
+                        <div class="col-sm-8 col-md-6">
+                            <input type="text" class="k-textbox" disabled  value="@item.Value"/><br />
+                        </div>
+                       
+                    </div>
+                        }
+
+                        if (item.CountryOrTime != null)
+                        {
+                    <div class="form-group">
+                                 <label class="control-label col-sm-4">تا تاریخ</label>
+                        <div class="col-sm-8 col-md-6">
+                            <input type="text" class="k-textbox" disabled  value="@item.CountryOrTime"/><br />
+                        </div>
+               
+                    </div>
+                        }
+                    }
+                }
+            </div>
+        }
+        @if (Model.D.Any(u => u.vId == "11"))
+        { 
+            <div class="clearfix"></div>
+            <br />
+            <br />
+            <h4 class="col-sm-11">منبع آب و غذا</h4>
+            <div class="clearfix"></div>
+            <div class="buttons-wrap col-sm-11">
+            </div>
+            <br />
+            <div class="form-horizontal form-widgets col-sm-6">
+            </div>
+            <div class="form-horizontal form-widgets col-sm-6">
+                @foreach (var item in Model.D)
+                {
+                    if (item.vId == "2")
+                    {
+                    <div class="form-group">
+                         <label class="control-label col-sm-4">@item.Value</label>
+                        <div class="col-sm-8 col-md-6">
+                            <input type="checkbox" class="k-k-checkbox" checked disabled /><br />
+                        </div>
+                       
+                    </div>
+                    }
+                }
+            </div>
+        }
+        <div class="clearfix"></div>
+    </section>
+</form>

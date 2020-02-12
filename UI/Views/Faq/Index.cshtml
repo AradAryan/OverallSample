@@ -1,0 +1,45 @@
+﻿@model IEnumerable<BusinessModel.FaqVM>
+
+    @{
+        ViewBag.Title = "سوالات متداول " + ViewBag.SystemName ;
+    }
+
+    <h3>سوالات متداول  @ViewBag.SystemName </h3>
+    <br />
+
+    @foreach (var item in Model)
+    {
+
+        <div class="well well-lg">
+            <div class="text-primary">
+                <strong>
+                    @item.QustionText
+                </strong>
+                <br />
+                <br />
+            </div>
+            <div class="c-toggle-box__content">
+                <div class="text" style="font:500">
+                    <ul>
+                        <li>
+                           @item.AnswerText
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+            <div>
+
+                @if (item.ImageFileName != "0")
+                {
+                    var x = "/UI/FaqImgUploads/" + @item.ImageFileName + ".jpg";
+                    <img src=@x alt="ax" class=".img-fluid " style="    max-width: 100%;
+    max-height: 100%;" />
+                }
+
+            </div>
+
+        </div>
+    }
+
+    <br />

@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FA90BEE3-8217-4122-9619-6C57AB366636}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BusinessModel</RootNamespace>
+    <AssemblyName>BusinessModel</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AbsoluteValueVM.cs" />
+    <Compile Include="BranchModel.cs" />
+    <Compile Include="CenterReportModel.cs" />
+    <Compile Include="CenterVM.cs" />
+    <Compile Include="Class1.cs" />
+    <Compile Include="ClientVM.cs" />
+    <Compile Include="CorporateInfo.cs" />
+    <Compile Include="CorporateModel.cs" />
+    <Compile Include="CusumModel.cs" />
+    <Compile Include="CuSumProcessModel.cs" />
+    <Compile Include="CutofPintVM.cs" />
+    <Compile Include="DeathOrDischargeVM.cs" />
+    <Compile Include="DetailedLabResult.cs" />
+    <Compile Include="Enums\CorpTypeCode.cs" />
+    <Compile Include="FaqStatisticsVM.cs" />
+    <Compile Include="FaqStatsVM.cs" />
+    <Compile Include="FaqVM.cs" />
+    <Compile Include="FilterProVM.cs" />
+    <Compile Include="FilterVM.cs" />
+    <Compile Include="GeneralEnum.cs" />
+    <Compile Include="GetToxinModel.cs" />
+    <Compile Include="Id_Name.cs" />
+    <Compile Include="LabCorporateModel.cs" />
+    <Compile Include="LabDiseaseBindingModel.cs" />
+    <Compile Include="LabInfo.cs" />
+    <Compile Include="LabResultVM.cs" />
+    <Compile Include="LoanVM.cs" />
+    <Compile Include="LogReportModel.cs" />
+    <Compile Include="MyReportVM.cs" />
+    <Compile Include="NameAndType.cs" />
+    <Compile Include="PatientModel.cs" />
+    <Compile Include="PatientSyndromModel.cs" />
+    <Compile Include="PegedData.cs" />
+    <Compile Include="PermissionModel.cs" />
+    <Compile Include="PositionVM.cs" />
+    <Compile Include="RiskVM.cs" />
+    <Compile Include="TellVM.cs" />
+    <Compile Include="PhoneVM.cs" />
+    <Compile Include="PositionModel.cs" />
+    <Compile Include="ProAdmissionModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProSearchModel.cs" />
+    <Compile Include="ProSymptomsModel.cs" />
+    <Compile Include="ProvinceAndCity.cs" />
+    <Compile Include="RelativeValueVM.cs" />
+    <Compile Include="ReportVM.cs" />
+    <Compile Include="SearchResult.cs" />
+    <Compile Include="Service\AdmissionType.cs" />
+    <Compile Include="Service\Gender.cs" />
+    <Compile Include="Service\MinimumServiceOperationResult.cs" />
+    <Compile Include="Service\MinimumSyndromModel.cs" />
+    <Compile Include="Service\SendMaximumToSepasResult.cs" />
+    <Compile Include="StatisCutofPointValueVM.cs" />
+    <Compile Include="Statistics\AgeGroup.cs" />
+    <Compile Include="Statistics\CFRHelperModel.cs" />
+    <Compile Include="Statistics\Chart.cs" />
+    <Compile Include="Statistics\ChartData.cs" />
+    <Compile Include="Statistics\DiseaseGenderAgeGroup.cs" />
+    <Compile Include="Statistics\EpidemicMax.cs" />
+    <Compile Include="Statistics\EpidemicMaxChart.cs" />
+    <Compile Include="Statistics\EpidemicMaxHelperModel.cs" />
+    <Compile Include="Statistics\EpidemicMin.cs" />
+    <Compile Include="Statistics\EpidemicMinChart.cs" />
+    <Compile Include="Statistics\EpidemicReportModel.cs" />
+    <Compile Include="Statistics\GenderAgeGroup.cs" />
+    <Compile Include="Statistics\ILIFlow.cs" />
+    <Compile Include="Statistics\ILISentinel.cs" />
+    <Compile Include="Statistics\Map.cs" />
+    <Compile Include="Statistics\MaxFlowHelperModel.cs" />
+    <Compile Include="Statistics\MaxRespiratory.cs" />
+    <Compile Include="SyndromeRegisterModel.cs" />
+    <Compile Include="SyndromicModel.cs" />
+    <Compile Include="TherosholdsModel.cs" />
+    <Compile Include="ThresholdSearchModel.cs" />
+    <Compile Include="Threshold\AbsoluteValueWarningMetaData.cs" />
+    <Compile Include="TreeCenterTypeModel.cs" />
+    <Compile Include="UniversityModel.cs" />
+    <Compile Include="UserCorporateInfo.cs" />
+    <Compile Include="UserModel.cs" />
+    <Compile Include="UserNewPasswordModel.cs" />
+    <Compile Include="UserPositionHierarchy.cs" />
+    <Compile Include="UsersReceiveTherosholdVM.cs" />
+    <Compile Include="CorporateUserVM.cs" />
+    <Compile Include="UserVM.cs" />
+    <Compile Include="VisitCountModel.cs" />
+    <Compile Include="WarningThresholdModel.cs" />
+    <Compile Include="_StudentVM.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

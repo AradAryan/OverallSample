@@ -1,0 +1,62 @@
+﻿@{
+    bool hideUniversity = ViewData["hideUniversity"] != null && (bool)ViewData["hideUniversity"];
+    bool hideNetwork = ViewData["hideNetwork"] != null && (bool)ViewData["hideNetwork"];
+    bool hideCenter = ViewData["hideCenter"] != null && (bool)ViewData["hideCenter"];
+    bool hideSubCenter = ViewData["hideSubCenter"] != null && (bool)ViewData["hideSubCenter"];
+    bool showCity = ViewData["showCity"] != null && (bool)ViewData["showCity"];
+}
+
+<div class="form-group">
+    <label class="control-label col-sm-4">استان</label>
+    <div class="col-sm-8 col-md-6">
+        <select id="province" name="province" data-role="dropdownlist" data-bind="source: ArealocationDS, value: AreaLocationID, events:{change: onarelocationChange}"
+                data-value-field="AreLocationID" data-text-field="areaName" class="x1"></select>
+    </div>
+</div>
+@if (showCity) { 
+<div class="form-group">
+    <label class="control-label col-sm-4">شهر</label>
+    <div class="col-sm-8 col-md-6">
+        <select id="cityId" name="cityId" data-role="dropdownlist" data-bind="source: CityDS, value: cityId"
+                data-value-field="Id" data-text-field="Title"></select>
+    </div>
+</div>
+}
+@if (!hideUniversity) { 
+<div class="form-group">
+    <label class="control-label col-sm-4">دانشگاه</label>
+    <div class="col-sm-8 col-md-6">
+        <select id="university" name="university" data-role="dropdownlist" data-bind="source: UniversityDS, value: UniversityID, events:{change: onuniversityChange}"
+                data-value-field="Id" data-text-field="Name" class="x1"></select>
+    </div>
+</div>
+}
+@if (!hideNetwork) { 
+<div class="form-group">
+    <label class="control-label col-sm-4">شبکه بهداشت</label>
+    <div class="col-sm-8 col-md-6">
+        <select id="Network" name="NetworkId" data-role="dropdownlist" data-bind="source: NetworkDS, value: NetworkId, events:{change: onNetworkChange}"
+                data-value-field="Id" data-text-field="Name" class="x1"></select>
+    </div>
+</div>
+}
+@if (!hideCenter) {
+<div class="form-group">
+    <label class="control-label col-sm-4">مرکز بهداشتی درمانی/ بیمارستان</label>
+    <div class="col-sm-8 col-md-6">
+        <select id="Center" name="CenterId" data-role="dropdownlist" data-bind="source: CenterDS, value: CenterId, events:{change: onCenterChange}"
+                data-value-field="Id" data-text-field="Name" class="x1"></select>
+    </div>
+</div>
+}
+
+<script type="text/javascript">
+    window.corpVars = {
+        provinceUrl: '@Url.Action("GetLocation", "Report")',
+        universityUrl: '@Url.Action("GetProUniversity", "Report")',
+        networkUrl: '@Url.Action("GetProNetwork", "Report")',
+        centerUrl: '@Url.Action("GetProCenter", "Report")',
+        citiesUrl: '@Url.Action("GetCities", "Home")'
+    }
+</script>
+<script src="~/js/viewModel/CorpLevel-v.1.js"></script>

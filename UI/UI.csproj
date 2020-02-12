@@ -1,0 +1,472 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EE247772-1570-430C-A081-F13E016845D6}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UI</RootNamespace>
+    <AssemblyName>UI</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <MvcProjectUpgradeChecked>true</MvcProjectUpgradeChecked>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>12.0</OldToolsVersion>
+    <UseGlobalApplicationHostFile />
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EPPlus">
+      <HintPath>..\DLL\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="Faranam.Utils, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DLL\Faranam.Utils.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Mvc.FixedDisplayModes, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.FixedDisplayModes.1.0.0\lib\net40\Microsoft.Web.Mvc.FixedDisplayModes.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.30506.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.30506.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.30506.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.30506.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.30506.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="uml, Version=1.4.5388.18431, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DLL\uml.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\RiskController.cs" />
+    <Compile Include="Controllers\CorporateController.cs" />
+    <Compile Include="Controllers\CartableController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LabCorpController.cs" />
+    <Compile Include="Controllers\MyReportController.cs" />
+    <Compile Include="Controllers\FaqController.cs" />
+    <Compile Include="Controllers\PhoneController.cs" />
+    <Compile Include="Controllers\RegisterSyndromicController.cs" />
+    <Compile Include="Controllers\ReportController.cs" />
+    <Compile Include="Controllers\TellController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="Controllers\UsersGridController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ChangeActivityVM.cs" />
+    <Compile Include="Models\FaranamView.cs" />
+    <Compile Include="Models\PhoneTypeItem.cs" />
+    <Compile Include="Models\TellTypeItem.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="Content\css\map-v.4.css" />
+    <Content Include="Content\css\menu-v.2.css" />
+    <Content Include="Content\css\Style-v.8.css" />
+    <Content Include="Content\css\Style.css" />
+    <Content Include="Content\image\clips.png" />
+    <Content Include="Content\image\mobile_phone.png" />
+    <Content Include="Content\image\paperHoler.png" />
+    <Content Include="Content\Slider\images\1.jpg" />
+    <Content Include="Content\Slider\images\2.jpg" />
+    <Content Include="Content\Slider\images\3.jpg" />
+    <Content Include="Content\Slider\images\4.jpg" />
+    <Content Include="Content\Slider\images\5.jpg" />
+    <Content Include="Content\Slider\images\arrows.png" />
+    <Content Include="Content\Slider\images\bullets.png" />
+    <Content Include="Content\Slider\images\loading.gif" />
+    <Content Include="Content\Slider\jquery.min.js" />
+    <Content Include="Content\Slider\nivo.slider.pack.js" />
+    <Content Include="Content\Slider\style.css" />
+    <Content Include="Content\Software\Setup.exe" />
+    <Content Include="Global.asax" />
+    <Content Include="Images\about.jpg" />
+    <Content Include="Images\AddCenterType.png" />
+    <Content Include="Images\ajax-loader.gif" />
+    <Content Include="Images\arrow.png" />
+    <Content Include="Images\bg.jpg" />
+    <Content Include="Images\bgMenu.png" />
+    <Content Include="Images\bgMenuHover.png" />
+    <Content Include="Images\bgTop.jpg" />
+    <Content Include="Images\bgTopForm.jpg" />
+    <Content Include="Images\Block.png" />
+    <Content Include="Images\bottomControl.png" />
+    <Content Include="Images\bottomPage.jpg" />
+    <Content Include="Images\btnBlue-hover.png" />
+    <Content Include="Images\btnBlue.png" />
+    <Content Include="Images\btnLogin-hover.png" />
+    <Content Include="Images\btnLogin.png" />
+    <Content Include="Images\bullet.png" />
+    <Content Include="Images\Cellphone.png" />
+    <Content Include="Images\Computer.png" />
+    <Content Include="Images\en-hover.png" />
+    <Content Include="Images\en.png" />
+    <Content Include="Images\fa-hover.png" />
+    <Content Include="Images\fa.png" />
+    <Content Include="Images\footerLight.jpg" />
+    <Content Include="Images\footerPattern.jpg" />
+    <Content Include="Images\header.jpg" />
+    <Content Include="Images\headerForm.jpg" />
+    <Content Include="Images\headerTop.jpg" />
+    <Content Include="Images\home-hover.png" />
+    <Content Include="Images\home.png" />
+    <Content Include="Images\hospital-icon.png" />
+    <Content Include="Images\hospital.png" />
+    <Content Include="Images\imgNews1.jpg" />
+    <Content Include="Images\linkArrow.png" />
+    <Content Include="Images\loginBg.png" />
+    <Content Include="Images\loginButton_rtl.png" />
+    <Content Include="Images\loginFormBg.jpg" />
+    <Content Include="Images\logout-hover.png" />
+    <Content Include="Images\logout.png" />
+    <Content Include="Images\Map.png" />
+    <Content Include="Images\marginNews.jpg" />
+    <Content Include="Images\middleControl.png" />
+    <Content Include="Images\middleForm.png" />
+    <Content Include="Images\middlePage.png" />
+    <Content Include="Images\MsgPic\error.png" />
+    <Content Include="Images\MsgPic\info.png" />
+    <Content Include="Images\MsgPic\success.png" />
+    <Content Include="Images\MsgPic\warning.png" />
+    <Content Include="Images\pattern.jpg" />
+    <Content Include="Images\People-Doctor-Male-icon.png" />
+    <Content Include="Images\rss.png" />
+    <Content Include="Images\search-hover.png" />
+    <Content Include="Images\search.png" />
+    <Content Include="Images\searchBtn-hover.png" />
+    <Content Include="Images\searchBtn.png" />
+    <Content Include="Images\topControl.png" />
+    <Content Include="Images\topForm.png" />
+    <Content Include="Images\topPage.png" />
+    <Content Include="Images\topWideControl.jpg" />
+    <Content Include="js\initView\corpusers-v.1.js" />
+    <Content Include="js\initView\CrtblMaaliManageLoan-v.1.js" />
+    <Content Include="js\initView\CrtblEtebariManageLoan-v.1.js" />
+    <Content Include="js\initView\CrtblBranchUserCreateLoan-v.1.js" />
+    <Content Include="js\initView\CrtblBossManageLoan-v.1.js" />
+    <Content Include="js\initView\CrtblBranchUserManageLoan-v.1.js" />
+    <Content Include="js\initView\CTR_BossViewRisk-v.1.js" />
+    <Content Include="js\initView\CTR_BranchUserCreateRisk-v.1.js" />
+    <Content Include="js\initView\CTR_BranchUserManageRisk-v.1.js" />
+    <Content Include="js\initView\FaqManagment-v.1.js" />
+    <Content Include="js\initView\GetCorporateUsers.js" />
+    <Content Include="js\initView\GetFaqStatistics-v.1.js" />
+    <Content Include="js\initView\NewUser-v.1.js" />
+    <Content Include="js\initView\report2-v.4.js" />
+    <Content Include="js\initView\tell-v1.js.js" />
+    <Content Include="js\initView\LabGrading-v.1.js" />
+    <Content Include="js\initView\myReport-detail-v.1.js" />
+    <Content Include="js\initView\myReport-v.1.js" />
+    <Content Include="js\initView\phone-edit-v.1.js" />
+    <Content Include="js\initView\phone-v.1.js" />
+    <Content Include="js\initView\RegisterSyndromic-v.7.js" />
+    <Content Include="js\initView\report-Heidari.js" />
+    <Content Include="js\initView\report-v.4.js" />
+    <Content Include="js\initView\users-v.1.js" />
+    <Content Include="js\Utils-v.2.js" />
+    <Content Include="js\viewModel\CorpLevel-v.1.js" />
+    <Content Include="js\viewModel\CrtblMaaliManageLoan-v.1.js" />
+    <Content Include="js\viewModel\CrtblEtebariManageLoan-v.1.js" />
+    <Content Include="js\viewModel\CrtblBranchUserCreateLoan-v.1.js" />
+    <Content Include="js\viewModel\CrtblBossManageLoan-v.1.js" />
+    <Content Include="js\viewModel\CrtblBranchUserManageLoan-v.1.js" />
+    <Content Include="js\viewModel\CTR_BossViewRisk-v.1.js" />
+    <Content Include="js\viewModel\CTR_BranchUserCreateRisk-v.1.js" />
+    <Content Include="js\viewModel\CTR_BranchUserManageRisk-v.1.js" />
+    <Content Include="js\viewModel\FaqManagment-v.1.js" />
+    <Content Include="js\viewModel\GetCorporateUsers.js" />
+    <Content Include="js\viewModel\corpusers-v.1.js" />
+    <Content Include="js\viewModel\GetFaqStatistics-v.1.js" />
+    <Content Include="js\viewModel\LabGrading-v.1.js" />
+    <Content Include="js\viewModel\myReport-detail-v.1.js" />
+    <Content Include="js\viewModel\myReport-v.1.js" />
+    <Content Include="js\viewModel\NewUser-v.1.js" />
+    <Content Include="js\viewModel\phone-edit-v.1.js" />
+    <Content Include="js\viewModel\phone-v.1.js" />
+    <Content Include="js\viewModel\RegisterSyndromic-v.7.js" />
+    <Content Include="js\viewModel\report-Heidari.js" />
+    <Content Include="js\viewModel\report2-v.4.js" />
+    <Content Include="js\viewModel\report-v.4.js" />
+    <Content Include="js\viewModel\tell-v1.js" />
+    <Content Include="js\viewModel\users-v.1.js" />
+    <Content Include="Styles\bootstrap-theme.min.css" />
+    <Content Include="Styles\bootstrap.min.css" />
+    <Content Include="Styles\Chrome.css" />
+    <Content Include="Styles\colorbox.css" />
+    <Content Include="Styles\formStyle.css" />
+    <Content Include="Styles\IE.css" />
+    <Content Include="Styles\images\border.png" />
+    <Content Include="Styles\images\controls.png" />
+    <Content Include="Styles\images\loading.gif" />
+    <Content Include="Styles\images\loading_background.png" />
+    <Content Include="Styles\images\overlay.png" />
+    <Content Include="Styles\iranmap.min.css" />
+    <Content Include="Styles\reset.css" />
+    <Content Include="Styles\Site.css" />
+    <Content Include="Styles\Style.css" />
+    <Content Include="Styles\UserManagementCommonStyle.css" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ApplicationOutputs\" />
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\pdf\FRN-SYN-UM-13950326.pdf" />
+    <Content Include="Content\pdf\syndroms-guideline-doctor.pdf" />
+    <Content Include="Content\pdf\syndroms-guideline-experts.pdf" />
+    <Content Include="Content\pdf\syndroms-guideline.pdf" />
+    <Content Include="Content\pdf\UserManualMob.pdf" />
+    <Content Include="Content\Software\Syndromic.apk" />
+    <Content Include="Styles\images\Thumbs.db" />
+    <Content Include="Views\Guid\Index.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\notification.cshtml" />
+    <Content Include="Views\Shared\_ResponsiveLayout.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{229d57be-4664-4b88-a544-b02a789b182e}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BusinessModel\BusinessModel.csproj">
+      <Project>{fa90bee3-8217-4122-9619-6c57ab366636}</Project>
+      <Name>BusinessModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonLib\CommonLib.csproj">
+      <Project>{036abfdd-e6e1-4e78-9fe9-666c5fafe661}</Project>
+      <Name>CommonLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{9ba5e20a-3ece-438c-9615-9a85297e1abb}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\LabCorp\AssignmentForm.cshtml" />
+    <Content Include="Views\LabCorp\Assignments.cshtml" />
+    <Content Include="Views\LabCorp\Form.cshtml" />
+    <Content Include="Views\LabCorp\Grading.cshtml" />
+    <Content Include="Views\LabCorp\Index.cshtml" />
+    <Content Include="Views\RegisterSyndromic\Index.cshtml" />
+    <Content Include="Views\RegisterSyndromic\SyndromicForm.cshtml" />
+    <Content Include="Views\Report\Details.cshtml" />
+    <Content Include="Views\Report\GetListCorporate.cshtml" />
+    <Content Include="Views\Report\Index-heidari.cshtml" />
+    <Content Include="Views\Report\Map.cshtml" />
+    <Content Include="Views\Report\ProDetails.cshtml" />
+    <Content Include="Views\Report\ReportPro.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\CorpLevel.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Phone\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Phone\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_LayoutWithouHeader.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\MyReport\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Report\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\MyReport\Detail.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Tell\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Report\Index2.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Users\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Corporate\Users.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Corporate\GetCorporateUsers.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Corporate\NewUser.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Faq\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Faq\Managment.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Cartable\BranchUserManageLoan.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Cartable\BranchUserCreateLoan.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Cartable\BossManageLoan.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Cartable\EtebariManageLoan.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Cartable\MaaliManageLoan.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Risk\BranchUserCreateRisk.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Risk\BranchUserManageRisk.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Risk\BossViewRisk.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Faq\GetFaqStatistics.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Faq\FaqViews.cshtml" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>13802</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/UI</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

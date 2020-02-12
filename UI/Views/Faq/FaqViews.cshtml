@@ -1,0 +1,50 @@
+﻿@model IEnumerable<BusinessModel.FaqStatsVM>
+    @{
+        ViewBag.Title = "آمار بازدید سوالات متداول";
+    }
+
+    <h3>آمار بازدید سوالات متداول سامانه</h3>
+    <br />
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>
+                        ردیف
+                    </th>
+                    <th>
+                        نام سامانه
+                    </th>
+                    <th>
+                        IP و پورت بازدید کننده
+                    </th>
+                    <th>
+                       ساعت و تاریخ بازدید
+                    </th>
+                </tr>
+            </thead>
+
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @item.Row
+
+                    </td>
+                    <td>
+                        @item.SystemName
+
+                    </td>
+                    <td>
+                        @item.Ip_Port
+
+                    </td>
+                    <td>
+                        @item.SeenTime
+
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>

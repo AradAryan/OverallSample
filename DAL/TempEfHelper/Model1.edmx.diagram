@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="37a21848f0e94d12a615392435572735" Name="Diagram1">
+        <EntityTypeShape EntityType="SandromicModel.BasicData" Width="1.5" PointX="11.25" PointY="33.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.AdmissionType" Width="1.5" PointX="1.5" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.AreaType" Width="1.5" PointX="1.5" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.BasicDataType" Width="1.5" PointX="9" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.CenterType" Width="1.5" PointX="14.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.DeathLocation" Width="1.5" PointX="3.75" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.Disease" Width="1.5" PointX="6" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.InfoBase" Width="1.5" PointX="13.75" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.InfoBaseValue" Width="1.5" PointX="16" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.Log" Width="1.5" PointX="16.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.Organization" Width="1.5" PointX="18.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.Patient" Width="1.5" PointX="1.5" PointY="34.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.ProDischarge" Width="1.5" PointX="16.75" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.RequestLab" Width="1.5" PointX="3" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.SyndromRegister" Width="1.5" PointX="3.75" PointY="36.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.Tbl_AreaLocation" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.Tbl_CenterType" Width="1.5" PointX="18.75" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.Tbl_Coded" Width="1.5" PointX="0.75" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.Tbl_Country" Width="1.5" PointX="9.75" PointY="25.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.Tbl_Guideline" Width="1.5" PointX="18.75" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.Tbl_Syndromic" Width="1.5" PointX="3.75" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.Tbl_University" Width="1.5" PointX="1.5" PointY="50.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.TblAdmission" Width="1.5" PointX="0.75" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.TblAdverseReaction" Width="1.5" PointX="3" PointY="21.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.TblClinicalFinding" Width="1.5" PointX="3" PointY="53.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.TblComplication" Width="1.5" PointX="6" PointY="19.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.TblDeath" Width="1.5" PointX="6" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.TblDiagnosi" Width="1.5" PointX="6" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.TblDrugHistory" Width="1.5" PointX="3" PointY="30.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.TblDrugTreatment" Width="1.5" PointX="6" PointY="23.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.TblError" Width="1.5" PointX="18.75" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.TblMethod" Width="1.5" PointX="14.75" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.TblMSG" Width="1.5" PointX="6.75" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.TblMSG_Admission" Width="1.5" PointX="9" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.TblPaperCode" Width="1.5" PointX="18.75" PointY="19" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.TblPastMedicalHistory" Width="1.5" PointX="3" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.TblSmsLog" Width="1.5" PointX="18.75" PointY="22" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.TblSMSTemplate" Width="1.5" PointX="20.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.TblTheroshold" Width="1.5" PointX="6" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.TblTravel" Width="1.5" PointX="12" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.TblvisitCount" Width="1.5" PointX="20.75" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.WarningThreshold" Width="1.5" PointX="20.75" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.LabBasicData" Width="1.5" PointX="8.25" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.LabDetailResult" Width="1.5" PointX="11.25" PointY="20.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.LabDiseasesCharacter" Width="1.5" PointX="11.25" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.LabResult" Width="1.5" PointX="9" PointY="29" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.Sample" Width="1.5" PointX="9" PointY="45.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.ProAdmission" Width="1.5" PointX="6.75" PointY="44.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.ProAntiBio" Width="1.5" PointX="20.75" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.ProAntiviru" Width="1.5" PointX="20.75" PointY="18" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.ProBreath" Width="1.5" PointX="20.75" PointY="22" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.ProCenter" Width="1.5" PointX="22.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.ProCenterType" Width="1.5" PointX="22.75" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.ProChiefComplaint" Width="1.5" PointX="22.75" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.ProClinicalFinding" Width="1.5" PointX="3" PointY="25.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.ProCoded" Width="1.5" PointX="22.75" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.ProComplication" Width="1.5" PointX="22.75" PointY="19" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.ProDeath" Width="1.5" PointX="22.75" PointY="22" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.ProDiagnosi" Width="1.5" PointX="9" PointY="19.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.ProDrugHistory" Width="1.5" PointX="9" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.ProDrugTreatment" Width="1.5" PointX="20.75" PointY="25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.ProFood" Width="1.5" PointX="22.75" PointY="25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.ProLab" Width="1.5" PointX="9" PointY="48.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.ProPaperCode" Width="1.5" PointX="24.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.ProPastMedicalHistory" Width="1.5" PointX="9" PointY="22.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.ProPatient" Width="1.5" PointX="24.75" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.ProReaction" Width="1.5" PointX="24.75" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.ProSemat" Width="1.5" PointX="24.75" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.ProTravel" Width="1.5" PointX="12" PointY="25.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.ProUniversity" Width="1.5" PointX="24.75" PointY="18" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.ProWater" Width="1.5" PointX="24.75" PointY="21" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.Corporate" Width="1.5" PointX="24.75" PointY="24" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.CorporatePath" Width="1.5" PointX="19.75" PointY="28" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.EntityEntityType" Width="1.5" PointX="14" PointY="29.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.EntityType" Width="1.5" PointX="11.75" PointY="29.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.GroupsPermission" Width="1.5" PointX="16.25" PointY="18.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.Permission" Width="1.5" PointX="14" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.Position" Width="1.5" PointX="2.25" PointY="46" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.Rule" Width="1.5" PointX="16.25" PointY="33.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.RuleExtension" Width="1.5" PointX="16.25" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.Subsystem" Width="1.5" PointX="11.75" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.UserGroup" Width="1.5" PointX="14" PointY="19.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.UserImage" Width="1.5" PointX="21.75" PointY="28" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.User" Width="1.5" PointX="4.5" PointY="44.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.UsersUserGroup" Width="1.5" PointX="16.25" PointY="36.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.FAQ" Width="1.5" PointX="26.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.UsersRole" Width="1.5" PointX="17" PointY="29.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.Corporate1" Width="1.5" PointX="26.75" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.Positions1" Width="1.5" PointX="26.75" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.RuleExtension1" Width="1.5" PointX="26.75" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.Users1" Width="1.5" PointX="26.75" PointY="18" IsExpanded="true" />
+        <EntityTypeShape EntityType="SandromicModel.UsersUserGroups1" Width="1.5" PointX="26.75" PointY="25" IsExpanded="true" />
+        <AssociationConnector Association="SandromicModel.FK_BasicData_BasicData" ManuallyRouted="false" />
+        <AssociationConnector Association="SandromicModel.FK_BasicData_BasicDataType" ManuallyRouted="false" />
+        <AssociationConnector Association="SandromicModel.FK_TblAdmission_AdmissionType" ManuallyRouted="false" />
+        <AssociationConnector Association="SandromicModel.FK_Tbl_AreaLocation_AreaType" ManuallyRouted="false" />
+        <AssociationConnector Association="SandromicModel.FK_BasicDataType_BasicDataType" ManuallyRouted="false" />
+        <AssociationConnector Association="SandromicModel.FK_LabBasicData_BasicDataType" ManuallyRouted="false" />
+        <AssociationConnector Association="SandromicModel.FK_LabDiseasesCharacter_BasicDataType" ManuallyRouted="false" />
+        <AssociationConnector Association="SandromicModel.FK_TblDeath_DeathLocation" ManuallyRouted="false" />
+        <AssociationConnector Association="SandromicModel.FK_Diseases_Tbl_Syndromic" ManuallyRouted="false" />
+        <AssociationConnector Association="SandromicModel.FK_LabBasicData_Diseases" ManuallyRouted="false" />
+        <AssociationConnector Association="SandromicModel.FK_LabDiseasesCharacter_Diseases1" ManuallyRouted="false" />
+        <AssociationConnector Association="SandromicModel.FK_LabResult_Diseases" ManuallyRouted="false" />
+        <AssociationConnector Association="SandromicModel.FK_InfoBaseValue_InfoBase" ManuallyRouted="false" />
+        <AssociationConnector Association="SandromicModel.FK_InfoBaseValue_InfoBaseValue" ManuallyRouted="false" />
+        <AssociationConnector Association="SandromicModel.FK_ProAdmission_ProAdmission" ManuallyRouted="false" />
+        <AssociationConnector Association="SandromicModel.FK_TblAdmission_TblPatient" ManuallyRouted="false" />
+        <AssociationConnector Association="SandromicModel.FK_TblSyndromRegister_TblPatient" ManuallyRouted="false" />
+        <AssociationConnector Association="SandromicModel.FK_RequestLab_Tbl_Coded" ManuallyRouted="false" />
+        <AssociationConnector Association="SandromicModel.FK__TblTravel__AreaL__76619304" ManuallyRouted="false" />
+        <AssociationConnector Association="SandromicModel.FK_ProTravel_Tbl_AreaLocation" ManuallyRouted="false" />
+        <AssociationConnector Association="SandromicModel.FK_Tbl_AreaLocation_Tbl_University" ManuallyRouted="false" />
+        <AssociationConnector Association="SandromicModel.FK_TblTheroshold_Tbl_AreaLocation" ManuallyRouted="false" />
+        <AssociationConnector Association="SandromicModel.FK_ProClinicalFinding_Tbl_Coded" ManuallyRouted="false" />
+        <AssociationConnector Association="SandromicModel.FK_ProDiagnosis_Tbl_Coded" ManuallyRouted="false" />
+        <AssociationConnector Association="SandromicModel.FK_ProDrugHistory_Tbl_Coded" ManuallyRouted="false" />
+        <AssociationConnector Association="SandromicModel.FK_ProPastMedicalHistory_Tbl_Coded" ManuallyRouted="false" />
+        <AssociationConnector Association="SandromicModel.FK_TblAdverseReaction_Tbl_Coded" ManuallyRouted="false" />
+        <AssociationConnector Association="SandromicModel.FK_TblAdverseReaction_Tbl_Coded1" ManuallyRouted="false" />
+        <AssociationConnector Association="SandromicModel.FK_TblComplication_Tbl_Coded" ManuallyRouted="false" />
+        <AssociationConnector Association="SandromicModel.FK_TblDiagnosis_Tbl_Coded" ManuallyRouted="false" />
+        <AssociationConnector Association="SandromicModel.FK_TblDrugHistory_TblAdmission" ManuallyRouted="false" />
+        <AssociationConnector Association="SandromicModel.FK_TblDrugTreatment_Tbl_Coded" ManuallyRouted="false" />
+        <AssociationConnector Association="SandromicModel.FK_TblPastMedicalHistory_Tbl_Coded" ManuallyRouted="false" />
+        <AssociationConnector Association="SandromicModel.FK__TblTravel__Count__7755B73D" ManuallyRouted="false" />
+        <AssociationConnector Association="SandromicModel.FK_ProTravel_Tbl_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="SandromicModel.FK_TblComplication_Tbl_Syndromic" ManuallyRouted="false" />
+        <AssociationConnector Association="SandromicModel.FK_TblTheroshold_Tbl_Syndromic" ManuallyRouted="false" />
+        <AssociationConnector Association="SandromicModel.FK_TblAdverseReaction_TblAdmission" ManuallyRouted="false" />
+        <AssociationConnector Association="SandromicModel.FK_TblClinicalFinding_TblAdmission" ManuallyRouted="false" />
+        <AssociationConnector Association="SandromicModel.FK_TblComplication_TblAdmission" ManuallyRouted="false" />
+        <AssociationConnector Association="SandromicModel.FK_TblDeath_TblAdmission" ManuallyRouted="false" />
+        <AssociationConnector Association="SandromicModel.FK_TblDiagnosis_TblAdmission" ManuallyRouted="false" />
+        <AssociationConnector Association="SandromicModel.FK_TblDrugTreatment_TblAdmission" ManuallyRouted="false" />
+        <AssociationConnector Association="SandromicModel.FK_TblMSG_Admission_TblAdmission" ManuallyRouted="false" />
+        <AssociationConnector Association="SandromicModel.FK_TblPastMedicalHistory_TblAdmission" ManuallyRouted="false" />
+        <AssociationConnector Association="SandromicModel.FK_TblTravel_TblAdmission" ManuallyRouted="false" />
+        <AssociationConnector Association="SandromicModel.FK_TblDrugHistory_TblDrugHistory" ManuallyRouted="false" />
+        <AssociationConnector Association="SandromicModel.FK_TblMSG_Admission_TblMSG" ManuallyRouted="false" />
+        <AssociationConnector Association="SandromicModel.FK_LabBasicData_LabBasicData" ManuallyRouted="false" />
+        <AssociationConnector Association="SandromicModel.FK_LabDetailResult_LabBasicData" ManuallyRouted="false" />
+        <AssociationConnector Association="SandromicModel.FK_LabDetailResult_LabResult" ManuallyRouted="false" />
+        <AssociationConnector Association="SandromicModel.FK_LabResult_TblAdmission" ManuallyRouted="false" />
+        <AssociationConnector Association="SandromicModel.FK_Samples_ProAdmission" ManuallyRouted="false" />
+        <AssociationConnector Association="SandromicModel.FK_ProAdmission_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="SandromicModel.FK_ProClinicalFinding_ProAdmission" ManuallyRouted="false" />
+        <AssociationConnector Association="SandromicModel.FK_ProDiagnosis_ProAdmission" ManuallyRouted="false" />
+        <AssociationConnector Association="SandromicModel.FK_ProDrugHistory_ProAdmission" ManuallyRouted="false" />
+        <AssociationConnector Association="SandromicModel.FK_ProLab_ProAdmission" ManuallyRouted="false" />
+        <AssociationConnector Association="SandromicModel.FK_ProPastMedicalHistory_ProAdmission" ManuallyRouted="false" />
+        <AssociationConnector Association="SandromicModel.FK_ProTravel_ProAdmission" ManuallyRouted="false" />
+        <AssociationConnector Association="SandromicModel.FK_CorporateCorporateTypes_CorporateType" ManuallyRouted="false" />
+        <AssociationConnector Association="SandromicModel.FK_EntityEntityTypes_Positions" ManuallyRouted="false" />
+        <AssociationConnector Association="SandromicModel.FK_EntityEntityTypes_PositionTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="SandromicModel.FK_EntityEntityTypes_Subsystems" ManuallyRouted="false" />
+        <AssociationConnector Association="SandromicModel.FK_EntityEntityTypes_SystemType" ManuallyRouted="false" />
+        <AssociationConnector Association="SandromicModel.FK_GroupsPermissions_GroupsPermissions" ManuallyRouted="false" />
+        <AssociationConnector Association="SandromicModel.FK_GroupsPermissions_GroupsPermissions1" ManuallyRouted="false" />
+        <AssociationConnector Association="SandromicModel.FK_Permissions_Subsystems" ManuallyRouted="false" />
+        <AssociationConnector Association="SandromicModel.FK_Positions_Positions" ManuallyRouted="false" />
+        <AssociationConnector Association="SandromicModel.FK_Rule_Positions" ManuallyRouted="false" />
+        <AssociationConnector Association="SandromicModel.FK_Users_Positions" ManuallyRouted="false" />
+        <AssociationConnector Association="SandromicModel.FK_Rule_UserGroups" ManuallyRouted="false" />
+        <AssociationConnector Association="SandromicModel.FK_RuleExtension_UserGroups" ManuallyRouted="false" />
+        <AssociationConnector Association="SandromicModel.FK_UserGroups_Subsystems" ManuallyRouted="false" />
+        <AssociationConnector Association="SandromicModel.FK_UsersRoles_Subsystems" ManuallyRouted="false" />
+        <AssociationConnector Association="SandromicModel.FK_UsersUserGroups_UserGroups" ManuallyRouted="false" />
+        <AssociationConnector Association="SandromicModel.FK_UsersRoles_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="SandromicModel.FK_UsersUserGroups_Users" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

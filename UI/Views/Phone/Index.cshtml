@@ -1,0 +1,85 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+@section js{
+    <script src="~/js/initView/phone-v.1.js"></script>
+    <script src="~/js/viewModel/phone-v.1.js"></script>
+    <script>
+        var viewModel;
+        $(function () {
+            viewModel = initVM({
+                searchUrl: '@Url.Action("Search")',
+                @*getTypesUrl: '@Url.Action("GetPhoneTypes")',
+                deleteUrl: '@Url.Action("DeletePhone")',
+                editUrl: '@Url.Action("Edit")'*@
+            });
+
+            kendo.bind($('#container'), viewModel);
+            initView(viewModel);
+        });
+    </script>
+
+    <script id="customPhoneTemplate" type="text/x-kendo-template">
+    <span class="ltr">
+        #if(Mobile && Mobile.substring(0, 3) != '+98'){#
+        +98
+        # }#
+        ${Mobile}
+    </span>
+</script>
+}
+
+<h2>صفحه آزمایشی</h2>
+
+<div class="wide">
+    <form id="Form" data-role="validator" novalidate="novalidate" action="@Url.Action("Search")" method="post">
+        <section class="well">
+            <h2 class="ra-well-title" data-bind="visible: titleIsVisible">جستجو بر اساس</h2>
+            <div class="clearfix"></div>
+            <div>
+                <div class="form-horizontal form-widgets col-sm-6">
+                    <div class="form-group">
+                        <label class="control-label col-sm-4">نام</label>
+                        <div class="col-sm-8 col-md-6">
+                            <input data-bind="value: firstname" class="k-textbox x1" maxlength="50" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-4">نام خانوادگی</label>
+                        <div class="col-sm-8 col-md-6">
+                            <input data-bind="value: lastname" class="k-textbox x1" maxlength="50" />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-horizontal form-widgets col-sm-6">
+                    <div class="form-group">
+                        <label class="control-label col-sm-4">موبایل</label>
+                        <div class="col-sm-8 col-md-6">
+                            <input data-bind="value: mobile" class="k-textbox x1" maxlength="11" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-4">نوع تلفن</label>
+                        <div class="col-sm-8 col-md-6">
+                            <select data-bind="source: phoneTypesDS, value: phoneTypeId, events: {change: onTypeChange}" data-role="dropdownlist" data-text-field="Title" data-value-field="Id"></select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="buttons-wrap">
+                <button type="button" class="k-button k-state-default k-primary" data-role="button" data-bind='click: onSearch'>جستجو</button>
+            </div>
+            <div class="clearfix"></div>
+            <br />&nbsp;<br />
+            <div class="clearfix"></div>
+            <div>
+                <h4>نتایج جستجو: لیست شماره تلفنها</h4>
+                <div id="grid"></div>
+            </div>
+
+
+        </section>
+    </form>
+</div>

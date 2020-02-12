@@ -1,0 +1,114 @@
+﻿@{
+    ViewBag.Title = " پنل کاربر شعبه|ایجاد ریسک  ";
+}
+
+@section js{
+<script src="~/js/viewModel/CTR_BranchUserCreateRisk-v.1.js"></script>
+<script src="~/js/initView/CTR_BranchUserCreateRisk-v.1.js"></script>
+    <script>
+        var viewModel;
+        $(function () {
+
+            viewModel = initVM({
+
+            });
+            kendo.bind($('#container'), viewModel);
+            initView(viewModel);
+        });
+
+    </script>
+}
+
+
+
+<div class="wide">
+
+    <div class="divRow">
+        <h3> ایجاد ریسک جدید </h3>
+        <br />
+    </div>
+
+    <form id="Form" data-role="validator" novalidate="novalidate" method="post">
+        <section class="well">
+            <h2 class="ra-well-title" data-bind="visible: titleIsVisible">اطلاعات مشتری</h2>
+
+            <div>
+
+                <div class="form-horizontal form-widgets col-sm-6">
+                    <div class="form-group">
+                        <label class="control-label col-sm-4">نام</label>
+                        <div class="col-sm-8 col-md-6">
+                            <input data-bind="value: firstName" class="k-textbox" , style="width: 100%">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-4">کد ملی</label>
+                        <div class="col-sm-8 col-md-6">
+                            <input data-bind="value: nationalCode" class="k-textbox" , style="width: 100%">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="form-horizontal form-widgets col-sm-6">
+                    <div class="form-group">
+                        <label class="control-label col-sm-4">نام خانوادگی</label>
+                        <div class="col-sm-8 col-md-6">
+                            <input  data-bind="value: lastName" class="k-textbox" , style="width: 100%">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-4">کد مشتری</label>
+                        <div class="col-sm-8 col-md-6">
+                            <input data-bind="value: clientCode" class="k-textbox" , style="width: 100%">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="form-horizontal form-widgets col-sm-8">
+
+                    <div class="form-group">
+                        <br />
+
+                        <label class="control-label col-sm-4">دسته ی گزارش</label>
+                        <div class="col-sm-8 col-md-6">
+                                <select id="risktype" name="risktype" data-role="dropdownlist" data-bind="source: riskTypeDS, value: riskTypeId" data-value-field="Id" data-text-field="Title" class="x1"></select>
+                        </div>
+                        <br />
+                        <br />
+
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div>
+
+                    <div class="form-group">
+                        <label class="control-label col-sm-12">متن گزارش</label>
+                        <br />
+                        <br />
+
+                        <div class="col-sm-12">
+                           <textarea class="k-textbox" rows="7" data-bind="value: gozaresh" style="width: 100%"></textarea>
+                        </div>
+                    </div>
+
+            </div>
+
+
+            <div class="clearfix"></div>
+            <br />&nbsp;<br />
+            <div class="clearfix"></div>
+
+            <div class="clearfix"></div>
+            <br />
+            <div class="buttons-wrap">
+                <button type="button" id="searchbtn" class="k-button k-state-default k-primary" data-role="button" data-bind='click: onSubmit'>ثبت</button>
+            </div>
+
+
+        </section>
+    </form>
+</div>

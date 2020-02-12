@@ -1,0 +1,88 @@
+﻿@model BusinessModel.CenterVM
+@{
+    ViewBag.Title = ViewBag.Corporate;
+}
+
+
+@section js{
+<script src="~/js/viewModel/GetCorporateUsers.js"></script>
+<script src="~/js/initView/GetCorporateUsers.js"></script>
+
+    <script>
+        var viewModel;
+        $(function () {
+            viewModel = initVM({
+                searchUrl: '@Url.Action("GetUsers")',
+                corpId: '@ViewBag.CorporateID'
+            });
+            kendo.bind($('#container'), viewModel);
+            initView(viewModel);
+        });
+    </script>
+
+}
+
+
+<h3>@ViewBag.Corporate</h3>
+
+<div class="wide">
+    <form id="Form" data-role="validator" novalidate="novalidate" action="@Url.Action("Search")" method="post">
+        <section class="well">
+            <h2 class="ra-well-title" data-bind="visible: titleIsVisible">جستجو بر اساس</h2>
+            <div class="clearfix"></div>
+            <div>
+                <div class="form-horizontal form-widgets col-sm-6">
+                    <div class="form-group">
+                        <label class="control-label col-sm-4">نام</label>
+                        <div class="col-sm-8 col-md-6">
+                            <input data-bind="value: firstName" class="k-textbox x1" maxlength="50" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-4">نام خانوادگی</label>
+                        <div class="col-sm-8 col-md-6">
+                            <input data-bind="value: lastName" class="k-textbox x1" maxlength="50" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-sm-4">نام کاربری</label>
+                        <div class="col-sm-8 col-md-6">
+                            <input data-bind="value: userName" class="k-textbox x1" maxlength="50" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-horizontal form-widgets col-sm-6">
+                    <div class="form-group">
+                        <label class="control-label col-sm-4">موبایل</label>
+                        <div class="col-sm-8 col-md-6">
+                            <input data-bind="value: mobile" class="k-textbox x1" maxlength="50" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-4">ایمیل</label>
+                        <div class="col-sm-8 col-md-6">
+                            <input data-bind="value: email" class="k-textbox x1" maxlength="50" />
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="buttons-wrap">
+                <button type="button" class="k-button k-state-default k-primary" data-role="button" data-bind='click: onSearch'>جستجو</button>
+                <button type="button" class="k-button k-state-default k-primary" data-role="button" data-bind='click: onNewUser'>تعریف کاربر جدید</button>
+            </div>
+            <div class="clearfix"></div>
+            <br />&nbsp;<br />
+            <div class="clearfix"></div>
+            <div>
+                <h4>نتایج جستجو: لیست کاربران</h4>
+                <div id="grid"></div>
+            </div>
+
+
+        </section>
+    </form>
+</div>

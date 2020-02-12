@@ -1,0 +1,849 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9BA5E20A-3ECE-438C-9615-9A85297E1ABB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DAL</RootNamespace>
+    <AssemblyName>DAL</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Faranam.Utils">
+      <HintPath>..\packages\Faranam\Faranam.Utils.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\packages\Faranam\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Admission.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AdmissionType.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AdverseReaction.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AreaLocation.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AreaType.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BasicData.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BasicDataType.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CenterList_BaseFieldOfView_Model.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CenterList_With_UserList_Model.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CenterType.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ClinicalFinding.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Coded.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Complication.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Corporate.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CorporatesHierarchy.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CorporatesHierarchyRepository.cs" />
+    <Compile Include="CenterVMRepository.cs" />
+    <Compile Include="Country.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Crtbl_BranchBossInfo.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Crtbl_BranchInfo.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Crtbl_CashierInfo.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Crtbl_CustInfo.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Crtbl_CustType.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Crtbl_Loan.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Crtbl_LoanType.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Crtbl_MaaliUserInfo.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CtrRiskRepository.cs" />
+    <Compile Include="Ctr_Risk.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Ctr_RiskCategory.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CustomSpGetHistory_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Death.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DeathLocation.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Diagnosi.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Disease.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DiseaseAccessRepository.cs" />
+    <Compile Include="DrugHistory.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DrugTreatment.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityEntityType.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityType.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Error.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FAQ.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FaqStatistic.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FAQTest.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="f_GetStudent_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetAbsolutValue_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetAllThrosholds_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetCenerList.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetCusumValue_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetDePartments2_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetDiseasesAccess.cs" />
+    <Compile Include="GetLog_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetPatintInfo.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetProRegisterSyndroms_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetProSyndromDitailsForWord2_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetProSyndromDitailsForWord_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetProSyndromDitailsPatientInformationWithIDs_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetProSyndromDitailsPatientInformation_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetProSyndromDitailsWithIds_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetProSyndromDitails_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetRelativeValue_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetRuleExtension_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetRule_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetSMSLogs_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetStatisticalCutoffPointValue_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetSyndromDetailsPatientInformation_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetSyndromRegisterNotSepas_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetUserPositionHierarchy_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetUsersReceiveSMSTheroshold_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GroupsPermission.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Guideline.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LabBasicData.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LabDetailResult.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LabDiseaseAssignment.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LabDiseasesCharacter.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LabResult.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LabSortByResultCountRepository.cs" />
+    <Compile Include="Log.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Method.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MiniCenterType.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MSG.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MSG_Admission.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MyReportRepository.cs" />
+    <Compile Include="Organization.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PaperCode.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PastMedicalHistory.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Patient.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Permission.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PhoneRepository.cs" />
+    <Compile Include="Position.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PermissionRepository.cs" />
+    <Compile Include="ProAdmission.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProAdmissionDoneStep.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProAntiBio.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProAntiviru.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProBreath.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProClinicalFinding.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProComplication.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProDeath.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProDiagnosi.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProDrugHistory.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProDrugTreatment.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProFood.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProLab.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProPastMedicalHistory.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProTravel.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Report2Repository.cs" />
+    <Compile Include="ReportRepository.cs" />
+    <Compile Include="spCheckIsDuplicateSyndrom_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spCorporateHasVisit_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SpGetAgregateHistory_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spGetCenterLabs_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spGetCorpTypesWithTheSameLevel_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SpGetDiseasesAccess_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spGetEpidemicMaxFlowReport_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spGetEpidemicMaxReport_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spGetEpidemicMinFlowReport_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spGetEpidemicMinReport_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SpGetHistoryGrouped_Jafari1_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SpGetHistoryGrouped_Jafarii_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SpGetHistoryGrouped_Jafari_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SpGetHistoryKarami_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SpGetHistoryReportHeidarii_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SpGetHistoryReportHeidari_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SpGetHistory_abasi_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SpGetHistory_grouped_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SpGetHistory_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SpGetHistory_ResultKarami.cs" />
+    <Compile Include="SpGetHospitalsHistory_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spGetLabDeasises__Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spGetLabSampleabasi_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spGetLabSample_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spGetLabsBySampleResultCount_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SpGetLabStatics_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spGetLastMaximumInfo_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SpGetMinimumAggregate_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spGetMyReport_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spGetNetworkLabs_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spGetNonSystemPermissions_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spGetPermissionsByPositionId_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spGetProvinceUniversities_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SpGetReportHistory_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spGetSubLabs_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spGetSyndromRegisterForNetwork_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spGetThresholdWarningReceivers_Managers_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spGetThresholdWarningStatusHistory_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spGetToxins_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spGetVisiblePositions_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spGetVisitByCorporateId_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spJafari_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spListTotalVisits_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spMyReport_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spSearchCorp_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SpSearchLab_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spSearchMaxForExcel_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spSearchPhone_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spSearchPosition_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spSearchThresholdWarnings_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spThresholdSearch_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sp_SearchDisease_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_XSpGetHistory_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="storp_Crtbl_SearchLoanForEtebariUser_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="storp_Crtbl_SearchLoanForMaaliUser_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="storp_Crtbl_SearchLoanWithCashierId_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="storp_Crtbl_SearchLoan_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="storp_Ctr_SearchRiskByCashierId_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="storp_Ctr_SearchRisk_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="storp_GetCenters_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="storp_getcorporatehierarchy_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="storp_getposition_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="storp_getusersbycorporateid1_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="storp_ListOfUsersByCorpId_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="storp_searchfaq_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="storp_searchusersofacorporate_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="storp_searchuser_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TblDiseasesAccess.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoanRepository.cs" />
+    <Compile Include="TestFaqRepository.cs" />
+    <Compile Include="TestSystem.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ThresholdWarningMetaData.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ThresholdWarningMetaDataRepository.cs" />
+    <Compile Include="ThresholdWarningStatusRepository.cs" />
+    <Compile Include="RequestLab.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sample.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SmsLog.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SMSTemplate.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SpGetAdmissionLabResultDetails_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SpGetAdmissionLabResults_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spGetCenters_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spGetCorporatesNotEnteredVisitCount_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SpGetHistoryById_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spGetILIFlowReport_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spGetILISentinelReport_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spGetLabDiseaseAssignments_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SpGetLabResult_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spGetLabSupportedDiseases_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SpGetLabs_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spGetMapReport_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spGetMaxRespiratoryReport_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spGetProvinceAndCity_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spGetThresholdWarningReceivers_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spGetUserCorporateInfo_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spGetVisitHistory_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spSaveUser_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spSearchUsers_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spSearchVisits_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spThresholdGetCuSumRawData_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spThresholdGetSyndromPercent_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spUserAndSubUsersHasEnteredVisitCount_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagrams_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Subsystem.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Syndromic.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SyndromRegister.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tbl_CenterType.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Theroshold.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ThresholdWarningReceiver.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ThresholdWarningReceiverRepository.cs" />
+    <Compile Include="ThresholdWarningStatu.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ThresholdWarning_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Travel.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="University.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="User.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserCorporatesHierarchy.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserCorporatesHierarchyRepository.cs" />
+    <Compile Include="LabDiseaseAssignmentRepository.cs" />
+    <Compile Include="ProAdmissionDoneStepRepository.cs" />
+    <Compile Include="AdmissionRepository.cs" />
+    <Compile Include="AdverseReactionRepository.cs" />
+    <Compile Include="BasicDataTypeRepository.cs" />
+    <Compile Include="BasicDataRepository.cs" />
+    <Compile Include="Mapper.cs" />
+    <Compile Include="SampleRepository.cs" />
+    <Compile Include="ProAntiBioRepository.cs" />
+    <Compile Include="AreaLocationRepository.cs" />
+    <Compile Include="CenterRepository.cs" />
+    <Compile Include="CenterTypeRepository.cs" />
+    <Compile Include="ChiefComplaintRepository.cs" />
+    <Compile Include="City_UniversityRepository.cs" />
+    <Compile Include="ClinicalFindingRepository.cs" />
+    <Compile Include="CodedRepository.cs" />
+    <Compile Include="ComplicationRepository.cs" />
+    <Compile Include="CorporateLabRepository.cs" />
+    <Compile Include="CorporateRepository.cs" />
+    <Compile Include="CountryRepository.cs" />
+    <Compile Include="DeathRepository.cs" />
+    <Compile Include="DiagnosisRepository.cs" />
+    <Compile Include="DiseaseRepository.cs" />
+    <Compile Include="DrugHistoryRepository.cs" />
+    <Compile Include="DrugTreatmentRepository.cs" />
+    <Compile Include="ErrorRepository.cs" />
+    <Compile Include="FAQRepository.cs" />
+    <Compile Include="FoodRepository.cs" />
+    <Compile Include="GetPatintInfoRepository.cs" />
+    <Compile Include="GuidelineRepository.cs" />
+    <Compile Include="LabBasicDataRepository.cs" />
+    <Compile Include="LabDetailResultRepository.cs" />
+    <Compile Include="LabDiseasesCharacterRpository.cs" />
+    <Compile Include="LabRequestRepository.cs" />
+    <Compile Include="LabResultRepository.cs" />
+    <Compile Include="LogReporsitory.cs" />
+    <Compile Include="MethodRepository.cs" />
+    <Compile Include="MSGAdmissionRepository.cs" />
+    <Compile Include="MSGRepository.cs" />
+    <Compile Include="OrganizationRepository.cs" />
+    <Compile Include="PaperCodeRepository.cs" />
+    <Compile Include="PastMedicalHistoryRepository.cs" />
+    <Compile Include="PatientRepository.cs" />
+    <Compile Include="PostionRepository.cs" />
+    <Compile Include="ProAdmissionRepository.cs" />
+    <Compile Include="ProAntivirusRepository.cs" />
+    <Compile Include="ProBreathRepository.cs" />
+    <Compile Include="ProCilinicalFindingRepository.cs" />
+    <Compile Include="ProComplicationRepository.cs" />
+    <Compile Include="ProDeathRepository.cs" />
+    <Compile Include="ProDiagnosisRepository.cs" />
+    <Compile Include="ProDrugHistoryRepository.cs" />
+    <Compile Include="ProDrugTreatmentRepository.cs" />
+    <Compile Include="ProLabRepository.cs" />
+    <Compile Include="ProPastMedicalHistoryRepository.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProTravelRepository.cs" />
+    <Compile Include="RepositoryBase.cs" />
+    <Compile Include="RoleRepository.cs" />
+    <Compile Include="SmslogRepository.cs" />
+    <Compile Include="SmsTemplateRepository.cs" />
+    <Compile Include="subSystemRepository.cs" />
+    <Compile Include="SyndromeModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SyndromeModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SyndromeModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SyndromeModel.Designer.cs">
+      <DependentUpon>SyndromeModel.edmx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="SyndromicRepository.cs" />
+    <Compile Include="SyndromRegisterRepository.cs" />
+    <Compile Include="TherosholdRepository.cs" />
+    <Compile Include="TravelRepository.cs" />
+    <Compile Include="UnitOfWork.cs" />
+    <Compile Include="UniversityRepository.cs" />
+    <Compile Include="UserGroup.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserGroupRepository.cs" />
+    <Compile Include="UserRepository.cs" />
+    <Compile Include="UsersUserGroup.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UsersUserGroupsRepository.cs" />
+    <Compile Include="UserVMRepository.cs" />
+    <Compile Include="visitCount.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VisitCountRepository.cs" />
+    <Compile Include="WarningThreshold.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WarningThresholdRepository.cs" />
+    <Compile Include="WarningThrosholdDashboard_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WarningThrosholdReport_Result.cs">
+      <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="packages.config" />
+    <None Include="SyndromeModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SyndromeModel.Context.cs</LastGenOutput>
+      <DependentUpon>SyndromeModel.edmx</DependentUpon>
+    </None>
+    <None Include="SyndromeModel.edmx.diagram">
+      <DependentUpon>SyndromeModel.edmx</DependentUpon>
+    </None>
+    <None Include="SyndromeModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SyndromeModel.cs</LastGenOutput>
+      <DependentUpon>SyndromeModel.edmx</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessModel\BusinessModel.csproj">
+      <Project>{41EDA1BF-B7F1-42BD-B931-E89D79736D49}</Project>
+      <Name>BusinessModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonLib\CommonLib.csproj">
+      <Project>{0d5f9cb7-aec7-42ad-9700-d82669a444e8}</Project>
+      <Name>CommonLib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="SyndromeModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SyndromeModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

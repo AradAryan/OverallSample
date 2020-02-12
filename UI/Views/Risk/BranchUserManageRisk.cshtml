@@ -1,0 +1,46 @@
+﻿@{
+    ViewBag.Title = "پنل کاربر شعبه|مدیریت موارد مشکوک گزارش شده ";
+}
+
+@section js{
+
+<script src="~/js/initView/CTR_BranchUserManageRisk-v.1.js"></script>
+<script src="~/js/viewModel/CTR_BranchUserManageRisk-v.1.js"></script>
+
+    <script>
+        var viewModel;
+        $(function () {
+
+            viewModel = initVM();
+            kendo.bind($('#container'), viewModel);
+            initView(viewModel);
+        });
+
+    </script>
+}
+
+
+<h3> گزارش های مشکوک ثبت شده </h3>
+<br />
+
+<div class="wide">
+    <form id="Form" data-role="validator" novalidate="novalidate" method="post">
+        <section class="well">
+
+
+            <div class="clearfix"></div>
+            <br />
+
+            <div class="clearfix"></div>
+            <br />&nbsp;<br />
+            <div class="clearfix"></div>
+            <div>
+                <h2 class="ra-well-title" data-bind="visible: titleIsVisible">لیست وام های ثبت شده</h2>
+
+                <div id="grid"></div>
+            </div>
+
+
+        </section>
+    </form>
+</div>

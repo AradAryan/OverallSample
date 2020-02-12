@@ -1,0 +1,117 @@
+﻿@model BusinessModel.UserVM
+
+@{
+    ViewBag.Title = "ایجاد کاربر جدید";
+}
+
+@section js{
+
+    <script src="~/js/viewModel/NewUser-v.1.js"></script>
+    <script src="~/js/initView/NewUser-v.1.js"></script>
+    <script>
+        var viewModel;
+        $(function () {
+            viewModel = initVM({
+                centerUrl: 'http://localhost/UI/Corporate/GetCorporateUsers/' + '@ViewBag.CorporateId',
+                corpId: '@ViewBag.CorporateId',
+                userId: '@ViewBag.UserId'
+            });
+            kendo.bind($('#container'), viewModel);
+            initView(viewModel);
+            viewModel.set('name', '@Model.FirstName');
+            viewModel.set('lastName', '@Model.LastName');
+            viewModel.set('email', '@Model.Email');
+            viewModel.set('mobile', '@Model.Mobile');
+            viewModel.set('tel', '@Model.Tel');
+            viewModel.set('nationalCode', '@Model.NationalCode');
+            viewModel.set('password', '@Model.Password');
+            viewModel.set('positionId', '@Model.PositionId');
+
+
+        });
+    </script>
+
+}
+
+<div class="wide">
+    <form id="Form" data-role="validator" novalidate="novalidate" action="@Url.Action("SaveUser")" method="post">
+        <section class="well">
+            <h2 class="ra-well-title">جزییات اطلاعات کاربر - @ViewBag.CorporateName</h2>
+            <div class="clearfix"></div>
+            <div>
+
+                <div class="form-horizontal form-widgets col-sm-6">
+                    <div class="form-group">
+                        <label class="control-label col-sm-4">نام</label>
+                        <div class="col-sm-8 col-md-6">
+                            <input data-bind="value:name" class="k-textbox x1" maxlength="50" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-sm-4">نام خانوادگی</label>
+                        <div class="col-sm-8 col-md-6">
+                            <input data-bind="value:lastName" class="k-textbox x1"maxlength="30" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-sm-4">نام کاربری (کد ملی)</label>
+                        <div class="col-sm-8 col-md-6">
+                            <input data-bind="value:nationalCode" class="k-textbox x1" maxlength="30" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-4">کلمه ی عبور</label>
+                        <div class="col-sm-8 col-md-6">
+                            <input data-bind="value:password" class="k-textbox x1" maxlength="30" />
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="form-horizontal form-widgets col-sm-6">
+                    <div class="form-group">
+                        <label class="control-label col-sm-4">موبایل</label>
+                        <div class="col-sm-8 col-md-6">
+                            <input data-bind="value:mobile" class="k-textbox x1" maxlength="30" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-4">تلفن ثابت</label>
+                        <div class="col-sm-8 col-md-6">
+                            <input data-bind="value:tel" class="k-textbox x1" maxlength="50" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-sm-4">ایمیل</label>
+                        <div class="col-sm-8 col-md-6">
+                            <input data-bind="value:email" class="k-textbox x1" maxlength="50" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-sm-4">سمت</label>
+                        <div class="col-sm-8 col-md-6">
+                            <select id="semat" name="semat" data-role="dropdownlist" data-bind="source: positionDS, value: positionId" data-value-field="Id" data-text-field="Name" class="x1"></select>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+            <div class="clearfix"></div>
+            <div class="buttons-wrap">
+                <button type="button" id="nextStep" class="k-button k-state-default k-primary" data-role="button" data-bind='click: onSave'>ذخبره</button>
+            </div>
+            <div class="clearfix"></div>
+            <br />&nbsp;<br />
+            <div class="clearfix"></div>
+
+        </section>
+    </form>
+</div>
+ 

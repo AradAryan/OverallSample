@@ -1,0 +1,74 @@
+﻿@{
+    ViewBag.Title = "پنل رییس شعبه|تایید یا رد وام ";
+}
+
+@section js{
+
+
+    <script src="~/js/viewModel/CrtblBossManageLoan-v.1.js"></script>
+
+    <script src="~/js/initView/CrtblBossManageLoan-v.1.js"></script>
+
+    <script>
+        var viewModel;
+        $(function () {
+
+            viewModel = initVM();
+            kendo.bind($('#container'), viewModel);
+            initView(viewModel);
+        });
+
+    </script>
+}
+
+
+<h3> وام های ثبت شده توسط کارکنان شعبه</h3>
+<br />
+
+<div class="wide">
+    <form id="Form" data-role="validator" novalidate="novalidate" method="post">
+        <section class="well">
+
+
+            <div>
+                <div class="form-horizontal form-widgets col-sm-6">
+                    <div class="form-group">
+                        <label class="control-label col-sm-4">کد ملی</label>
+                        <div class="col-sm-8 col-md-6">
+                            <input data-bind="value: nationalCode" class="k-textbox" , style="width: 100%">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-horizontal form-widgets col-sm-6">
+                    <div class="form-group">
+                        <label class="control-label col-sm-4">کد مشتری</label>
+                        <div class="col-sm-8 col-md-6">
+                            <input data-bind="value: clientCode" class="k-textbox" , style="width: 100%">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="clearfix"></div>
+            <br />
+            <div class="buttons-wrap">
+                <button type="button" id="searchbtn" class="k-button k-state-default k-primary" data-role="button" data-bind='click: onSearch'>جستجو</button>
+            </div>
+
+            <div class="clearfix"></div>
+            <br />&nbsp;<br />
+            <div class="clearfix"></div>
+
+            <div class="clearfix"></div>
+            <br />&nbsp;<br />
+            <div class="clearfix"></div>
+            <div>
+                <h2 class="ra-well-title" data-bind="visible: titleIsVisible">لیست وام های ثبت شده</h2>
+
+                <div id="grid"></div>
+            </div>
+
+
+        </section>
+    </form>
+</div>

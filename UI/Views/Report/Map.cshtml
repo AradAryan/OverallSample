@@ -1,0 +1,61 @@
+﻿@{
+    ViewBag.Title = "Map";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false">
+</script>
+<script type="text/javascript">
+
+    var map;
+    var latitude = '@ViewBag.x';
+    var longitude = '@ViewBag.y';
+    function initialize() {
+        var options =
+{
+    zoom: 17,
+    center: new google.maps.LatLng(latitude, longitude),
+    mapTypeId: google.maps.MapTypeId.ROADMAP,
+    mapTypeControl: true,
+    mapTypeControlOptions:
+    {
+        style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
+        poistion: google.maps.ControlPosition.TOP_RIGHT,
+        mapTypeIds: [google.maps.MapTypeId.ROADMAP,
+          google.maps.MapTypeId.TERRAIN,
+          google.maps.MapTypeId.HYBRID,
+          google.maps.MapTypeId.SATELLITE]
+    },
+    navigationControl: true,
+    navigationControlOptions:
+    {
+        style: google.maps.NavigationControlStyle.ZOOM_PAN
+    },
+    scaleControl: true,
+    disableDoubleClickZoom: true,
+    draggable: false,
+    streetViewControl: true,
+    draggableCursor: 'move'
+};
+        map = new google.maps.Map(document.getElementById("map"), options);
+        // Add Marker and Listener
+        var latlng = new google.maps.LatLng(latitude, longitude);
+        var marker = new google.maps.Marker
+(
+{
+    position: latlng,
+    map: map,
+    title: 'Click me'
+}
+);
+        var infowindow = new google.maps.InfoWindow({
+            content: 'You Are Here'
+        });
+        google.maps.event.addListener(marker, 'click', function () {
+            // Calling the open method of the infoWindow 
+            infowindow.open(map, marker);
+        });
+    }
+    window.onload = initialize;
+</script>
+<div id="map" style="height: 600px; width: 800px" />
+<h2>Map</h2>

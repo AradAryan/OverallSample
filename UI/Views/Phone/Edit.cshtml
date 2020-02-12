@@ -1,0 +1,57 @@
+﻿@model BusinessModel.PhoneVM
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutWithouHeader.cshtml";
+}
+
+@section js{
+<script src="~/js/viewModel/phone-edit-v.1.js"></script>
+<script src="~/js/initView/phone-edit-v.1.js"></script>
+    <script >
+        var viewModel;
+        $(function () {
+            viewModel = initVM({
+                id: '@Model.Id',
+                firstname: '@Model.Firstname',
+                lastname: '@Model.Lastname',
+                mobile: '@Model.Mobile',
+
+                saveUrl: '@Url.Action("Save")'
+            });
+
+            kendo.bind($('#container'), viewModel);
+            initView(viewModel);
+        });
+    </script>
+}
+
+<form id="UserForm" data-role="validator" novalidate="novalidate" class="form-wizard">
+    <section class="well">
+        <h2 class="ra-well-title">جزئیات اطلاعات شماره تلفن</h2>
+        
+        <div class="form-horizontal form-widgets col-sm-6">
+            <div class="form-group">
+                <label class="control-label col-sm-4">نام</label>
+                <div class="col-sm-8 col-md-6">
+                    <input type="text" data-bind="value: firstname" required="required" class="k-textbox handle-requiered" validationmessage="پر کردن فیلد نام الزامیست" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-4">نام خانوادگی</label>
+                <div class="col-sm-8 col-md-6">
+                    <input id="LastName" data-bind="value: lastname" required="required" class="k-textbox handle-requiered" validationmessage="پر کردن فیلد نام خانوادگی الزامیست" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-4">موبایل</label>
+                <div class="col-sm-8 col-md-6">
+                    <input id="FatherName" data-bind="value: mobile" required="required" class="k-textbox handle-requiered" validationmessage="پر کردن فیلد نام پدر الزامیست" />
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="buttons-wrap">
+            <button type="button" class="k-button k-state-default k-primary" data-role="button" data-bind='click: onSave'>ذخیره</button>
+        </div>
+    </section>
+</form>

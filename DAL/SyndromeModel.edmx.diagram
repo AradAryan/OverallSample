@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="341a2e8dfebb4ca185567e4825693cf9" Name="Diagram1" ZoomLevel="142" ShowGrid="false">
+        <EntityTypeShape EntityType="SyndromicModel.Country" Width="1.5" PointX="6.75" PointY="49.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SyndromicModel.Tbl_UserGroup" Width="1.5" PointX="5.125" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SyndromicModel.AdverseReaction" Width="1.5" PointX="3" PointY="19" IsExpanded="true" />
+        <EntityTypeShape EntityType="SyndromicModel.ChiefComplaint" Width="1.5" PointX="6" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SyndromicModel.ClinicalFinding" Width="1.5" PointX="6" PointY="42.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SyndromicModel.Complication" Width="1.5" PointX="3" PointY="23" IsExpanded="true" />
+        <EntityTypeShape EntityType="SyndromicModel.Death" Width="1.5" PointX="6" PointY="46.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SyndromicModel.DrugHistory" Width="1.5" PointX="6" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SyndromicModel.DrugTreatment" Width="1.5" PointX="3" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SyndromicModel.Method" Width="1.5" PointX="10.75" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SyndromicModel.MSG_Admission" Width="1.5" PointX="6" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SyndromicModel.PaperCode" Width="1.5" PointX="12.75" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SyndromicModel.PastMedicalHistory" Width="1.5" PointX="6" PointY="22.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SyndromicModel.TblRole" Width="1.5" PointX="11.5" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SyndromicModel.SMSTemplate" Width="1.5" PointX="12.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SyndromicModel.Travel" Width="1.5" PointX="6.375" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SyndromicModel.EntityEntityType" Width="1.5" PointX="14" PointY="21.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SyndromicModel.EntityType" Width="1.5" PointX="10.75" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SyndromicModel.GroupsPermission" Width="1.5" PointX="16.25" PointY="24.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SyndromicModel.Permission" Width="1.5" PointX="14" PointY="16.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SyndromicModel.Subsystem" Width="1.5" PointX="11.75" PointY="20.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SyndromicModel.GetLabDcoumentInfo" Width="1.5" PointX="16.75" PointY="19.75" IsExpanded="true" />
+        <AssociationConnector Association="SyndromicModel.FK_CorporateCorporateTypes_CorporateType" ManuallyRouted="false" />
+        <AssociationConnector Association="SyndromicModel.FK_EntityEntityTypes_PositionTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="SyndromicModel.FK_EntityEntityTypes_Subsystems" ManuallyRouted="false" />
+        <AssociationConnector Association="SyndromicModel.FK_EntityEntityTypes_SystemType" ManuallyRouted="false" />
+        <AssociationConnector Association="SyndromicModel.FK_GroupsPermissions_GroupsPermissions1" ManuallyRouted="false" />
+        <AssociationConnector Association="SyndromicModel.FK_Permissions_Subsystems" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="SyndromicModel.LabBasicData" Width="1.5" PointX="11" PointY="24.5" />
+        <AssociationConnector Association="SyndromicModel.FK_LabBasicData_LabBasicData" />
+        <EntityTypeShape EntityType="SyndromicModel.BasicData" Width="1.5" PointX="5.75" PointY="4.625" />
+        <EntityTypeShape EntityType="SyndromicModel.DO_IDENTIFIER" Width="1.5" PointX="4.1161958519910442" PointY="28.307171551653731" />
+        <EntityTypeShape EntityType="SyndromicModel.healthcareProvider" Width="1.5" PointX="11.125" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SyndromicModel.insurance" Width="1.5" PointX="0.625" PointY="25.75" />
+        <EntityTypeShape EntityType="SyndromicModel.LaboratoryProtocol" Width="1.5" PointX="8.625" PointY="21.75" />
+        <EntityTypeShape EntityType="SyndromicModel.LabReport" Width="1.5" PointX="9.3435636876819483" PointY="9.6644330963792431" />
+        <EntityTypeShape EntityType="SyndromicModel.LabTestResult" Width="1.5" PointX="8.3423350045188958" PointY="29.531499325079611" />
+        <EntityTypeShape EntityType="SyndromicModel.MessageIdentifier" Width="1.5" PointX="13.625" PointY="31.375" />
+        <EntityTypeShape EntityType="SyndromicModel.MetaBasicData" Width="1.5" PointX="4.4393134137798631" PointY="9.6683762714585182" />
+        <EntityTypeShape EntityType="SyndromicModel.SpecimenDetail" Width="1.5" PointX="10" PointY="6.125" />
+        <AssociationConnector Association="SyndromicModel.FK_BasicData_MetaBasicData" />
+        <AssociationConnector Association="SyndromicModel.FK_LabBasicData_BasicData" />
+        <AssociationConnector Association="SyndromicModel.FK_SpecimenDetail_BasicData" />
+        <AssociationConnector Association="SyndromicModel.FK_healthcareProvider_DO_IDENTIFIER" />
+        <AssociationConnector Association="SyndromicModel.FK_MessageIdentifier_DO_IDENTIFIER" />
+        <AssociationConnector Association="SyndromicModel.FK_MessageIdentifier_systemId" />
+        <AssociationConnector Association="SyndromicModel.FK_LabReport_insurance" />
+        <AssociationConnector Association="SyndromicModel.FK_LabTestResult_LaboratoryProtocol" />
+        <AssociationConnector Association="SyndromicModel.FK_LabReport_LabTestResult" />
+        <AssociationConnector Association="SyndromicModel.FK_LabReport_MessageIdentifier" />
+        <AssociationConnector Association="SyndromicModel.FK_LabReport_TblDiagnosis" />
+        <AssociationConnector Association="SyndromicModel.FK_LabTestResult_SpecimenDetail" />
+        <EntityTypeShape EntityType="SyndromicModel.MSG" Width="1.5" PointX="3.75" PointY="1.125" />
+        <AssociationConnector Association="SyndromicModel.FK_TblMSG_Admission_TblMSG" />
+        <EntityTypeShape EntityType="SyndromicModel.UsersUserGroup" Width="1.5" PointX="16.25" PointY="33.25" />
+        <EntityTypeShape EntityType="SyndromicModel.AreaLocation" Width="1.5" PointX="6.75" PointY="37.875" />
+        <EntityTypeShape EntityType="SyndromicModel.Log" Width="1.5" PointX="13.75" PointY="8.625" />
+        <EntityTypeShape EntityType="SyndromicModel.Coded" Width="1.5" PointX="0.75" PointY="17.75" />
+        <AssociationConnector Association="SyndromicModel.FK_healthcareProvider_Role" />
+        <AssociationConnector Association="SyndromicModel.FK_healthcareProvider_specialty" />
+        <AssociationConnector Association="SyndromicModel.FK_LabBasicData_Tbl_Coded" />
+        <AssociationConnector Association="SyndromicModel.FK_LaboratoryProtocol_Tbl_Coded" />
+        <AssociationConnector Association="SyndromicModel.FK_SpecimenDetail_CollectionProcedure" />
+        <AssociationConnector Association="SyndromicModel.FK_SpecimenDetail_SpecimenTissueType" />
+        <AssociationConnector Association="SyndromicModel.FK_TblAdverseReaction_Tbl_Coded" />
+        <AssociationConnector Association="SyndromicModel.FK_TblAdverseReaction_Tbl_Coded1" />
+        <AssociationConnector Association="SyndromicModel.FK_TblChiefComplaint_Tbl_Coded" />
+        <AssociationConnector Association="SyndromicModel.FK_TblComplication_Tbl_Coded" />
+        <AssociationConnector Association="SyndromicModel.FK_TblDrugHistory_Tbl_Coded" />
+        <AssociationConnector Association="SyndromicModel.FK_TblDrugTreatment_Tbl_Coded" />
+        <AssociationConnector Association="SyndromicModel.FK_TblPastMedicalHistory_Tbl_Coded" />
+        <EntityTypeShape EntityType="SyndromicModel.Disease" Width="1.5" PointX="5.75" PointY="28.875" />
+        <EntityTypeShape EntityType="SyndromicModel.Syndromic" Width="1.5" PointX="0.75" PointY="13.875" />
+        <AssociationConnector Association="SyndromicModel.FK_Diseases_Tbl_Syndromic" />
+        <AssociationConnector Association="SyndromicModel.FK_TblComplication_Tbl_Syndromic" />
+        <EntityTypeShape EntityType="SyndromicModel.Theroshold" Width="1.25" PointX="9" PointY="9.5" />
+        <AssociationConnector Association="SyndromicModel.FK_TblTheroshold_Tbl_AreaLocation" />
+        <AssociationConnector Association="SyndromicModel.FK_TblTheroshold_Tbl_Syndromic" />
+        <AssociationConnector Association="SyndromicModel.FK_LabReport_TblAdmission" />
+        <AssociationConnector Association="SyndromicModel.FK_TblChiefComplaint_TblAdmission" />
+        <EntityTypeShape EntityType="SyndromicModel.RequestLab" Width="1.5" PointX="3" PointY="43.25" />
+        <AssociationConnector Association="SyndromicModel.FK_RequestLab_Tbl_Coded1" />
+        <EntityTypeShape EntityType="SyndromicModel.BasicDataType" Width="1.5" PointX="8.75" PointY="25.125" />
+        <AssociationConnector Association="SyndromicModel.FK_LabBasicData_BasicDataType" />
+        <AssociationConnector Association="SyndromicModel.FK_LabBasicData_Diseases" />
+        <EntityTypeShape EntityType="SyndromicModel.LabDiseasesCharacter" Width="1.5" PointX="11" PointY="29.375" />
+        <AssociationConnector Association="SyndromicModel.FK_LabDiseasesCharacter_BasicDataType" />
+        <AssociationConnector Association="SyndromicModel.FK_LabDiseasesCharacter_Diseases" />
+        <EntityTypeShape EntityType="SyndromicModel.WarningThreshold" Width="1.5" PointX="11" PointY="10.625" />
+        <EntityTypeShape EntityType="SyndromicModel.Guideline" Width="1.5" PointX="13.75" PointY="11.625" />
+        <EntityTypeShape EntityType="SyndromicModel.LabResult" Width="1.5" PointX="8" PointY="28.75" />
+        <AssociationConnector Association="SyndromicModel.FK_LabResult_Diseases" />
+        <EntityTypeShape EntityType="SyndromicModel.LabDetailResult" Width="1.5" PointX="13.25" PointY="27.375" />
+        <AssociationConnector Association="SyndromicModel.FK_LabDetailResult_LabBasicData" />
+        <AssociationConnector Association="SyndromicModel.FK_LabDetailResult_LabResult" />
+        <EntityTypeShape EntityType="SyndromicModel.Tbl_CenterType" Width="1.5" PointX="14.75" PointY="2.625" />
+        <EntityTypeShape EntityType="SyndromicModel.SmsLog" Width="1.5" PointX="15.75" PointY="5.625" />
+        <EntityTypeShape EntityType="SyndromicModel.Error" Width="1.5" PointX="15.75" PointY="9.625" />
+        <EntityTypeShape EntityType="SyndromicModel.GetPatintInfo" Width="1.5" PointX="16.75" PointY="12.625" />
+        <EntityTypeShape EntityType="SyndromicModel.University" Width="1.5" PointX="4.5" PointY="38.875" />
+        <AssociationConnector Association="SyndromicModel.FK_Tbl_AreaLocation_Tbl_University" />
+        <EntityTypeShape EntityType="SyndromicModel.Admission" Width="1.5" PointX="3.75" PointY="4.5" />
+        <AssociationConnector Association="SyndromicModel.FK_LabResult_TblAdmission" />
+        <AssociationConnector Association="SyndromicModel.FK_TblAdverseReaction_TblAdmission" />
+        <AssociationConnector Association="SyndromicModel.FK_TblClinicalFinding_TblAdmission" />
+        <AssociationConnector Association="SyndromicModel.FK_TblComplication_TblAdmission" />
+        <AssociationConnector Association="SyndromicModel.FK_TblDeath_TblAdmission" />
+        <AssociationConnector Association="SyndromicModel.FK_TblDrugHistory_TblAdmission" />
+        <AssociationConnector Association="SyndromicModel.FK_TblDrugTreatment_TblAdmission" />
+        <AssociationConnector Association="SyndromicModel.FK_TblMSG_Admission_TblAdmission" />
+        <AssociationConnector Association="SyndromicModel.FK_TblPastMedicalHistory_TblAdmission" />
+        <AssociationConnector Association="SyndromicModel.FK_TblTravel_TblAdmission" />
+        <EntityTypeShape EntityType="SyndromicModel.Diagnosi" Width="1.5" PointX="6" PointY="25.125" />
+        <AssociationConnector Association="SyndromicModel.FK_TblDiagnosis_Tbl_Coded" />
+        <AssociationConnector Association="SyndromicModel.FK_TblDiagnosis_TblAdmission" />
+        <EntityTypeShape EntityType="SyndromicModel.Organization" Width="1.5" PointX="17.75" PointY="2.625" />
+        <EntityTypeShape EntityType="SyndromicModel.ProLab" Width="1.5" PointX="3" PointY="28.25" />
+        <EntityTypeShape EntityType="SyndromicModel.ProTravel" Width="1.5" PointX="9" PointY="33.25" />
+        <AssociationConnector Association="SyndromicModel.FK_ProTravel_Tbl_AreaLocation" />
+        <AssociationConnector Association="SyndromicModel.FK_ProTravel_Tbl_Country" />
+        <EntityTypeShape EntityType="SyndromicModel.ProClinicalFinding" Width="1.5" PointX="9" PointY="19.125" />
+        <EntityTypeShape EntityType="SyndromicModel.ProDiagnosi" Width="1.5" PointX="6" PointY="19.25" />
+        <EntityTypeShape EntityType="SyndromicModel.ProDrugHistory" Width="1.5" PointX="3" PointY="16.375" />
+        <EntityTypeShape EntityType="SyndromicModel.ProPastMedicalHistory" Width="1.5" PointX="6" PointY="16.375" />
+        <AssociationConnector Association="SyndromicModel.FK_ProClinicalFinding_Tbl_Coded" />
+        <AssociationConnector Association="SyndromicModel.FK_ProDiagnosis_Tbl_Coded" />
+        <AssociationConnector Association="SyndromicModel.FK_ProDrugHistory_Tbl_Coded" />
+        <AssociationConnector Association="SyndromicModel.FK_ProPastMedicalHistory_Tbl_Coded" />
+        <AssociationConnector Association="SyndromicModel.FK_TblDrugHistory_TblDrugHistory" />
+        <EntityTypeShape EntityType="SyndromicModel.FAQ" Width="1.5" PointX="16.75" PointY="18.625" />
+        <EntityTypeShape EntityType="SyndromicModel.Patient" Width="1.5" PointX="1.5" PointY="2.75" />
+        <AssociationConnector Association="SyndromicModel.FK_TblAdmission_TblPatient" />
+        <EntityTypeShape EntityType="SyndromicModel.CenterType" Width="1.5" PointX="18.75" PointY="9.625" />
+        <EntityTypeShape EntityType="SyndromicModel.Position" Width="1.5" PointX="1.5" PointY="46.75" />
+        <AssociationConnector Association="SyndromicModel.FK_EntityEntityTypes_Positions" />
+        <AssociationConnector Association="SyndromicModel.FK_Positions_Positions" />
+        <EntityTypeShape EntityType="SyndromicModel.User" Width="1.5" PointX="1.5" PointY="32.25" />
+        <AssociationConnector Association="SyndromicModel.FK_Users_Positions" />
+        <AssociationConnector Association="SyndromicModel.FK_UsersUserGroups_Users" />
+        <EntityTypeShape EntityType="SyndromicModel.UserGroup" Width="1.5" PointX="14" PointY="30.75" />
+        <AssociationConnector Association="SyndromicModel.FK_GroupsPermissions_GroupsPermissions" />
+        <AssociationConnector Association="SyndromicModel.FK_UserGroups_Subsystems" />
+        <AssociationConnector Association="SyndromicModel.FK_UsersUserGroups_UserGroups" />
+        <EntityTypeShape EntityType="SyndromicModel.ProAntiBio" Width="1.5" PointX="18.75" PointY="13.625" />
+        <EntityTypeShape EntityType="SyndromicModel.ProFood" Width="1.5" PointX="18.75" PointY="17.625" />
+        <EntityTypeShape EntityType="SyndromicModel.ProDrugTreatment" Width="1.5" PointX="18.75" PointY="20.625" />
+        <EntityTypeShape EntityType="SyndromicModel.ProAntiviru" Width="1.5" PointX="19.75" PointY="2.625" />
+        <EntityTypeShape EntityType="SyndromicModel.ProDeath" Width="1.5" PointX="19.75" PointY="6.625" />
+        <EntityTypeShape EntityType="SyndromicModel.ProBreath" Width="1.5" PointX="20.75" PointY="9.625" />
+        <EntityTypeShape EntityType="SyndromicModel.ProComplication" Width="1.5" PointX="20.75" PointY="12.625" />
+        <EntityTypeShape EntityType="SyndromicModel.SyndromRegister" Width="1.5" PointX="3.75" PointY="46.75" />
+        <EntityTypeShape EntityType="SyndromicModel.ProAdmission" Width="1.5" PointX="0.75" PointY="23.75" />
+        <AssociationConnector Association="SyndromicModel.FK_ProAdmission_ProAdmission" />
+        <AssociationConnector Association="SyndromicModel.FK_TblSyndromRegister_TblPatient" />
+        <AssociationConnector Association="SyndromicModel.FK_ProAdmission_Users" />
+        <AssociationConnector Association="SyndromicModel.FK_ProClinicalFinding_ProAdmission" />
+        <AssociationConnector Association="SyndromicModel.FK_ProDiagnosis_ProAdmission" />
+        <AssociationConnector Association="SyndromicModel.FK_ProDrugHistory_ProAdmission" />
+        <AssociationConnector Association="SyndromicModel.FK_ProLab_ProAdmission" />
+        <AssociationConnector Association="SyndromicModel.FK_ProPastMedicalHistory_ProAdmission" />
+        <AssociationConnector Association="SyndromicModel.FK_ProTravel_ProAdmission" />
+        <EntityTypeShape EntityType="SyndromicModel.Corporate" Width="2.25" PointX="15.875" PointY="38.125" />
+        <EntityTypeShape EntityType="SyndromicModel.Sample" Width="2.125" PointX="3" PointY="52.75" />
+        <AssociationConnector Association="SyndromicModel.FK_Samples_ProAdmission" />
+        <AssociationConnector Association="SyndromicModel.FK_TblTheroshold_BasicData" />
+        <AssociationConnector Association="SyndromicModel.FK_TblTheroshold_BasicData_PreProcessMethod" />
+        <AssociationConnector Association="SyndromicModel.FK_TblTheroshold_Corporate_NetworkId" />
+        <AssociationConnector Association="SyndromicModel.FK_TblTheroshold_Corporate_UniversityId" />
+        <AssociationConnector Association="SyndromicModel.FK_WarningThreshold_TblTheroshold" />
+        <EntityTypeShape EntityType="SyndromicModel.LabDiseaseAssignment" Width="1.5" PointX="8" PointY="5.625" />
+        <AssociationConnector Association="SyndromicModel.FK_LabDiseaseAssignments_BasicData_LevelId" />
+        <AssociationConnector Association="SyndromicModel.FK_LabDiseaseAssignments_Diseases" />
+        <AssociationConnector Association="SyndromicModel.FK_LabDiseaseAssignments_Corporate" />
+        <EntityTypeShape EntityType="SyndromicModel.UserCorporatesHierarchy" Width="1.5" PointX="9" PointY="37.375" />
+        <AssociationConnector Association="SyndromicModel.FK_UserCorporatesHierarchy_Corporate_CenterCorporateId" />
+        <AssociationConnector Association="SyndromicModel.FK_UserCorporatesHierarchy_Corporate_CorporateId" />
+        <AssociationConnector Association="SyndromicModel.FK_UserCorporatesHierarchy_Corporate_NetworkCorporateId" />
+        <AssociationConnector Association="SyndromicModel.FK_UserCorporatesHierarchy_Corporate_UniversityCorporateId" />
+        <AssociationConnector Association="SyndromicModel.FK_UserCorporatesHierarchy_Users" />
+        <EntityTypeShape EntityType="SyndromicModel.CorporatesHierarchy" Width="1.5" PointX="21.375" PointY="15.75" />
+        <EntityTypeShape EntityType="SyndromicModel.ThresholdWarningReceiver" Width="1.875" PointX="19" PointY="24" />
+        <AssociationConnector Association="SyndromicModel.FK_ThresholdWarningReceivers_TblSmsLog" />
+        <AssociationConnector Association="SyndromicModel.FK_ThresholdWarningReceivers_Users" />
+        <AssociationConnector Association="SyndromicModel.FK_ThresholdWarningReceivers_WarningThreshold" />
+        <EntityTypeShape EntityType="SyndromicModel.ThresholdWarningStatu" Width="2.625" PointX="16.25" PointY="28.125" />
+        <AssociationConnector Association="SyndromicModel.FK_ThresholdWarningStatus_BasicData_StatusId" />
+        <AssociationConnector Association="SyndromicModel.FK_ThresholdWarningStatus_ProAdmission" />
+        <AssociationConnector Association="SyndromicModel.FK_ThresholdWarningStatus_Users" />
+        <AssociationConnector Association="SyndromicModel.FK_ThresholdWarningStatus_WarningThreshold" />
+        <EntityTypeShape EntityType="SyndromicModel.visitCount" Width="1.5" PointX="8.375" PointY="14.75" />
+        <AssociationConnector Association="SyndromicModel.FK_ProAdmission_Diseases" />
+        <EntityTypeShape EntityType="SyndromicModel.TblDiseasesAccess" Width="1.5" PointX="12" PointY="38.5" />
+        <AssociationConnector Association="SyndromicModel.FK_TblAcessDiseases_Diseases" />
+        <AssociationConnector Association="SyndromicModel.FK_TblAccessDiseases_Positions" />
+        <EntityTypeShape EntityType="SyndromicModel.ThresholdWarningMetaData" Width="1.5" PointX="13.25" PointY="14.25" />
+        <AssociationConnector Association="SyndromicModel.FK_ThresholdWarningMetaData_WarningThreshold" />
+        <EntityTypeShape EntityType="SyndromicModel.FAQTest" Width="1.5" PointX="23.625" PointY="20" />
+        <EntityTypeShape EntityType="SyndromicModel.TestSystem" Width="1.5" PointX="21.375" PointY="20.375" />
+        <AssociationConnector Association="SyndromicModel.FK_FAQTest_TestSystem" />
+        <EntityTypeShape EntityType="SyndromicModel.Crtbl_BranchBossInfo" Width="1.5" PointX="10.375" PointY="15.75" />
+        <EntityTypeShape EntityType="SyndromicModel.Crtbl_BranchInfo" Width="1.5" PointX="8.375" PointY="0.75" />
+        <EntityTypeShape EntityType="SyndromicModel.Crtbl_CashierInfo" Width="1.5" PointX="22.375" PointY="0.75" />
+        <EntityTypeShape EntityType="SyndromicModel.Crtbl_CustInfo" Width="1.5" PointX="23.375" PointY="4.75" />
+        <EntityTypeShape EntityType="SyndromicModel.Crtbl_CustType" Width="1.5" PointX="23.375" PointY="14.75" />
+        <EntityTypeShape EntityType="SyndromicModel.Crtbl_Loan" Width="1.5" PointX="21.375" PointY="23.75" />
+        <EntityTypeShape EntityType="SyndromicModel.Crtbl_LoanType" Width="1.5" PointX="23.375" PointY="17.75" />
+        <EntityTypeShape EntityType="SyndromicModel.Crtbl_MaaliUserInfo" Width="1.5" PointX="23.375" PointY="23.75" />
+        <AssociationConnector Association="SyndromicModel.FK_Crtbl_BranchBossInfo_Crtbl_BranchInfo" />
+        <AssociationConnector Association="SyndromicModel.FK_Crtbl_CashierInfo_Crtbl_BranchBossInfo" />
+        <AssociationConnector Association="SyndromicModel.FK_Crtbl_CashierInfo_Crtbl_BranchInfo" />
+        <AssociationConnector Association="SyndromicModel.FK_Crtbl_Loan_Crtbl_CashierInfo" />
+        <AssociationConnector Association="SyndromicModel.FK_Crtbl_CustInfo_Crtbl_CustType" />
+        <AssociationConnector Association="SyndromicModel.FK_Crtbl_Loan_Crtbl_CustInfo" />
+        <AssociationConnector Association="SyndromicModel.FK_Crtbl_Loan_Crtbl_LoanType" />
+        <AssociationConnector Association="SyndromicModel.FK_Crtbl_Loan_Crtbl_MaaliUserInfo" />
+        <EntityTypeShape EntityType="SyndromicModel.Ctr_Risk" Width="1.5" PointX="24.625" PointY="0.875" />
+        <EntityTypeShape EntityType="SyndromicModel.Ctr_RiskCategory" Width="1.5" PointX="22.375" PointY="29.5" />
+        <AssociationConnector Association="SyndromicModel.FK_Ctr_Risk_Crtbl_CashierInfo" />
+        <AssociationConnector Association="SyndromicModel.FK_Ctr_Risk_Ctr_RiskCategory" />
+        <EntityTypeShape EntityType="SyndromicModel.FaqStatistic" Width="1.5" PointX="23.625" PointY="32.125" IsExpanded="true" />
+        <AssociationConnector Association="SyndromicModel.FK_FaqStatistics_TestSystem" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
