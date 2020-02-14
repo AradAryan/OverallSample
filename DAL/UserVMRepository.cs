@@ -35,7 +35,7 @@ namespace DAL
                 };
                 users.Add(model);
             }
-            totalCount = (int)total.Value;
+            totalCount = 0;//(int)total.Value;
             return users;
 
         }

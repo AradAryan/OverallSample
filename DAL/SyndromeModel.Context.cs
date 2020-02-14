@@ -4041,7 +4041,7 @@ namespace DAL
                 new ObjectParameter("skip", skip) :
                 new ObjectParameter("skip", typeof(int));
     
-             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<storp_searchuser_Result>("storp_searchuser", firstnameParameter, lastnameParameter, nationalcodeParameter, takeParameter, skipParameter, total);
+             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<storp_searchuser_Result>("storp_searchuser", firstnameParameter, lastnameParameter, nationalcodeParameter, takeParameter, skipParameter);
         }
     
         public virtual ObjectResult<storp_GetCenters_Result> storp_GetCenters(Nullable<int> provinceId, Nullable<int> universityId, Nullable<int> networkId, string corporateName, string enName, string nationalCode, Nullable<int> take, Nullable<int> skip, ObjectParameter totalCount)
