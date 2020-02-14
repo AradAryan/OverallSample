@@ -1,0 +1,48 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<script src="~/js/initView/kendoGrid-v.1.js"></script>
+<script src="~/js/viewModel/kendoGrid-v.1.js"></script>
+<script>
+    var viewModel;
+    $(function () {
+        viewModel = initVM(
+            {
+                searchUrl: '@Url.Action("Search")'
+            }
+        );
+
+        kendo.bind($('#container'), viewModel);
+        initView(viewModel);
+    });
+</script>
+<div class="jumbotron">
+    <h1>Kendo Grid</h1>
+    <p class="lead">My First Project With Kendo</p>
+
+    <div id="container" class="container">
+
+        <label for="fname">First Name:</label>
+        <div>
+            <input type="text" data-bind="value: firstname"><br><br>
+        </div>
+
+        <label for="lname">Last Name:</label>
+        <div>
+            <input type="text" data-bind="value: lastname"><br><br>
+        </div>
+
+        <label for="lname">National Code:</label>
+        <div>
+            <input type="text" data-bind="value: nationalCode"><br><br>
+        </div>
+
+        <div>
+            <button type="button" class="k-button k-state-default k-primary" data-role="button" data-bind='click: onSearch'>Search</button>
+        </div>
+
+        <div id="grid"></div>
+
+    </div>

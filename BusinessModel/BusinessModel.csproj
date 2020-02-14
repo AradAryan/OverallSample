@@ -116,6 +116,7 @@
     <Compile Include="TreeCenterTypeModel.cs" />
     <Compile Include="UniversityModel.cs" />
     <Compile Include="UserCorporateInfo.cs" />
+    <Compile Include="UserExam19Model.cs" />
     <Compile Include="UserModel.cs" />
     <Compile Include="UserNewPasswordModel.cs" />
     <Compile Include="UserPositionHierarchy.cs" />

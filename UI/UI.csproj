@@ -125,6 +125,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\Exam19Controller.cs" />
     <Compile Include="Controllers\RiskController.cs" />
     <Compile Include="Controllers\CorporateController.cs" />
     <Compile Include="Controllers\CartableController.cs" />
@@ -242,6 +243,7 @@
     <Content Include="js\initView\FaqManagment-v.1.js" />
     <Content Include="js\initView\GetCorporateUsers.js" />
     <Content Include="js\initView\GetFaqStatistics-v.1.js" />
+    <Content Include="js\initView\kendoGrid-v.1.js" />
     <Content Include="js\initView\NewUser-v.1.js" />
     <Content Include="js\initView\report2-v.4.js" />
     <Content Include="js\initView\tell-v1.js.js" />
@@ -268,6 +270,7 @@
     <Content Include="js\viewModel\GetCorporateUsers.js" />
     <Content Include="js\viewModel\corpusers-v.1.js" />
     <Content Include="js\viewModel\GetFaqStatistics-v.1.js" />
+    <Content Include="js\viewModel\kendoGrid-v.1.js" />
     <Content Include="js\viewModel\LabGrading-v.1.js" />
     <Content Include="js\viewModel\myReport-detail-v.1.js" />
     <Content Include="js\viewModel\myReport-v.1.js" />
@@ -434,6 +437,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Faq\FaqViews.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Exam19\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -59,7 +59,7 @@ namespace UI.Controllers
         [NeedPermission(CommonLib.Permission.MinimumReport)]
         public ActionResult Index()
         {
-            Faranam.Utils.Log.x.Info(TextMessages.Message(CommonLib.LogKey.ViewReportMin.ToString()), new Exception(((int)CommonLib.LogKey.ViewReportMin).ToString()));
+          //  Faranam.Utils.Log.x.Info(TextMessages.Message(CommonLib.LogKey.ViewReportMin.ToString()), new Exception(((int)CommonLib.LogKey.ViewReportMin).ToString()));
 
             ViewData["hasDeleteAccess"] = CommonLib.Common.CurrentUserHasPermission(CommonLib.Permission.DeleteMinimumSyndrom) && !CommonLib.Common.CurrentUserIsInGroup(CommonLib.UserRole.ReadOnly);
             ViewData["canFilterIndirect"] = CommonLib.Common.CurrentUserIsInGroup(CommonLib.UserRole.Network) || CommonLib.Common.CurrentUserIsInGroup(CommonLib.UserRole.University);
@@ -68,7 +68,7 @@ namespace UI.Controllers
         [NeedPermission(CommonLib.Permission.BasicView)]
         public ActionResult ReportPro()
         {
-            Faranam.Utils.Log.x.Info(Faranam.Utils.TextMessages.Message(CommonLib.LogKey.ViewReportPro.ToString()), new Exception(((int)CommonLib.LogKey.ViewReportPro).ToString()));
+         //   Faranam.Utils.Log.x.Info(Faranam.Utils.TextMessages.Message(CommonLib.LogKey.ViewReportPro.ToString()), new Exception(((int)CommonLib.LogKey.ViewReportPro).ToString()));
             ViewData["hasDeleteAccess"] = CommonLib.Common.CurrentUserHasPermission(CommonLib.Permission.DeleteMaximumSyndrom) && !CommonLib.Common.CurrentUserIsInGroup(CommonLib.UserRole.ReadOnly);
             ViewData["showHierarchy"] = !CommonLib.Common.CurrentUserIsInGroup(CommonLib.UserRole.Lab);
             ViewData["canFilterIndirect"] = CommonLib.Common.CurrentUserIsInGroup(CommonLib.UserRole.Network) || CommonLib.Common.CurrentUserIsInGroup(CommonLib.UserRole.University);
@@ -103,7 +103,7 @@ namespace UI.Controllers
             //}
             //else
             //{
-            
+
 
 
 
@@ -362,7 +362,7 @@ namespace UI.Controllers
         {
             try
             {
-                Faranam.Utils.Log.x.Info(Faranam.Utils.TextMessages.Message(CommonLib.LogKey.ExportMinimum.ToString()), new Exception(((int)CommonLib.LogKey.ExportMinimum).ToString()));
+              //  Faranam.Utils.Log.x.Info(Faranam.Utils.TextMessages.Message(CommonLib.LogKey.ExportMinimum.ToString()), new Exception(((int)CommonLib.LogKey.ExportMinimum).ToString()));
                 //university = (university == "-1") ? "" : university;
                 //university = (university == "00000000-0000-0000-0000-000000000000") ? "" : university;
                 //province = (province == "-1") ? "" : province;
