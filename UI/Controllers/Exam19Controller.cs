@@ -19,28 +19,11 @@ namespace UI.Controllers
         {
             int total = 5;
 
-            UserVMBLL bll =
-                new UserVMBLL();
-
-            var result =
-                bll.Search(filter, take, skip, out total);
-
-            List<UserExam19Model> users = new List<UserExam19Model>();
-            foreach (var item in result)
-            {
-                users.Add(new UserExam19Model
-                {
-                    NationalCode = item.NationalCode,
-                    FirstName = item.FirstName,
-                    LastName = item.LastName,
-                    IsActive = item.IsActive,
-                    Id = item.Id,
-                });
-            }
-
+            UserVMBLL bll = new UserVMBLL();
+            var result = bll.Search(filter, take, skip, out total);
             return Json(new
             {
-                Data = users,
+                Data = result,
                 Total = total
 
             },
