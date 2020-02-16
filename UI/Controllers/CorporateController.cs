@@ -25,7 +25,21 @@ namespace UI.Controllers
                 filter.CenterId = 0;
             int totalRecords = 0;
             var bll = new CenterVMBLL();
-            var result = bll.Search(filter, take, skip, out totalRecords);
+            // var result = bll.Search(filter, take, skip, out totalRecords);
+            var result = new List<CenterVM>();
+            result.Add(new CenterVM
+            {
+                CenterId = 10,
+                CorporateId = 65,
+                CorporateName = "نمیدونم",
+                EnName = "حالی",
+                NationalCode = "1903891498",
+                Province = "تهران",
+                ProvinceId = 85,
+                Row = 1,
+                University = "مطهری",
+                UniversityId = 75,
+            });
 
             return Json(new
             {
@@ -45,7 +59,7 @@ namespace UI.Controllers
         }
 
 
-        public ActionResult NewUser(int? corporateId,int? userId)
+        public ActionResult NewUser(int? corporateId, int? userId)
         {
             if (corporateId.HasValue && userId.HasValue)
             {
@@ -89,9 +103,9 @@ namespace UI.Controllers
         [HttpPost]
         public ActionResult Delete(int id)
         {
-                var bll = new CenterVMBLL();
+            var bll = new CenterVMBLL();
 
-              if( bll.DeactivateUser(0, id))
+            if (bll.DeactivateUser(0, id))
             {
                 return Json(true, JsonRequestBehavior.AllowGet);
             }

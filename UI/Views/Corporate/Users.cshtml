@@ -60,6 +60,22 @@
                         </div>
                     </div>
 
+                    <div class="form-group">
+                        <label class="control-label col-sm-4">مرکز بهداشتی درمانی/بیمارستان</label>
+                        <div class="col-sm-8 col-md-6">
+                            <select id="Network" name="NetworkId" data-role="dropdownlist" data-bind="source: CenterDS, value: CenterId, events:{change: onCenterChange}"
+                                    data-value-field="Id" data-text-field="Name" class="x1"></select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-sm-4">مرکز/پایگاه بهداشت</label>
+                        <div class="col-sm-8 col-md-6">
+                            <select id="Network" name="NetworkId" data-role="dropdownlist" data-bind="source: SiteDS, value: SiteId, events:{change: onSiteChange}"
+                                    data-value-field="Id" data-text-field="Name" class="x1"></select>
+                        </div>
+                    </div>
+
                 </div>
 
                 <div class="form-horizontal form-widgets col-sm-6">
