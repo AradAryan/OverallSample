@@ -292,7 +292,7 @@ function initVm(arg) {
                 },
                 //ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
                 parse: function (e) {
-                    //debugger;
+                    debugger;
                     if (e.length == 1)
                         vm.set("UniversityID", e[0].Id);
 
@@ -319,7 +319,7 @@ function initVm(arg) {
                 },
                 //ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
                 parse: function (e) {
-                    //debugger;
+                    debugger;
                     if (e.length == 1)
                         vm.set("NetworkId", e[0].Id);
 
@@ -354,34 +354,9 @@ function initVm(arg) {
                 }
             }
 
-            //*******************************************************************
-            SiteDS: new kendo.data.DataSource({
-                transport: {
-                    read: {
-                        dataType: "json",
-                        url: arg.customerDetailUrl + '/Report/GetProCenter',
-                        data: {
-                            NetworkId: function () { return vm.NetworkId },
-                            UniversityID: function () { /*debugger;*/ return vm.UniversityID },
-                            province: function () { return vm.UniversityProvince }
-                        }
-                    }
-                },
-                schema: {
-                    model: {
-                        id: "CenterId"
-                    },
-                    parse: function (e) {
-                        debugger;
-                        if (e.length == 1)
-                            vm.set("CenterId", e[0].Id);
 
-                        return e;
-                    }
-                }
-            }),
-            //*****************************************************************************
 
+        }),
         SyndromDS: new kendo.data.DataSource({
             transport: {
                 read: {

@@ -18,8 +18,6 @@
             { field: "Province", title: "استان" },
             { field: "University", title: "دانشگاه" },
             { field: "CorporateName", title: "شبکه بهداشت" },
-            { field: "CenterName", title: "مرکز بهداشت/بیمارستان" },
-            { field: "SiteName", title: "خانه/پایگاه بهداشت" },
             //{ title: "عملیات", width: "150px", template: '<a href="\GetCorporateUsers\#=vm.selectedItem#" class="k-button k-button-icontext">کاربران</a> <a href="\getusers" class="k-button k-button-icontext">ثبت کاربر جدید</a> ' }
             {
                 title: 'عملیات',
