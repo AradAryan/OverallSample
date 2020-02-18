@@ -67,8 +67,8 @@ namespace DAL
         {
             var model = new CenterVM();
             var list = _dataContext.storp_getcorporatehierarchy(corporateId).FirstOrDefault();
-            model.CorporateName = list.UniversityCorporateName;
-            model.Province = list.Province;
+            //model.CorporateName = list.UniversityCorporateName;
+           // model.Province = list.Province;
             return model;
         }
 

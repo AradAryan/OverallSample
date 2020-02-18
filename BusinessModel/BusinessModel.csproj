@@ -52,6 +52,8 @@
     <Compile Include="DeathOrDischargeVM.cs" />
     <Compile Include="DetailedLabResult.cs" />
     <Compile Include="Enums\CorpTypeCode.cs" />
+    <Compile Include="Exam20\Exam20UserModel.cs" />
+    <Compile Include="Exam20\Exam20CorporateModel.cs" />
     <Compile Include="FaqStatisticsVM.cs" />
     <Compile Include="FaqStatsVM.cs" />
     <Compile Include="FaqVM.cs" />

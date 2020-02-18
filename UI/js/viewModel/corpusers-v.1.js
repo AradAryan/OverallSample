@@ -189,10 +189,12 @@ function initVm(arg) {
         },
 
         onSearch: function (e) {
-            //alert('asda');
+            alert('asda');
             vm.SearchDS.page(0);
         },
+
         SearchDS: new kendo.data.DataSource({
+
             transport: {
                 read: {
                     dataType: "json",

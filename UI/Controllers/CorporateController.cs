@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using UI.Models;
+using BusinessModel.Exam20;
 
 namespace UI.Controllers
 {
@@ -17,6 +18,9 @@ namespace UI.Controllers
             return View();
         }
 
+        public static List<Exam20UserModel> users = new List<Exam20UserModel>();
+        public static List<Exam20CorporateModel> corporates = new List<Exam20CorporateModel>();
+
         public ActionResult search(CenterVM filter, int take = 10, int skip = 0)
         {
             if (filter.UniversityId == -1)
@@ -26,24 +30,50 @@ namespace UI.Controllers
             int totalRecords = 0;
             var bll = new CenterVMBLL();
             // var result = bll.Search(filter, take, skip, out totalRecords);
-            var result = new List<CenterVM>();
-            result.Add(new CenterVM
+            users.Add(new Exam20UserModel
             {
-                CenterId = 10,
-                CorporateId = 65,
-                CorporateName = "نمیدونم",
-                EnName = "حالی",
-                NationalCode = "1903891498",
-                Province = "تهران",
-                ProvinceId = 85,
-                Row = 1,
-                University = "مطهری",
+                Id = 1,
+                Name = "آراد",
+                Phone = "Phone",
+                Username = "Arad",
+                CorporateId = 75,
                 UniversityId = 75,
+                LastName = "آریایی",
+                Email = "test@Email",
             });
 
+            users.Add(new Exam20UserModel
+            {
+                Id = 2,
+                Name = "آرتان",
+                Phone = "Phone",
+                Username = "artan",
+                CorporateId = 85,
+                UniversityId = 85,
+                LastName = "آریان",
+                Email = "test@Email",
+            });
+
+            corporates.Add(new Exam20CorporateModel
+            {
+                Row = 1,
+                Center = 1,
+                CorporateId = 75,
+                Province = "تهران",
+                University = "دانشگاه تهران",
+            });
+
+            corporates.Add(new Exam20CorporateModel
+            {
+                Row = 2,
+                Center = 1,
+                CorporateId = 85,
+                Province = "تهران",
+                University = "شمسی پور",
+            });
             return Json(new
             {
-                Data = result,
+                Data = users,
                 Total = totalRecords
             }, JsonRequestBehavior.AllowGet);
         }
@@ -52,8 +82,9 @@ namespace UI.Controllers
         public ActionResult GetCorporateUsers(int id)
         {
             var bll = new CenterVMBLL();
-            var corporate = bll.GetcorporateByItsCorpId(id);
-            ViewBag.Corporate = $"لیست کاربران {corporate.CorporateName} - استان {corporate.Province}";
+            //var corporate = bll.GetcorporateByItsCorpId(id);
+            var corporate = users.Where(current => current.CorporateId == id).FirstOrDefault();
+            ViewBag.Corporate = $"لیست کاربران {corporate.CorporateId} - استان {corporate.Name}";
             ViewBag.CorporateID = id;
             return View();
         }
@@ -92,10 +123,12 @@ namespace UI.Controllers
         {
             int total = 0;
             var bll = new CenterVMBLL();
-            var result = bll.GetUsersByCorpId(user.Id, user, take, skip, out total);
+            //  var result = bll.GetUsersByCorpId(user.Id, user, take, skip, out total);
+
+            var corporate = users.Where(current => current.CorporateId == user.Id).FirstOrDefault();
             return Json(new
             {
-                Data = result,
+                Data = users,
                 Total = total
             }, JsonRequestBehavior.AllowGet);
         }

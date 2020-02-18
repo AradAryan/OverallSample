@@ -124,21 +124,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\BaseController.cs" />
-    <Compile Include="Controllers\Exam19Controller.cs" />
-    <Compile Include="Controllers\RiskController.cs" />
     <Compile Include="Controllers\CorporateController.cs" />
-    <Compile Include="Controllers\CartableController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\LabCorpController.cs" />
-    <Compile Include="Controllers\MyReportController.cs" />
-    <Compile Include="Controllers\FaqController.cs" />
-    <Compile Include="Controllers\PhoneController.cs" />
-    <Compile Include="Controllers\RegisterSyndromicController.cs" />
-    <Compile Include="Controllers\ReportController.cs" />
-    <Compile Include="Controllers\TellController.cs" />
-    <Compile Include="Controllers\UsersController.cs" />
-    <Compile Include="Controllers\UsersGridController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -149,9 +139,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\FilterConfig.cs" />
-    <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="Content\css\map-v.4.css" />
     <Content Include="Content\css\menu-v.2.css" />
     <Content Include="Content\css\Style-v.8.css" />
@@ -159,6 +146,11 @@
     <Content Include="Content\image\clips.png" />
     <Content Include="Content\image\mobile_phone.png" />
     <Content Include="Content\image\paperHoler.png" />
+    <Content Include="Content\pdf\FRN-SYN-UM-13950326.pdf" />
+    <Content Include="Content\pdf\syndroms-guideline-doctor.pdf" />
+    <Content Include="Content\pdf\syndroms-guideline-experts.pdf" />
+    <Content Include="Content\pdf\syndroms-guideline.pdf" />
+    <Content Include="Content\pdf\UserManualMob.pdf" />
     <Content Include="Content\Slider\images\1.jpg" />
     <Content Include="Content\Slider\images\2.jpg" />
     <Content Include="Content\Slider\images\3.jpg" />
@@ -171,6 +163,7 @@
     <Content Include="Content\Slider\nivo.slider.pack.js" />
     <Content Include="Content\Slider\style.css" />
     <Content Include="Content\Software\Setup.exe" />
+    <Content Include="Content\Software\Syndromic.apk" />
     <Content Include="Global.asax" />
     <Content Include="Images\about.jpg" />
     <Content Include="Images\AddCenterType.png" />
@@ -232,73 +225,8 @@
     <Content Include="Images\topPage.png" />
     <Content Include="Images\topWideControl.jpg" />
     <Content Include="js\initView\corpusers-v.1.js" />
-    <Content Include="js\initView\CrtblMaaliManageLoan-v.1.js" />
-    <Content Include="js\initView\CrtblEtebariManageLoan-v.1.js" />
-    <Content Include="js\initView\CrtblBranchUserCreateLoan-v.1.js" />
-    <Content Include="js\initView\CrtblBossManageLoan-v.1.js" />
-    <Content Include="js\initView\CrtblBranchUserManageLoan-v.1.js" />
-    <Content Include="js\initView\CTR_BossViewRisk-v.1.js" />
-    <Content Include="js\initView\CTR_BranchUserCreateRisk-v.1.js" />
-    <Content Include="js\initView\CTR_BranchUserManageRisk-v.1.js" />
-    <Content Include="js\initView\FaqManagment-v.1.js" />
-    <Content Include="js\initView\GetCorporateUsers.js" />
-    <Content Include="js\initView\GetFaqStatistics-v.1.js" />
-    <Content Include="js\initView\kendoGrid-v.1.js" />
-    <Content Include="js\initView\NewUser-v.1.js" />
-    <Content Include="js\initView\report2-v.4.js" />
-    <Content Include="js\initView\tell-v1.js.js" />
-    <Content Include="js\initView\LabGrading-v.1.js" />
-    <Content Include="js\initView\myReport-detail-v.1.js" />
-    <Content Include="js\initView\myReport-v.1.js" />
-    <Content Include="js\initView\phone-edit-v.1.js" />
-    <Content Include="js\initView\phone-v.1.js" />
-    <Content Include="js\initView\RegisterSyndromic-v.7.js" />
-    <Content Include="js\initView\report-Heidari.js" />
-    <Content Include="js\initView\report-v.4.js" />
-    <Content Include="js\initView\users-v.1.js" />
     <Content Include="js\Utils-v.2.js" />
-    <Content Include="js\viewModel\CorpLevel-v.1.js" />
-    <Content Include="js\viewModel\CrtblMaaliManageLoan-v.1.js" />
-    <Content Include="js\viewModel\CrtblEtebariManageLoan-v.1.js" />
-    <Content Include="js\viewModel\CrtblBranchUserCreateLoan-v.1.js" />
-    <Content Include="js\viewModel\CrtblBossManageLoan-v.1.js" />
-    <Content Include="js\viewModel\CrtblBranchUserManageLoan-v.1.js" />
-    <Content Include="js\viewModel\CTR_BossViewRisk-v.1.js" />
-    <Content Include="js\viewModel\CTR_BranchUserCreateRisk-v.1.js" />
-    <Content Include="js\viewModel\CTR_BranchUserManageRisk-v.1.js" />
-    <Content Include="js\viewModel\FaqManagment-v.1.js" />
-    <Content Include="js\viewModel\GetCorporateUsers.js" />
     <Content Include="js\viewModel\corpusers-v.1.js" />
-    <Content Include="js\viewModel\GetFaqStatistics-v.1.js" />
-    <Content Include="js\viewModel\kendoGrid-v.1.js" />
-    <Content Include="js\viewModel\LabGrading-v.1.js" />
-    <Content Include="js\viewModel\myReport-detail-v.1.js" />
-    <Content Include="js\viewModel\myReport-v.1.js" />
-    <Content Include="js\viewModel\NewUser-v.1.js" />
-    <Content Include="js\viewModel\phone-edit-v.1.js" />
-    <Content Include="js\viewModel\phone-v.1.js" />
-    <Content Include="js\viewModel\RegisterSyndromic-v.7.js" />
-    <Content Include="js\viewModel\report-Heidari.js" />
-    <Content Include="js\viewModel\report2-v.4.js" />
-    <Content Include="js\viewModel\report-v.4.js" />
-    <Content Include="js\viewModel\tell-v1.js" />
-    <Content Include="js\viewModel\users-v.1.js" />
-    <Content Include="Styles\bootstrap-theme.min.css" />
-    <Content Include="Styles\bootstrap.min.css" />
-    <Content Include="Styles\Chrome.css" />
-    <Content Include="Styles\colorbox.css" />
-    <Content Include="Styles\formStyle.css" />
-    <Content Include="Styles\IE.css" />
-    <Content Include="Styles\images\border.png" />
-    <Content Include="Styles\images\controls.png" />
-    <Content Include="Styles\images\loading.gif" />
-    <Content Include="Styles\images\loading_background.png" />
-    <Content Include="Styles\images\overlay.png" />
-    <Content Include="Styles\iranmap.min.css" />
-    <Content Include="Styles\reset.css" />
-    <Content Include="Styles\Site.css" />
-    <Content Include="Styles\Style.css" />
-    <Content Include="Styles\UserManagementCommonStyle.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -310,19 +238,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ApplicationOutputs\" />
-    <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\pdf\FRN-SYN-UM-13950326.pdf" />
-    <Content Include="Content\pdf\syndroms-guideline-doctor.pdf" />
-    <Content Include="Content\pdf\syndroms-guideline-experts.pdf" />
-    <Content Include="Content\pdf\syndroms-guideline.pdf" />
-    <Content Include="Content\pdf\UserManualMob.pdf" />
-    <Content Include="Content\Software\Syndromic.apk" />
-    <Content Include="Styles\images\Thumbs.db" />
     <Content Include="Views\Guid\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
