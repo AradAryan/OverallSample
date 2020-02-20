@@ -47,6 +47,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="EPPlus">
       <HintPath>..\DLL\EPPlus.dll</HintPath>
     </Reference>
@@ -58,6 +61,7 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -129,6 +133,8 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CorporateController.cs" />
+    <Compile Include="Controllers\Exam21Controller.cs" />
+    <Compile Include="Controllers\FaqController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -164,6 +170,14 @@
     <Content Include="Content\Slider\style.css" />
     <Content Include="Content\Software\Setup.exe" />
     <Content Include="Content\Software\Syndromic.apk" />
+    <Content Include="FaqImgUploads\15479276-50c6-44d8-8bde-d0c8cda5e825.jpg" />
+    <Content Include="FaqImgUploads\615c36fb-8c98-4ed3-8c88-2aaeed2ea69c.jpg" />
+    <Content Include="FaqImgUploads\630d456f-ed3e-438d-bd18-e2f4f310a456.jpg" />
+    <Content Include="FaqImgUploads\7aa49817-f96a-4238-99e0-60657c1e51c8.jpg" />
+    <Content Include="FaqImgUploads\81a66408-9338-4dc8-91bc-ceeae74d0f92.jpg" />
+    <Content Include="FaqImgUploads\acf5c3d1-4481-4bb5-853c-5da2edafbf5c.jpg" />
+    <Content Include="FaqImgUploads\e0003399-ac17-4d6b-972b-529e924a6577.jpg" />
+    <Content Include="FaqImgUploads\ef83d66b-8ccb-4ffa-9053-1a2a4025e081.jpg" />
     <Content Include="Global.asax" />
     <Content Include="Images\about.jpg" />
     <Content Include="Images\AddCenterType.png" />
@@ -225,8 +239,10 @@
     <Content Include="Images\topPage.png" />
     <Content Include="Images\topWideControl.jpg" />
     <Content Include="js\initView\corpusers-v.1.js" />
+    <Content Include="js\initView\FaqManagment-v.1.js" />
     <Content Include="js\Utils-v.2.js" />
     <Content Include="js\viewModel\corpusers-v.1.js" />
+    <Content Include="js\viewModel\FaqManagment-v.1.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -243,11 +259,6 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Guid\Index.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\notification.cshtml" />
-    <Content Include="Views\Shared\_ResponsiveLayout.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -269,58 +280,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\LabCorp\AssignmentForm.cshtml" />
-    <Content Include="Views\LabCorp\Assignments.cshtml" />
-    <Content Include="Views\LabCorp\Form.cshtml" />
-    <Content Include="Views\LabCorp\Grading.cshtml" />
-    <Content Include="Views\LabCorp\Index.cshtml" />
-    <Content Include="Views\RegisterSyndromic\Index.cshtml" />
-    <Content Include="Views\RegisterSyndromic\SyndromicForm.cshtml" />
-    <Content Include="Views\Report\Details.cshtml" />
-    <Content Include="Views\Report\GetListCorporate.cshtml" />
-    <Content Include="Views\Report\Index-heidari.cshtml" />
-    <Content Include="Views\Report\Map.cshtml" />
-    <Content Include="Views\Report\ProDetails.cshtml" />
-    <Content Include="Views\Report\ReportPro.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Shared\CorpLevel.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Phone\Index.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Phone\Edit.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Shared\_LayoutWithouHeader.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\MyReport\Index.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Report\Index.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\MyReport\Detail.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Tell\Index.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Report\Index2.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\Users\Index.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Corporate\Users.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Corporate\GetCorporateUsers.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Corporate\NewUser.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Faq\Index.cshtml" />
@@ -329,37 +289,16 @@
     <Content Include="Views\Faq\Managment.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Cartable\BranchUserManageLoan.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Cartable\BranchUserCreateLoan.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Cartable\BossManageLoan.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Cartable\EtebariManageLoan.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Cartable\MaaliManageLoan.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Risk\BranchUserCreateRisk.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Risk\BranchUserManageRisk.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Risk\BossViewRisk.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\Faq\GetFaqStatistics.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Faq\FaqViews.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Exam19\Index.cshtml" />
+    <Content Include="Views\Exam21\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Exam21\Managment.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

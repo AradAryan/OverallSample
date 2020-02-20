@@ -62,7 +62,16 @@ namespace DAL
         {
 
             var list = new List<FaqVM>();
-            List<FAQTest> items = _dataContext.FAQTests.ToList();
+            List<FAQTest> items = new List<FAQTest>();
+            //_dataContext.FAQTests.ToList();
+            items.Add(new FAQTest {
+                QuestionText="متن سوال",
+                AnswerText = "پاسخ",
+                ImageFileName="",
+                Enabled=true,
+                SystemId=10,
+                Id=10,
+            });
             foreach (var item in items)
             {
                 list.Add(new FaqVM()

@@ -1,0 +1,125 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+@{
+    ViewBag.Title = "مدیریت کاربران";
+}
+
+@section js{
+    <script src="~/js/viewModel/Exam20.js"></script>
+    <script src="~/js/initView/Exam20.js"></script>
+    <script>
+
+        var _basicUrl = '@System.Web.Configuration.WebConfigurationManager.AppSettings["basicDataUrl"]';
+        //var mapurl = _basicUrl + 'Map';
+        var viewModel;
+        $(function () {
+            viewModel = initVm({
+                customerDetailUrl: _basicUrl,
+                hasDeleteAccess: '@ViewData["hasDeleteAccess"]' == 'True',
+                phoneImgUrl: '@Url.Content("~/content/image/mobile_phone.png")'
+            });
+            kendo.bind($("#container"), viewModel);
+            initView(viewModel);
+        });
+
+        MURL = "../..";
+
+    </script>
+}
+
+
+
+<div class="wide">
+    <form id="Form" data-role="validator" novalidate="novalidate" action="@Url.Action("Search")" method="post">
+        <section class="well">
+            <h2 class="ra-well-title">جستجو بر اساس</h2>
+            <div class="clearfix"></div>
+            <div>
+
+                <div class="form-horizontal form-widgets col-sm-6">
+                    <div class="form-group">
+                        <label class="control-label col-sm-4">استان</label>
+                        <div class="col-sm-8 col-md-6">
+                            <select id="province" name="province" data-role="dropdownlist" data-bind="source: ArealocationDS, value: AreaLocationID, events:{change: onarelocationChange}"
+                                    data-value-field="AreLocationID" data-text-field="areaName" class="x1"></select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-sm-4">دانشگاه</label>
+                        <div class="col-sm-8 col-md-6">
+                            <select id="university" name="university" data-role="dropdownlist" data-bind="source: UniversityDS, value: UniversityID, events:{change: onuniversityChange}"
+                                    data-value-field="Id" data-text-field="Name" class="x1"></select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-sm-4">شبکه بهداشت</label>
+                        <div class="col-sm-8 col-md-6">
+                            <select id="Network" name="NetworkId" data-role="dropdownlist" data-bind="source: NetworkDS, value: NetworkId, events:{change: onNetworkChange}"
+                                    data-value-field="Id" data-text-field="Name" class="x1"></select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-sm-4">مرکز بهداشتی درمانی/بیمارستان</label>
+                        <div class="col-sm-8 col-md-6">
+                            <select id="Network" name="NetworkId" data-role="dropdownlist" data-bind="source: CenterDS, value: CenterId, events:{change: onCenterChange}"
+                                    data-value-field="Id" data-text-field="Name" class="x1"></select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-sm-4">مرکز/پایگاه بهداشت</label>
+                        <div class="col-sm-8 col-md-6">
+                            <select id="Network" name="NetworkId" data-role="dropdownlist" data-bind="source: SiteDS, value: SiteId, events:{change: onSiteChange}"
+                                    data-value-field="Id" data-text-field="Name" class="x1"></select>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="form-horizontal form-widgets col-sm-6">
+                    <div class="form-group">
+                        <label class="control-label col-sm-4">نام مرکز</label>
+                        <div class="col-sm-8 col-md-6">
+                            <input id="paper" name="paper" data-bind="value:corporateName" class="k-textbox x1" maxlength="30" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-4">شناسه در سپاس</label>
+                        <div class="col-sm-8 col-md-6">
+                            <input id="name" name="name" data-bind="value:sepasId" class="k-textbox x1" maxlength="50" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-sm-4"> کد ملی کاربر</label>
+                        <div class="col-sm-8 col-md-6">
+                            <input id="name" name="name" data-bind="value:nationalCode" class="k-textbox x1" maxlength="50" />
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="clearfix"></div>
+            <div class="buttons-wrap">
+                <button type="button" id="nextStep" class="k-button k-state-default k-primary" data-role="button" data-bind='click: onSearch'>جستجو</button>
+            </div>
+            <div class="clearfix"></div>
+            <br />&nbsp;<br />
+            <div class="clearfix"></div>
+            <div>
+                <h4>نتایج جستجو: لیست مراکز</h4>
+                <div id="grid"></div>
+            </div>
+
+
+        </section>
+    </form>
+</div>
+
+

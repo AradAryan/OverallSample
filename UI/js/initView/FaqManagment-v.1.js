@@ -18,7 +18,7 @@
             { field: "QustionText", title: "متن پرسش" },
             { field: "AnswerText", title: "متن پاسخ" },
             {
-                 title: "نام سامانه", template: '#if(SystemId==1){#وزارت بهداشت#}else if(SystemId==2){#بانک آینده#}else{#بانک ملت#}#'
+                title: "نام سامانه", template: '#if(SystemId==1){#وزارت بهداشت#}else if(SystemId==2){#بانک آینده#}else{#بانک ملت#}#'
             },
             { field: "ImageFileName", title: "نام فایل عکس" },
 
@@ -26,10 +26,9 @@
                 title: 'عملیات',
 
                 command: [
-                      { text: 'ویرایش', click: vm.onUpdateUser },
+                    { text: 'ویرایش', click: vm.onUpdateUser },
                     { text: 'حذف', click: vm.onDeleteUser },
                     { text: 'غیرفعالسازی', click: vm.onDeactiveUser }
-              
                 ]
             }
         ],
@@ -56,7 +55,7 @@
                 vm.onRetrieveUser(item.Id);
                 return false;
             });
-           
+
         }
     });
 
@@ -76,5 +75,5 @@
         success: vm.onSuccess,
         clear: vm.onClear
     });
-   
+
 }   

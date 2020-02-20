@@ -170,8 +170,23 @@
     <Compile Include="Error.cs">
       <DependentUpon>SyndromeModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="FAQ.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FAQ.Context.tt</DependentUpon>
+    </Compile>
     <Compile Include="FAQ.cs">
       <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FAQ.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FAQ.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="FAQ1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FAQ.tt</DependentUpon>
     </Compile>
     <Compile Include="FaqStatistic.cs">
       <DependentUpon>SyndromeModel.tt</DependentUpon>
@@ -508,6 +523,18 @@
     <Compile Include="spThresholdSearch_Result.cs">
       <DependentUpon>SyndromeModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="SP_GetActiveFields_Result.cs">
+      <DependentUpon>FAQ.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_GetActiveUsers_Result.cs">
+      <DependentUpon>FAQ.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_GetAllFields_Result.cs">
+      <DependentUpon>FAQ.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_GetAllUsers_Result.cs">
+      <DependentUpon>FAQ.tt</DependentUpon>
+    </Compile>
     <Compile Include="Sp_SearchDisease_Result.cs">
       <DependentUpon>SyndromeModel.tt</DependentUpon>
     </Compile>
@@ -555,6 +582,9 @@
     </Compile>
     <Compile Include="storp_searchuser_Result.cs">
       <DependentUpon>SyndromeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TableFAQ.cs">
+      <DependentUpon>FAQ.tt</DependentUpon>
     </Compile>
     <Compile Include="TblDiseasesAccess.cs">
       <DependentUpon>SyndromeModel.tt</DependentUpon>
@@ -804,6 +834,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
+    <EntityDeploy Include="FAQ.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>FAQ.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="FAQ.edmx.diagram">
+      <DependentUpon>FAQ.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="SyndromeModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -837,6 +874,18 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>SyndromeModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="FAQ.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>FAQ.edmx</DependentUpon>
+      <LastGenOutput>FAQ.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="FAQ.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>FAQ.edmx</DependentUpon>
+      <LastGenOutput>FAQ1.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="FAQModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityType Name="TableFAQ">
+          <Key>
+            <PropertyRef Name="SystemID" />
+          </Key>
+          <Property Name="SystemID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="QuestionText" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="AnswerText" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ImageFileName" Type="nvarchar(max)" />
+          <Property Name="Enabled" Type="bit" Nullable="false" />
+        </EntityType>
+        <Function Name="SP_GetActiveFields" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SP_GetAllFields" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="FAQModelStoreContainer">
+          <EntitySet Name="TableFAQ" EntityType="Self.TableFAQ" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FAQModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="FAQDBEntities" annotation:LazyLoadingEnabled="true">
+          <FunctionImport Name="SP_GetActiveUsers" ReturnType="Collection(FAQModel.SP_GetActiveUsers_Result)" />
+          <FunctionImport Name="SP_GetAllUsers" ReturnType="Collection(FAQModel.SP_GetAllUsers_Result)" />
+          <FunctionImport Name="SP_GetActiveFields" ReturnType="Collection(FAQModel.SP_GetActiveFields_Result)" />
+          <FunctionImport Name="SP_GetAllFields" ReturnType="Collection(FAQModel.SP_GetAllFields_Result)" />
+          <EntitySet Name="TableFAQs" EntityType="FAQModel.TableFAQ" />
+        </EntityContainer>
+        <ComplexType Name="SP_GetActiveUsers_Result">
+          <Property Type="Int32" Name="SystemID" Nullable="false" />
+          <Property Type="String" Name="QuestionText" Nullable="false" />
+          <Property Type="String" Name="AnswerText" Nullable="false" />
+          <Property Type="String" Name="ImageFileName" Nullable="true" />
+          <Property Type="Boolean" Name="Enabled" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="SP_GetAllUsers_Result">
+          <Property Type="Int32" Name="SystemID" Nullable="false" />
+          <Property Type="String" Name="QuestionText" Nullable="false" />
+          <Property Type="String" Name="AnswerText" Nullable="false" />
+          <Property Type="String" Name="ImageFileName" Nullable="true" />
+          <Property Type="Boolean" Name="Enabled" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="SP_GetActiveFields_Result">
+          <Property Type="Int32" Name="SystemID" Nullable="false" />
+          <Property Type="String" Name="QuestionText" Nullable="false" />
+          <Property Type="String" Name="AnswerText" Nullable="false" />
+          <Property Type="String" Name="ImageFileName" Nullable="true" />
+          <Property Type="Boolean" Name="Enabled" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="SP_GetAllFields_Result">
+          <Property Type="Int32" Name="SystemID" Nullable="false" />
+          <Property Type="String" Name="QuestionText" Nullable="false" />
+          <Property Type="String" Name="AnswerText" Nullable="false" />
+          <Property Type="String" Name="ImageFileName" Nullable="true" />
+          <Property Type="Boolean" Name="Enabled" Nullable="false" />
+        </ComplexType>
+        <EntityType Name="TableFAQ">
+          <Key>
+            <PropertyRef Name="SystemID" />
+          </Key>
+          <Property Name="SystemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="QuestionText" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AnswerText" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ImageFileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Enabled" Type="Boolean" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FAQModelStoreContainer" CdmEntityContainer="FAQDBEntities">
+          <FunctionImportMapping FunctionImportName="SP_GetActiveFields" FunctionName="FAQModel.Store.SP_GetActiveFields">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="FAQModel.SP_GetActiveFields_Result">
+                <ScalarProperty Name="SystemID" ColumnName="SystemID" />
+                <ScalarProperty Name="QuestionText" ColumnName="QuestionText" />
+                <ScalarProperty Name="AnswerText" ColumnName="AnswerText" />
+                <ScalarProperty Name="ImageFileName" ColumnName="ImageFileName" />
+                <ScalarProperty Name="Enabled" ColumnName="Enabled" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_GetAllFields" FunctionName="FAQModel.Store.SP_GetAllFields">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="FAQModel.SP_GetAllFields_Result">
+                <ScalarProperty Name="SystemID" ColumnName="SystemID" />
+                <ScalarProperty Name="QuestionText" ColumnName="QuestionText" />
+                <ScalarProperty Name="AnswerText" ColumnName="AnswerText" />
+                <ScalarProperty Name="ImageFileName" ColumnName="ImageFileName" />
+                <ScalarProperty Name="Enabled" ColumnName="Enabled" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="TableFAQs">
+            <EntityTypeMapping TypeName="FAQModel.TableFAQ">
+              <MappingFragment StoreEntitySet="TableFAQ">
+                <ScalarProperty Name="Enabled" ColumnName="Enabled" />
+                <ScalarProperty Name="ImageFileName" ColumnName="ImageFileName" />
+                <ScalarProperty Name="AnswerText" ColumnName="AnswerText" />
+                <ScalarProperty Name="QuestionText" ColumnName="QuestionText" />
+                <ScalarProperty Name="SystemID" ColumnName="SystemID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

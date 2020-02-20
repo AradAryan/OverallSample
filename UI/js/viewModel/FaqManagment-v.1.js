@@ -5,7 +5,7 @@
         answerText: '',
         systemId: '',
         isActive: '',
-        imgName:'',
+        imgName: '',
         id: 0,
         activityId: 0,
         samaneId: 0,
@@ -20,7 +20,7 @@
                 read: {
                     dataType: "json",
                     type: 'POST',
-                    url: 'http://localhost/UI/Faq/SearchFaq',
+                    url: 'http://localhost/UI/Exam21/SearchFaq',
                     data: {
                         QustionText: function () { return vm.questionText },
                         AnswerText: function () { return vm.answerText },
@@ -32,7 +32,6 @@
             schema: {
                 total: "Total",
                 data: "Data",
-            
             },
             pageSize: 10,
             serverPaging: true
@@ -73,7 +72,7 @@
                         AnswerText: function () { return vm.answerText },
                         SystemId: function () { return vm.samaneId },
                         Enabled: function () { if (vm.activityId == 1) { return true; } else { return false; } },
-                        ImageFileName: function () { return vm.imgName } 
+                        ImageFileName: function () { return vm.imgName }
                     }
                 }
             }

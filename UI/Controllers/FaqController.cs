@@ -33,7 +33,6 @@ namespace UI.Controllers
                 state.SystemId = systemId.Value;
                 var x = bll.InsertFaqState(state);
             }
-
             //-----------------------------
 
             if (systemId.HasValue)
@@ -303,7 +302,7 @@ namespace UI.Controllers
 
                 var resultexcelfile = Server.MapPath("~/ApplicationOutputs/NumberOfViewsResult.xlsx");
                 System.IO.File.WriteAllBytes(resultexcelfile, excel.GetAsByteArray());
-                
+
             }
 
 
